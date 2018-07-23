@@ -6,18 +6,18 @@ ruby '2.4.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
 
-gem 'devise', '~> 4.4', '>= 4.4.3'
-gem 'grape', '~> 1.0', '>= 1.0.3'
-gem 'grape-entity', '~> 0.7.1'
+gem 'devise'
+gem 'grape'
+gem 'grape-entity'
 
-gem 'grape-swagger', '~> 0.29.0'
-gem 'grape-swagger-rails', '~> 0.3.0'
-gem 'grape-swagger-entity', '~> 0.2.5'
+gem 'grape-swagger'
+gem 'grape-swagger-rails'
+gem 'grape-swagger-entity'
 # For representable ( https://github.com/apotonick/representable )
-gem 'grape-swagger-representable', '~> 0.1.6'
+gem 'grape-swagger-representable'
 
 gem 'omniauth-google-oauth2'
-gem 'google-api-client', '~> 0.11'
+gem 'google-api-client'
 
 gem 'paperclip'
 #gem 'seed_dump'
@@ -30,7 +30,7 @@ gem 'paperclip'
 #gem 'cocoon'
 
 # Use postgresql as the database for Active Record
-gem 'pg', '>= 0.18', '< 2.0'
+gem 'pg'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets

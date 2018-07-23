@@ -28,7 +28,7 @@ module Api
     
     
     mount V1::AuthApi
-
+    mount V1::ImageApi
 		# before do
     #   authorize_user!
     # end
