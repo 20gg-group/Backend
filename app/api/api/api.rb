@@ -40,11 +40,6 @@ module Api
         end
       end
     end
-
-
-    tessssst
-    tesssssst
-    tessssst
     
     mount V1::AuthApi
     
