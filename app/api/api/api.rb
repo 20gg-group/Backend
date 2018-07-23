@@ -42,6 +42,8 @@ module Api
     end
     
     mount V1::AuthApi
+    mount V1::ImageApi
+    mount V1::PostApi
     
 
 		# before do
