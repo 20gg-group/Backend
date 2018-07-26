@@ -52,17 +52,22 @@ module Api::V1
 
         # ---------------------Sign-up-------------------------
         desc "API for sign-up" do
-          success Api::Entities::UserEntity
+         success Api::Entities::UserEntity
         end
         params do
-          requires :username, type: String 
-          requires :email, type: String
-          requires :password, type: String
-          requires :phone , type: String
+         requires :full_name, type: String
+         requires :email, type: String
+         requires :password, type: String
+         requires :phone_number , type: String
         end
         post :sign_up do
-          present User.create!(declared(params))
+         user = User.create!(declared(params))
+         {
+           status: "true",
+           access_token: access_token(user)
+         }
         end
+        
         #----------Test-----------------
         desc "API for view all user"
         get :user_all do

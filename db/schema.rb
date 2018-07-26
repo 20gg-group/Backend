@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 6) do
+ActiveRecord::Schema.define(version: 2018_07_25_071053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,31 @@ ActiveRecord::Schema.define(version: 6) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_api_keys_on_user_id"
+  end
+
+  create_table "details", force: :cascade do |t|
+    t.integer "no_people_per_room"
+    t.string "gender"
+    t.boolean "air_conditioner"
+    t.boolean "washing_machine"
+    t.boolean "refrigerator"
+    t.boolean "WC"
+    t.boolean "parking"
+    t.boolean "Wifi"
+    t.boolean "free_time"
+    t.boolean "separated_owner"
+    t.boolean "kitchen"
+    t.boolean "bed"
+    t.boolean "television"
+    t.boolean "Wardrobe"
+    t.boolean "amezzanine"
+    t.boolean "camera"
+    t.boolean "security"
+    t.boolean "pet"
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_details_on_post_id"
   end
 
   create_table "images", force: :cascade do |t|
@@ -90,6 +115,7 @@ ActiveRecord::Schema.define(version: 6) do
   end
 
   add_foreign_key "addresses", "posts"
+  add_foreign_key "details", "posts"
   add_foreign_key "images", "posts"
   add_foreign_key "posts", "type_houses"
   add_foreign_key "posts", "users"

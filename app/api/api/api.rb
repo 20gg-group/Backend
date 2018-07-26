@@ -14,8 +14,7 @@ module Api
 		rescue_from ActiveRecord::RecordNotFound do |e|
 			error!(e,500)
 		end
-		#rescue_from :all
-		
+		#rescue_from :all		
 		# helpers do
     #   def authorize_user!
     #     error!("Token Invalid", 400) unless headers["Access-Token"].present?
@@ -44,13 +43,10 @@ module Api
     mount V1::AuthApi
     mount V1::ImageApi
     mount V1::PostApi
-    
-
-		# before do
-    #   authorize_user!
-    # end
-
-    # mount V1::ProductApi
+    mount V1::TypeHouseApi
+    #mount V1::SearchApi
+    #mount V1::DetailApi
+		
     add_swagger_documentation
 	end
 end
