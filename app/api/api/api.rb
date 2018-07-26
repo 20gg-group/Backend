@@ -38,6 +38,7 @@ module Api
     mount V1::LogoutApi 
     mount V1::ImageApi
     mount V1::TypeHouseApi
+    mount V1::DetailApi
   
    
 
