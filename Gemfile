@@ -16,10 +16,11 @@ gem 'grape-swagger-entity', '~> 0.2.5'
 # For representable ( https://github.com/apotonick/representable )
 gem 'grape-swagger-representable', '~> 0.1.6'
 
-gem 'omniauth-google-oauth2'
-gem 'google-api-client', '~> 0.11'
+#gem 'omniauth-google-oauth2'
+#gem 'google-api-client', '~> 0.11'
 
 gem 'paperclip'
+gem 'aws-sdk-s3'
 #gem 'seed_dump'
 
 #gem 'rack-cors', require: 'rack/cors'
