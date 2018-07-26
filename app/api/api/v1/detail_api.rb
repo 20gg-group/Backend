@@ -22,29 +22,35 @@ module Api::V1
           optional :no_people_per_room,             type: Integer
           optional :gender,                         type: String
 
-          optional :air_conditioner,                coerce: Boolean 
-          optional :washing_machine,                coerce: Boolean
-          optional :refrigerator,                   coerce: Boolean
-          optional :WC,                             coerce: Boolean 
-          optional :parking,                        coerce: Boolean 
-          optional :Wifi,                           coerce: Boolean
-          optional :free_time,                      coerce: Boolean
-          optional :separated_owner,                coerce: Boolean 
+          optional :air_conditioner,                type: Boolean 
+          optional :washing_machine,                type: Boolean
+          optional :refrigerator,                   type: Boolean
+          optional :WC,                             type: Boolean 
+          optional :parking,                        type: Boolean 
+          optional :Wifi,                           type: Boolean
+          optional :free_time,                      type: Boolean
+          optional :separated_owner,                type: Boolean 
 
-          optional :kitchen,                        coerce: Boolean 
-          optional :bed,                            coerce: Boolean
-          optional :television,                     coerce: Boolean
-          optional :Wardrobe,                       coerce: Boolean 
-          optional :amezzanine,                     coerce: Boolean 
-          optional :camera,                         coerce: Boolean
-          optional :security,                       coerce: Boolean
-          optional :pet,                            coerce: Boolean                           
+          optional :kitchen,                        type: Boolean 
+          optional :bed,                            type: Boolean
+          optional :television,                     type: Boolean
+          optional :Wardrobe,                       type: Boolean 
+          optional :amezzanine,                     type: Boolean 
+          optional :camera,                         type: Boolean
+          optional :security,                       type: Boolean
+          optional :pet,                            type: Boolean                           
         end
       end
       post do
-        # post advertisment           
+        # post detail           
         Detail.create!(params)
-      end     
+      end 
+      #method DELETE
+
+      delete ":id" do
+        Detail.find(params[:id]).destroy
+        present "Destroyed"
+      end    
     end             
   end
 end

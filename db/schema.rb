@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_25_071053) do
+ActiveRecord::Schema.define(version: 2018_07_26_030517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,22 +39,22 @@ ActiveRecord::Schema.define(version: 2018_07_25_071053) do
   create_table "details", force: :cascade do |t|
     t.integer "no_people_per_room"
     t.string "gender"
-    t.boolean "air_conditioner"
-    t.boolean "washing_machine"
-    t.boolean "refrigerator"
-    t.boolean "WC"
-    t.boolean "parking"
-    t.boolean "Wifi"
-    t.boolean "free_time"
-    t.boolean "separated_owner"
-    t.boolean "kitchen"
-    t.boolean "bed"
-    t.boolean "television"
-    t.boolean "Wardrobe"
-    t.boolean "amezzanine"
-    t.boolean "camera"
-    t.boolean "security"
-    t.boolean "pet"
+    t.boolean "air_conditioner", default: false
+    t.boolean "washing_machine", default: false
+    t.boolean "refrigerator", default: false
+    t.boolean "WC", default: false
+    t.boolean "parking", default: false
+    t.boolean "Wifi", default: false
+    t.boolean "free_time", default: false
+    t.boolean "separated_owner", default: false
+    t.boolean "kitchen", default: false
+    t.boolean "bed", default: false
+    t.boolean "television", default: false
+    t.boolean "Wardrobe", default: false
+    t.boolean "amezzanine", default: false
+    t.boolean "camera", default: false
+    t.boolean "security", default: false
+    t.boolean "pet", default: false
     t.bigint "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
