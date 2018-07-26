@@ -7,8 +7,8 @@ module Api::Entities
     expose :decription, documentation: { type: "String" }
     expose :date_post, documentation: { type: "String" }
     expose :phone_contact_number, documentation: { type: "String" }
-    expose :address , using: API::Entities::Address
-    expose :type_house, using API::Entities::TypeHouse
+   # expose :address , using: API::Entities::Address
+    #expose :type_house, using API::Entities::TypeHouse
     
   end
 end
