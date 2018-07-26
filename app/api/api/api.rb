@@ -41,9 +41,10 @@ module Api
       end
     end
     
-    mount V1::AuthApi
-    mount V1::ImageApi
     mount V1::PostApi
+    mount V1::LogoutApi 
+    mount V1::ImageApi
+    mount V1::TypeHouseApi
     
 
 		# before do
