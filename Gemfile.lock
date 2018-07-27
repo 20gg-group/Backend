@@ -295,13 +295,13 @@ DEPENDENCIES
   capybara (>= 2.15, < 4.0)
   chromedriver-helper
   coffee-rails (~> 4.2)
-  devise (~> 4.4, >= 4.4.3)
-  grape (~> 1.0, >= 1.0.3)
-  grape-entity (~> 0.7.1)
-  grape-swagger (~> 0.29.0)
-  grape-swagger-entity (~> 0.2.5)
-  grape-swagger-rails (~> 0.3.0)
-  grape-swagger-representable (~> 0.1.6)
+  devise
+  grape
+  grape-entity
+  grape-swagger
+  grape-swagger-entity
+  grape-swagger-rails
+  grape-swagger-representable
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   paperclip

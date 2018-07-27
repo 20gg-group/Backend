@@ -8,10 +8,7 @@ module Api::V1
       def image_params      
         params[:image] = ActionDispatch::Http::UploadedFile.new(params[:image]) if params[:image].present?        
         ActionController::Parameters.new(params).permit(:post_id, :image)
-<<<<<<< HEAD
      
-=======
->>>>>>> origin/tin
       end 
     end   
      
