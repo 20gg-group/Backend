@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_27_063442) do
+ActiveRecord::Schema.define(version: 2018_07_27_095130) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,19 @@ ActiveRecord::Schema.define(version: 2018_07_27_063442) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "details", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "details_posts", id: false, force: :cascade do |t|
+    t.bigint "detail_id", null: false
+    t.bigint "post_id", null: false
+    t.index ["detail_id", "post_id"], name: "index_details_posts_on_detail_id_and_post_id"
+    t.index ["post_id", "detail_id"], name: "index_details_posts_on_post_id_and_detail_id"
+  end
+
   create_table "districts", force: :cascade do |t|
     t.string "name"
     t.bigint "city_id"
@@ -68,6 +81,7 @@ ActiveRecord::Schema.define(version: 2018_07_27_063442) do
     t.text "decription"
     t.datetime "date_post"
     t.string "phone_contact_number"
+    t.integer "detail_ids", default: [], array: true
     t.bigint "user_id"
     t.bigint "type_house_id"
     t.datetime "created_at", null: false

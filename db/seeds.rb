@@ -1,8 +1,7 @@
 #-------------------User--------------------
-User.create(
-  email: "admin@gmail.com",
-  password:"123456"
-)
+User.create( email: "admin@gmail.com",password:"123456")
+User.create( email: "tom@gmail.com",password:"123456")
+User.create( email: "user@gmail.com",password:"123456")
 #-----------------TypeHouse-----------------
 
 TypeHouse.create( type_house: "Tìm ở ghép")
@@ -56,29 +55,38 @@ District.create(name:"Tân Bình",city_id:2)
 District.create(name:"Tân Phú",city_id:2)
 District.create(name:"Thủ Đức",city_id:2)
 
-#-------------------Post--------------------
-# 10.times do |i|
-#   pots "post#{i}"
-# Post.create!(tittle:"Phong tro gia re quan 10 #{i}",price:12,area:50,decription:"balballalla",phone_contact_number:"01695669219",user_id:1,type_house_id:1
-# )
-# end
 #-------------------Detail-------------------
 
-# Detail.create(name: "air_conditioner")   #id: 1
-# Detail.create(name: "washing_machine")   #id: 2
-# Detail.create(name: "refrigerator")
-# Detail.create(name: "wc")
-# Detail.create(name: "parking")
-# Detail.create(name: "wifi")
-# Detail.create(name: "free_time")
-# Detail.create(name: "separated_owner")
-# Detail.create(name: "kitchen")
-# Detail.create(name: "bed")
-# Detail.create(name: "television")
-# Detail.create(name: "wardrobe")
-# Detail.create(name: "amezzanine")
-# Detail.create(name: "camera")
-# Detail.create(name: "security")
-# Detail.create(name: "pet")
+Detail.create(name: "air_conditioner")   #id: 1
+Detail.create(name: "washing_machine")   #id: 2
+Detail.create(name: "refrigerator")
+Detail.create(name: "wc")
+Detail.create(name: "parking")
+Detail.create(name: "wifi")
+Detail.create(name: "free_time")
+Detail.create(name: "separated_owner")
+Detail.create(name: "kitchen")
+Detail.create(name: "bed")
+Detail.create(name: "television")
+Detail.create(name: "wardrobe")
+Detail.create(name: "amezzanine")
+Detail.create(name: "camera")
+Detail.create(name: "security")
+Detail.create(name: "pet")
 
-#----------------
+#-------------------Post--------------------
+
+Post.create!(
+  tittle:"Phong tro gia re quan Thu Duc ",
+  price: 12,
+  area: 50,
+  decription:"balballalla",
+  phone_contact_number:"01695669219",
+  user_id:1,
+  details:Detail.find([1,2,5]),
+  type_house_id:1,
+  )
+
+# 1.times do |i|(
+#     Post.create!(tittle:"Phong tro gia re quan #{i}",price:12,area:50,decription:"balballalla",phone_contact_number:"01695669219",user_id:1,type_house_id:1)
+# )
