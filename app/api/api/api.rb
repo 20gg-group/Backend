@@ -39,6 +39,7 @@ module Api
     mount V1::ImageApi
     mount V1::TypeHouseApi
     mount V1::DetailApi
+    mount V1::AddressApi
   
    
 

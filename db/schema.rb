@@ -10,9 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_25_101909) do
+ActiveRecord::Schema.define(version: 2018_07_25_071053) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "adminpack"
   enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
@@ -61,19 +62,6 @@ ActiveRecord::Schema.define(version: 2018_07_25_101909) do
     t.index ["post_id"], name: "index_details_on_post_id"
   end
 
-  create_table "favoriteds", force: :cascade do |t|
-    t.string "tittle"
-    t.float "price"
-    t.float "area"
-    t.text "decription"
-    t.datetime "date_post"
-    t.string "phone_contact_number"
-    t.bigint "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_favoriteds_on_user_id"
-  end
-
   create_table "images", force: :cascade do |t|
     t.string "image_file_name"
     t.string "image_content_type"
@@ -83,12 +71,6 @@ ActiveRecord::Schema.define(version: 2018_07_25_101909) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["post_id"], name: "index_images_on_post_id"
-  end
-
-  create_table "photos", force: :cascade do |t|
-    t.string "image"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
@@ -135,7 +117,6 @@ ActiveRecord::Schema.define(version: 2018_07_25_101909) do
 
   add_foreign_key "addresses", "posts"
   add_foreign_key "details", "posts"
-  add_foreign_key "favoriteds", "users"
   add_foreign_key "images", "posts"
   add_foreign_key "posts", "type_houses"
   add_foreign_key "posts", "users"
