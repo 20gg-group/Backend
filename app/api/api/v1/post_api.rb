@@ -4,9 +4,7 @@ module Api::V1
       def post
         @post ||= Post.find(params[:id])
       end      
-    end    
-
-    
+    end     
 
     resources :posts do
       # method GET
@@ -17,7 +15,7 @@ module Api::V1
       desc "show post with id "
       get ":id" do
         present Post.find(params[:id])
-      end
+      end     
     
       # method POST      
       params do

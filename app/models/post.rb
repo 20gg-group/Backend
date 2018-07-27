@@ -12,13 +12,17 @@ class Post < ApplicationRecord
 
   def set_date_post
     self.date_post=Time.now
+  end  
+
+  def self.searcher_post(term)
+    if term
+      where('tittle LIKE :key AND
+            decription LIKE :key',
+            key: "%#{term}%")
+      # where("name LIKE :name1 AND city = :cityId1",
+      # {:name1 => "#{params[:name]}%", :cityId1 => params[:cityId]})
+    else
+      all
+    end
   end
-  # def search(pattern)
-  #   # if pattern.blank?  # blank? covers both nil and empty string
-  #   #   present "Can't find anything!"
-  #   # else
-  #     Post.where("tittle ILIKE :search",
-  #                 search: "%#{pattern}%")
-  #   end
-  # end  
 end

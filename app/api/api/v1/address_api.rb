@@ -20,7 +20,11 @@ module Api::V1
           present address
         end
         get do        # get all address
-          present Address.all
+          aa = Address.all
+          present aa
+          # per = aa.each do |t|
+          #   present t.district
+          # end
         end
       #method POST
 

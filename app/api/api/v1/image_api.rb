@@ -14,11 +14,11 @@ module Api::V1
      
     resources :images do
       # method GET
-      # namespace :post do
-      #   get ":id" do # get addresses/advertisment/:id
-      #     present Image.find_by post_id: params[:id]
-      #   end
-      # end
+      namespace :post do
+        get ":id" do # get addresses/advertisment/:id
+          present Image.find_by post_id: params[:id]
+        end
+      end
       get do      # using for test
         present Image.all
       end
