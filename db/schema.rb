@@ -10,10 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_25_071053) do
+ActiveRecord::Schema.define(version: 2018_07_27_063442) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "adminpack"
   enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
@@ -37,29 +36,18 @@ ActiveRecord::Schema.define(version: 2018_07_25_071053) do
     t.index ["user_id"], name: "index_api_keys_on_user_id"
   end
 
-  create_table "details", force: :cascade do |t|
-    t.integer "no_people_per_room"
-    t.string "gender"
-    t.boolean "air_conditioner", default: false
-    t.boolean "washing_machine", default: false
-    t.boolean "refrigerator", default: false
-    t.boolean "wc", default: false
-    t.boolean "parking", default: false
-    t.boolean "Wifi", default: false
-    t.boolean "free_time", default: false
-    t.boolean "separated_owner", default: false
-    t.boolean "kitchen", default: false
-    t.boolean "bed", default: false
-    t.boolean "television", default: false
-    t.boolean "wardrobe", default: false
-    t.boolean "amezzanine", default: false
-    t.boolean "camera", default: false
-    t.boolean "security", default: false
-    t.boolean "pet", default: false
-    t.bigint "post_id"
+  create_table "cities", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_details_on_post_id"
+  end
+
+  create_table "districts", force: :cascade do |t|
+    t.string "name"
+    t.bigint "city_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["city_id"], name: "index_districts_on_city_id"
   end
 
   create_table "images", force: :cascade do |t|
@@ -116,7 +104,6 @@ ActiveRecord::Schema.define(version: 2018_07_25_071053) do
   end
 
   add_foreign_key "addresses", "posts"
-  add_foreign_key "details", "posts"
   add_foreign_key "images", "posts"
   add_foreign_key "posts", "type_houses"
   add_foreign_key "posts", "users"

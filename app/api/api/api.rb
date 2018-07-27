@@ -33,7 +33,7 @@ module Api
       #authenticate!
     end
 
-    
+    mount V1::CityApi
     mount V1::PostApi
     mount V1::LogoutApi 
     mount V1::ImageApi
