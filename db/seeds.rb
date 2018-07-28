@@ -2,10 +2,6 @@
 User.create( email: "admin@gmail.com",password:"123456")
 User.create( email: "tom@gmail.com",password:"123456")
 User.create( email: "user@gmail.com",password:"123456")
-#-----------------TypeHouse-----------------
-
-TypeHouse.create( type_house: "Tìm ở ghép")
-TypeHouse.create(type_house: "Nhà cho thuê")
 
 #-------------------City-------------------
 
@@ -39,19 +35,19 @@ District.create(name:"Gò Vấp",city_id:2)
 District.create(name:"Hóc Môn",city_id:2)
 District.create(name:"Nhà Bè",city_id:2)
 District.create(name:"Phú Nhuận",city_id:2)
-District.create(name:"Quận 1",city_id:2)
-District.create(name:"Quận 10",city_id:2)
-District.create(name:"Quận 11",city_id:2)
-District.create(name:"Quận 12",city_id:2)
-District.create(name:"Quận 2",city_id:2)
-District.create(name:"Quận 3",city_id:2)
-District.create(name:"Quận 4",city_id:2)
-District.create(name:"Quận 5",city_id:2)
-District.create(name:"Quận 6",city_id:2)
-District.create(name:"Quận 7",city_id:2)
-District.create(name:"Quận 8",city_id:2)
-District.create(name:"Quận 9",city_id:2)
-District.create(name:"Tân Bình",city_id:2)
+District.create(name:"District 1",city_id:2)
+District.create(name:"District 10",city_id:2) #id: 26
+District.create(name:"District 11",city_id:2)
+District.create(name:"District 12",city_id:2)
+District.create(name:"District 2",city_id:2)
+District.create(name:"District 3",city_id:2)
+District.create(name:"District 4",city_id:2)
+District.create(name:"District 5",city_id:2)
+District.create(name:"District 6",city_id:2)
+District.create(name:"District 7",city_id:2)
+District.create(name:"District 8",city_id:2)
+District.create(name:"District 9",city_id:2)
+District.create(name:"Tân Bình",city_id:2)  #id: 37
 District.create(name:"Tân Phú",city_id:2)
 District.create(name:"Thủ Đức",city_id:2)
 
@@ -77,16 +73,25 @@ Detail.create(name: "pet")
 #-------------------Post--------------------
 
 Post.create!(
-  tittle:"Phong tro gia re quan Thu Duc ",
+  tittle:"Phong tro gia re quan 10 ",
   price: 12,
   area: 50,
   decription:"balballalla",
   phone_contact_number:"01695669219",
   user_id:1,
-  details:Detail.find([1,2,5]),
-  type_house_id:1,
+  details:Detail.find([1,2,5])
   )
 
 # 1.times do |i|(
-#     Post.create!(tittle:"Phong tro gia re quan #{i}",price:12,area:50,decription:"balballalla",phone_contact_number:"01695669219",user_id:1,type_house_id:1)
+#     Post.create!(tittle:"Phong tro gia re quan #{i}",price:12,area:50,decription:"balballalla",phone_contact_number:"01695669219",user_id:1 )
 # )
+
+#--------------------Address---------------
+
+Address.create(district_id: 1,add_detail: "268 Ly Thuong Kiet")
+Address.create(district_id: 1,add_detail: "90 To Hien Thanh")
+Address.create(district_id: 1,add_detail: "100 Ly Thuong Kiet")
+Address.create(district_id: 1,add_detail: "21 Ly Thuong Kiet")
+Address.create(district_id: 1,add_detail: "60 Ly Thuong Kiet")
+
+#-------------------

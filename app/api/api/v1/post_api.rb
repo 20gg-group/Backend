@@ -6,24 +6,28 @@ module Api::V1
       end      
     end    
 
-    
-
     resources :posts do
-      # method GET
+  
       desc "show all Post"
       get do
-        present Post.all 
+        present Post.all ,with: Api::Entities::PostEntity
       end
+
       desc "show post with id "
       get ":id" do
-        present Post.find(params[:id])
+        
+        user = @post.user 
+        #add = @post.address
+        present :post,@post,with: Api::Entities::PostEntity
+        present :user,user, with: Api::Entities::UserEntity
+        #present 
       end
     
       # method POST      
       params do
         optional :user_id,                          type: Integer
-        optional :type_house_id,                    type: Integer
-        given :user_id, :type_house_id do
+        
+        given :user_id do
           optional :tittle,                         type: String
           optional :price,                          type: Float
           optional :area,                           type: Float

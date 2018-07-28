@@ -16,13 +16,12 @@ ActiveRecord::Schema.define(version: 2018_07_27_095130) do
   enable_extension "plpgsql"
 
   create_table "addresses", force: :cascade do |t|
-    t.string "city"
-    t.string "district"
-    t.string "street"
-    t.integer "house_no"
+    t.string "add_detail"
+    t.bigint "district_id"
     t.bigint "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["district_id"], name: "index_addresses_on_district_id"
     t.index ["post_id"], name: "index_addresses_on_post_id"
   end
 
@@ -83,17 +82,9 @@ ActiveRecord::Schema.define(version: 2018_07_27_095130) do
     t.string "phone_contact_number"
     t.integer "detail_ids", default: [], array: true
     t.bigint "user_id"
-    t.bigint "type_house_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["type_house_id"], name: "index_posts_on_type_house_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
-  end
-
-  create_table "type_houses", force: :cascade do |t|
-    t.string "type_house"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -117,8 +108,8 @@ ActiveRecord::Schema.define(version: 2018_07_27_095130) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "addresses", "districts"
   add_foreign_key "addresses", "posts"
   add_foreign_key "images", "posts"
-  add_foreign_key "posts", "type_houses"
   add_foreign_key "posts", "users"
 end

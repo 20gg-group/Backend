@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
   belongs_to :user
-  belongs_to :type_house
+
   has_one :address , dependent: :destroy
   has_many :images , dependent: :destroy
 

@@ -11,7 +11,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
 
 			#t.boolean :status # da ban hay chua ban/ da co thue hoac chua
 			t.references :user, foreign_key: true
-			t.references :type_house, foreign_key: true
+			
 
       t.timestamps
     end
