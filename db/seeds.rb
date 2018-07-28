@@ -88,10 +88,11 @@ Post.create!(
 
 #--------------------Address---------------
 
-Address.create(district_id: 1,add_detail: "268 Ly Thuong Kiet")
-Address.create(district_id: 1,add_detail: "90 To Hien Thanh")
-Address.create(district_id: 1,add_detail: "100 Ly Thuong Kiet")
-Address.create(district_id: 1,add_detail: "21 Ly Thuong Kiet")
-Address.create(district_id: 1,add_detail: "60 Ly Thuong Kiet")
+Address.create(post_id: 1,city: "Hồ  Chí Minh",district: "Tân Bình",add_detail: "268 Ly Thuong Kiet")
+Address.create(post_id: 1,city: "Hồ  Chí Minh",district: "District 10",add_detail: "268 Ly Thuong Kiet")
+#Address.create(post_id: 1,district_id: 1,add_detail: "90 To Hien Thanh")
+#Address.create(post_id: 1,district_id: 1,add_detail: "100 Ly Thuong Kiet")
+#Address.create(post_id: 1,district_id: 1,add_detail: "21 Ly Thuong Kiet")
+#Address.create(post_id: 1,district_id: 1,add_detail: "60 Ly Thuong Kiet")
 
 #-------------------

@@ -10,30 +10,29 @@ module Api::V1
   
       desc "show all Post"
       get do
-        present Post.all ,with: Api::Entities::PostEntity
+        present Post.all ,with: Api::Entities::PostEntity , except: [:tittle]
       end
 
       desc "show post with id "
       get ":id" do
         
-        user = @post.user 
-        #add = @post.address
-        present :post,@post,with: Api::Entities::PostEntity
+        user = post.user 
+        add = post.address
+        present :post,post,with: Api::Entities::PostEntity
         present :user,user, with: Api::Entities::UserEntity
-        #present 
+        present :address,add,with: Api::Entities::AddressEntity
+
       end
     
       # method POST      
       params do
-        optional :user_id,                          type: Integer
-        
-        given :user_id do
+          optional :user_id,                        type: Integer #test
           optional :tittle,                         type: String
           optional :price,                          type: Float
           optional :area,                           type: Float
           optional :decription,                     type: String
           optional :phone_contact_number,           type: String                    
-        end
+      
       end
       post do
         # post advertisment           

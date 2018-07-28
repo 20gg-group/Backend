@@ -8,7 +8,7 @@ module Api::Entities
     expose :date_post, documentation: { type: "String" }
     expose :phone_contact_number, documentation: { type: "String" }
     #image_url
-    #expose :address , using: API::Entities::AddressEntity
+    expose :address , using: Api::Entities::AddressEntity
   
     
   end
