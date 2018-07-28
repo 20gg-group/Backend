@@ -47,8 +47,11 @@ module Api::V1
                   
          user=User.find(params[:user_id])
          post=user.posts.create!(params[:post])
-         address=post.address.new(params[:address])
-        #params[:address]
+         address=post.build_address(params[:address])
+         address.new_record? #?? khi nao thi true or false
+         address.save
+         present post.address
+        params[:address]
       end     
 
       # method PUT 

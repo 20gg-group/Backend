@@ -1,7 +1,7 @@
 class Post < ApplicationRecord
   belongs_to :user
 
-  has_many :addresses , dependent: :destroy#,foreign_key: 'post_id'
+  has_one :address, autosave: true, dependent: :destroy #autosave=> update , build_address=>tao obj
   #accepts_nested_attributes_for :address
   has_many :images , dependent: :destroy
   has_and_belongs_to_many :details
