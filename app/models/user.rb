@@ -29,7 +29,12 @@ class User < ApplicationRecord
 
   validates :password, presence: true, length: { minimum: 6 }
   #validates :phone,presence: true , length:{maximum: 12}
-
+  has_attached_file :avatar ,styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
+  } 
+   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
 
 end

@@ -44,6 +44,7 @@ module Api
     mount V1::DetailApi
     #mount V1::AddressApi
     mount V1::SearchApi
+    mount V1::UserApi
   
    
 

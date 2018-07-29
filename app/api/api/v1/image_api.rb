@@ -27,7 +27,8 @@ module Api::V1
         present Image.find(params[:id])
         #present image.image.url 
       end
- 
+
+     
       # method POST
       params do
          #requires :image, :type => Rack::Multipart::UploadedFile, :desc => "Attachment File."
@@ -39,40 +40,21 @@ module Api::V1
       end
       post do
        
-        #params[:attachments][0]
                  post=Post.find(params[:post_id])
        
-      
-        params[:attachments].each do |i,op|
+        params#[:attachments]#.each do |i,op|
        
-          image=ActionDispatch::Http::UploadedFile.new(i[:image][1])
+         # image=ActionDispatch::Http::UploadedFile.new(i[:image][1])
           # hash_image = {"image"=>image}
           # temp = post.images.new(hash_image)
           #temp.save!
-        end
+        #end
 
-
-         #
          #hash_image = {"image"=>image}
          
          #  temp=post.images.new(hash_image)
-  
-        
-        # x=params[:attachments][
-        # temp=post.images.new(x)
-        # image = ActionDispatch::Http::UploadedFile.new(params[:image])
-           #hash_image = ActionController::Parameters.new("image"=> image)  #Tao Hash
-          # hash_image = {"image"=>image}
-          #temp = post.images.new(hash_image)
-          #temp.save!
+
       
-          #image = post.images.new()
-        #  if image.save
-        #   present :status,"true"
-        #   present :image_url,image.image.url
-        # else
-        #   present status: "false"
-        # end
       end
  
       #method PUT update image or v.v.
@@ -80,6 +62,8 @@ module Api::V1
         requires :post_id,              type: Integer
         requires :image,            type: File      
       end   
+
+      
       put ":id" do
         post=Post.find(params[:post_id])
         

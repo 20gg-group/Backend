@@ -100,7 +100,10 @@ ActiveRecord::Schema.define(version: 2018_07_27_095130) do
     t.inet "last_sign_in_ip"
     t.string "full_name"
     t.string "phone_number"
-    t.string "avatar"
+    t.string "avatar_file_name"
+    t.string "avatar_content_type"
+    t.integer "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.integer "role", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
