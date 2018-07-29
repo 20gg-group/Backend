@@ -1,5 +1,5 @@
 class Image < ApplicationRecord
-	belongs_to :post , required: false
+	belongs_to :post 
 
   has_attached_file :image, styles: {
     thumb: '100x100>',

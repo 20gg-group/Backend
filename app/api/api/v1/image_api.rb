@@ -7,8 +7,7 @@ module Api::V1
       end 
       def image_params      
         params[:image] = ActionDispatch::Http::UploadedFile.new(params[:image]) if params[:image].present?        
-        ActionController::Parameters.new(params).permit(:post_id, :image)
-     
+        ActionController::Parameters.new(params).permit(:image)
       end 
     end   
      
@@ -23,40 +22,62 @@ module Api::V1
         present Image.all
       end
       get ":id" do  #using for test
+        
+        image=Image.find(params[:id])
         present Image.find(params[:id])
+        #present image.image.url 
       end
  
       # method POST
       params do
-        optional :post_id,                type: Integer
-          given :post_id do
-             optional :image,               type: File        
-          end
-      end  
+          #requires :post_id,                type: Integer
+         # optional :image,               type: File        
+         requires :image, :type => Rack::Multipart::UploadedFile, :desc => "Attachment File."
+
+         requires :post_id , type: String 
+        # optional :attachments, type: Array do
+        #   requires :image, :type => Rack::Multipart::UploadedFile, :desc => "Profile pictures."
+        # end
+
+      end
       post do
-        #image_params
-        image = Image.new(image_params)
-        if image.save
-          present data: {
-            post_id: image.post_id,
-            id: image.id,
-            image_url: image.image.url            
-          }
-        else
-          present message: "Fail"
-        end
+        #params
+      #params[:attachments][1]
+        
+       # params[:attachments].each do |i|
+          #image = ActionDispatch::Http::UploadedFile.new(i)
+          #ActionController::Parameters.new(params).permit(:image)  
+          
+          #attachment.file = ActionDispatch::Http::UploadedFile.new(params[:file])
+          #attachment.save!
+        #end
+   
+      
+           post=Post.find(params[:post_id])
+           ActionDispatch::Http::UploadedFile.new(params[:image])
+          # params_imagess=ActionDispatch::Http::UploadedFile.new(params[:image])
+          # ActionController::Parameters.new(params_imagess).permit(:image)
+          #image_params
+          #params_imagess[:image]
+          #image = post.images.new()
+        #  if image.save
+        #   present :status,"true"
+        #   present :image_url,image.image.url
+        # else
+        #   present status: "false"
+        # end
       end
  
       #method PUT update image or v.v.
       params do
-        optional :post_id,              type: Integer
-          given :post_id do
-            requires :image,            type: File      
-          end
+        requires :post_id,              type: Integer
+        requires :image,            type: File      
       end   
       put ":id" do
-        image.update_attributes(image_params)
-        present image
+        post=Post.find(params[:post_id])
+        
+        post.images.update_attributes(image_params)
+        present post.images
       end   
       
       #method DELETE
