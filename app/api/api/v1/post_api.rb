@@ -28,7 +28,7 @@ module Api::V1
       
       params do
           
-            optional :user_id,                        type: Integer #test
+            #optional :user_id,                        type: Integer #test
           requires :post , type: Hash do
             requires :tittle,                         type: String
             optional :price,                          type: Float
@@ -41,36 +41,51 @@ module Api::V1
             requires :district ,type: String
             optional :add_detail, type: String
           end           
-      
       end
       post do
-                  
-         user=User.find(params[:user_id])
+        #authenticate!
+        user=User.find(current_user.id)
          post=user.posts.create!(params[:post])
          address=post.build_address(params[:address])
-         address.new_record? #?? khi nao thi true or false
+         #address.new_record? #?? khi nao thi true or false
          address.save
-         present post.address
-        params[:address]
+
+         present :status ,"true"
+         present :post , post ,with: Api::Entities::PostEntity
+      
+        
       end     
 
       # method PUT 
       params do
-        optional :tittle,                     type: String
-        optional :price,                      type: Float 
-        optional :area,                       type: Float
-        optional :decription,                 type: String
-        optional :phone_contact_number,       type: String 
+            #requires :post_id
+          requires :post , type: Hash do
+            requires :tittle,                         type: String
+            optional :price,                          type: Float
+            optional :area,                           type: Float
+            requires :decription,                     type: String
+            requires :phone_contact_number,           type: String 
+          end        
+          requires :address, type: Hash do
+            requires :city, type: String
+            requires :district ,type: String
+            optional :add_detail, type: String
+          end           
       end
       put ":id" do
-        post.update_attributes(declared(params))
-        present post
+        #authenticate!
+        post=get_post
+        post.update_attributes(params[:post])
+        post.address.update_attributes(params[:address])
+
+        present :status,"true"
+        present :post,post,with: Api::Entities::PostEntity
       end
 
       #method DELETE
       delete ":id" do
-        post.destroy
-        present "Destroyed"
+        get_post.destroy
+        present "true"
       end
     end      
 

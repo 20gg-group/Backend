@@ -29,9 +29,13 @@ module Api
     
     mount V1::AuthApi
    
+  
 		before do
       #authenticate!
     end
+    get do 
+      #user=User.find(current_user.id)
+    end 
 
     mount V1::CityApi
     mount V1::PostApi
