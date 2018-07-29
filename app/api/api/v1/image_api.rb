@@ -30,35 +30,42 @@ module Api::V1
  
       # method POST
       params do
-          #requires :post_id,                type: Integer
-         # optional :image,               type: File        
-         requires :image, :type => Rack::Multipart::UploadedFile, :desc => "Attachment File."
-
-         requires :post_id , type: String 
-        # optional :attachments, type: Array do
-        #   requires :image, :type => Rack::Multipart::UploadedFile, :desc => "Profile pictures."
-        # end
+         #requires :image, :type => Rack::Multipart::UploadedFile, :desc => "Attachment File."
+        requires :post_id , type: String 
+        optional :attachments, type: Array do
+          requires :image, :type => Rack::Multipart::UploadedFile
+        end
 
       end
       post do
-        #params
-      #params[:attachments][1]
-        
-       # params[:attachments].each do |i|
-          #image = ActionDispatch::Http::UploadedFile.new(i)
-          #ActionController::Parameters.new(params).permit(:image)  
-          
-          #attachment.file = ActionDispatch::Http::UploadedFile.new(params[:file])
-          #attachment.save!
-        #end
-   
+       
+        #params[:attachments][0]
+                 post=Post.find(params[:post_id])
+       
       
-           post=Post.find(params[:post_id])
-           ActionDispatch::Http::UploadedFile.new(params[:image])
-          # params_imagess=ActionDispatch::Http::UploadedFile.new(params[:image])
-          # ActionController::Parameters.new(params_imagess).permit(:image)
-          #image_params
-          #params_imagess[:image]
+        params[:attachments].each do |i,op|
+       
+          image=ActionDispatch::Http::UploadedFile.new(i[:image][1])
+          # hash_image = {"image"=>image}
+          # temp = post.images.new(hash_image)
+          #temp.save!
+        end
+
+
+         #
+         #hash_image = {"image"=>image}
+         
+         #  temp=post.images.new(hash_image)
+  
+        
+        # x=params[:attachments][
+        # temp=post.images.new(x)
+        # image = ActionDispatch::Http::UploadedFile.new(params[:image])
+           #hash_image = ActionController::Parameters.new("image"=> image)  #Tao Hash
+          # hash_image = {"image"=>image}
+          #temp = post.images.new(hash_image)
+          #temp.save!
+      
           #image = post.images.new()
         #  if image.save
         #   present :status,"true"
