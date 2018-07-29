@@ -28,7 +28,7 @@ module Api::V1
       
       params do
           
-            #optional :user_id,                        type: Integer #test
+            optional :user_id,                        type: Integer #test
           requires :post , type: Hash do
             requires :tittle,                         type: String
             optional :price,                          type: Float
@@ -44,7 +44,8 @@ module Api::V1
       end
       post do
         #authenticate!
-        user=User.find(current_user.id)
+        #user=User.find(current_user.id)
+        user=User.find(params[:user_id])
          post=user.posts.create!(params[:post])
          address=post.build_address(params[:address])
          #address.new_record? #?? khi nao thi true or false

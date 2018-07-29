@@ -5,7 +5,7 @@ class CreateAddresses < ActiveRecord::Migration[5.2]
 			t.string :district
 			t.string :add_detail
 
-			t.belongs_to :post 
+			t.references :post  
 
       t.timestamps
     end
