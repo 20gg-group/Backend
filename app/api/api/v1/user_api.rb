@@ -4,32 +4,27 @@ module Api::V1
     helpers do 
       def user_params      
         params[:avatar] = ActionDispatch::Http::UploadedFile.new(params[:avatar]) if params[:avatar].present?        
-        ActionController::Parameters.new(params).permit(:email,:password,:avatar)
+        ActionController::Parameters.new(params).permit(:full_name,:phone_number,:avatar)
       end 
     end
   resources :users do 
 
       get do
         authenticate! 
-        current_user
+        present :user,current_user ,with: Api::Entities::UserEntity
       end
 
       params do  
-        #optional :email, type: String
         optional :full_name, type: String 
         optional :phone_number, type: String
-        requires :avatar, type: File
-    
+        requires :avatar, type: File    
       end
-      post do
-        #authenticate!
-        #user=User.find(params[:id])
-        #current_user.full_name.update_attributes(avatar_params)
-          #params[:full_name]
-        #user.update_attributes(params)
-       # User.create!(user_params)
-       params[:avatar]
+      put ":id" do
+        authenticate!
+        current_user.update_attributes!(user_params)
+        present :user,current_user, with: Api::Entities::UserEntity
       end
+
     end
   end
 end

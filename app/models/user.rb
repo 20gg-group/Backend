@@ -27,13 +27,13 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
 
-  validates :password, presence: true, length: { minimum: 6 }
+  #validates :password, presence: true, length: { minimum: 6 }
   #validates :phone,presence: true , length:{maximum: 12}
   has_attached_file :avatar ,styles: {
     thumb: '100x100>',
     square: '200x200#',
     medium: '300x300>'
-  } ,default_url: "/images/abc.jpg"
+  } #,default_url: "/assets/images/abc.jpg"
    validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
 
