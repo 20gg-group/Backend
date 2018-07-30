@@ -3,7 +3,7 @@ module Api::V1
 
     helpers do 
       def user_params      
-        params[:avatar] = ActionDispatch::Http::UploadedFile.new(params[:avatar]) if params[:image].present?        
+        params[:avatar] = ActionDispatch::Http::UploadedFile.new(params[:avatar]) if params[:avatar].present?        
         ActionController::Parameters.new(params).permit(:full_name,:phone_number,:avatar)
       end 
     end
