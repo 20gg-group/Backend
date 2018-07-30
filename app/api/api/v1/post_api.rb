@@ -29,7 +29,7 @@ module Api::V1
       
       params do
           
-           # optional :user_id,                        type: Integer #test
+            optional :user_id,                        type: Integer #test
           requires :post , type: Hash do
             requires :tittle,                         type: String
             optional :price,                          type: Float
