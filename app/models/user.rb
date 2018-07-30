@@ -19,7 +19,7 @@ class User < ApplicationRecord
   #   user
   # end
 
-  enum role: [:user, :reviewer, :admin]
+  enum role: [:user, :admin]
 
   before_save { self.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i

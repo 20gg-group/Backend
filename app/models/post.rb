@@ -6,12 +6,13 @@ class Post < ApplicationRecord
   has_many :images , dependent: :destroy
   has_and_belongs_to_many :details 
 
-  
   before_save :set_date_post
 
   validates :tittle, presence: true#,length:# {minimum:1, maximum:100}
   #validates :price,:area,:decription,:phone_contact_number, presence: true
   #accepts_nested_attributes_for :images
+
+  #enum type_house: [:"house_for_rent", :"house_graft"]
 
   def set_date_post
     self.date_post=Time.now

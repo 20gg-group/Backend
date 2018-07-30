@@ -7,7 +7,8 @@ module Api::Entities
     expose :decription, documentation: { type: "String" }
     expose :date_post, documentation: { type: "String" }
     expose :phone_contact_number, documentation: { type: "String" }
-    #image_url
+    expose :type_house ,documentation: { type: "Integer" }
+    #expose :image_url
     expose :address , using: Api::Entities::AddressEntity
   
     

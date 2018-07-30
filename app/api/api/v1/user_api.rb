@@ -10,9 +10,8 @@ module Api::V1
   resources :users do 
 
       get do
-        'test'
-        #authenticate! 
-        #present :user,current_user ,with: Api::Entities::UserEntity
+        authenticate! 
+        present :user,current_user ,with: Api::Entities::UserEntity
       end
 
       params do  
@@ -21,12 +20,12 @@ module Api::V1
         requires :avatar, type: File    
       end
       put ":id" do
-        #authenticate!
-        #current_user.update_attributes!(user_params)
-        #present :user,current_user, with: Api::Entities::UserEntity
-        user=User.find(params[:id])
-        user.update_attributes!(user_params)
+        authenticate!
+        current_user.update_attributes!(user_params)
         present :user,current_user, with: Api::Entities::UserEntity
+        #user=User.find(params[:id])
+        #user.update_attributes!(user_params)
+        #present :user,current_user, with: Api::Entities::UserEntity
       end
 
     end

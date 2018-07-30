@@ -1,11 +1,8 @@
 #-------------------User--------------------
 #img = File.open(File.join(Rails.root,'app/assets/images/abc.jpg'))
-User.create( email: "admin@gmail.com",password:"123456",role: 2)
-#User.last.update(avatar: img)
+User.create( email: "admin@gmail.com",password:"123456",role: 1)
 User.create( email: "tom@gmail.com",password:"123456",full_name:"tom",phone_number:"01695669219")
-#User.last.update(avatar: img)
 User.create( email: "user@gmail.com",password:"123456",full_name:"user",phone_number:"01695669219")
-#User.last.update(avatar: img)
 
 #-------------------City-------------------
 
@@ -82,8 +79,9 @@ Post.create!(
   area: 50,
   decription:"balballalla",
   phone_contact_number:"01695669219",
-  user_id:1,
-  details:Detail.find([1,2,5])
+  details:Detail.find([1,2,5]),
+  type_house: 0 ,
+  user_id:1
   )
 
 # 1.times do |i|(

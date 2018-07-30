@@ -32,7 +32,7 @@ module Api::V1
       # method POST
       params do
          #requires :image, :type => Rack::Multipart::UploadedFile, :desc => "Attachment File."
-        requires :post_id , type: String 
+        requires :post_id , type: Integer
         optional :attachments, type: Array do
           requires :image, :type => Rack::Multipart::UploadedFile
         end

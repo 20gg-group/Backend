@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 2018_07_30_030330) do
     t.text "decription"
     t.datetime "date_post"
     t.string "phone_contact_number"
+    t.integer "type_house"
     t.integer "detail_ids", default: [], array: true
     t.bigint "user_id"
     t.datetime "created_at", null: false

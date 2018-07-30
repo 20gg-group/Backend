@@ -7,6 +7,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
 			t.text :decription
       t.datetime :date_post
       t.string :phone_contact_number
+      t.integer :type_house # 0=> room_for_rent , 1=> room_graft
       t.integer :detail_ids, array: true, default: []
 
 			#t.boolean :status # da ban hay chua ban/ da co thue hoac chua
