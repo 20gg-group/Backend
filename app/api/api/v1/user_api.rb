@@ -27,7 +27,8 @@ module Api::V1
         #current_user.full_name.update_attributes(avatar_params)
           #params[:full_name]
         #user.update_attributes(params)
-        User.create!(user_params)
+       # User.create!(user_params)
+       params[:avatar]
       end
     end
   end

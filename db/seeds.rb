@@ -1,7 +1,12 @@
 #-------------------User--------------------
-User.create( email: "admin@gmail.com",password:"123456")
+#img = File.open(File.join(Rails.root,'app/assets/images/abc.jpg'))
+User.create( email: "admin@gmail.com",password:"123456",role: 2)
+#User.last.update(avatar: img)
 User.create( email: "tom@gmail.com",password:"123456")
+#img = File.open(File.join(Rails.root,'app/assets/images/abc.jpg'))
+#User.last.update(avatar: img)
 User.create( email: "user@gmail.com",password:"123456")
+#User.last.update(avatar: img)
 
 #-------------------City-------------------
 
