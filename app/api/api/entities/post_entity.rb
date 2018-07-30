@@ -11,7 +11,7 @@ module Api::Entities
     expose :type_house ,documentation: { type: "Integer" }
     #details_ids
     #expose :image_url
-    expose :address , using: Api::Entities::AddressEntity
+    #expose :address , using: Api::Entities::AddressEntity
   
     
   end

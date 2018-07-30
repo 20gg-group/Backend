@@ -1,28 +1,29 @@
 module Api::V1
     class PostApi < Grape::API
+
+
     helpers do
       def get_post
         @post ||= Post.find(params[:id])
-      end
-      def image_params      
-        params[:image] = ActionDispatch::Http::UploadedFile.new(params[:image]) if params[:image].present?        
-        ActionController::Parameters.new(params).permit(:image)
-      end       
+      end     
     end    
+
     resources :posts do
   
-      desc "show all Post"
+      desc "Show all post"
       get do
         present Post.all ,with: Api::Entities::PostEntity #, except: [:tittle]
       end
 
-      desc "show post with id "
+      desc "Show post with id "
       get ":id" do
         user = get_post.user 
         add = get_post.address
+        image=get_post.images
         present :post,get_post,with: Api::Entities::PostEntity
         present :user,user, with: Api::Entities::UserEntity
         present :address,add,with: Api::Entities::AddressEntity
+        present :images,image
       end
     
       # method POST 
@@ -44,7 +45,9 @@ module Api::V1
             requires :district ,type: String
             optional :add_detail, type: String
           end           
-          requires :image, type: File  
+          optional :attachments, type: Array do
+            requires :image, :type => File
+          end  
 
       end
       post do
@@ -54,9 +57,13 @@ module Api::V1
         post = user.posts.create!(params[:post])
 
          address = post.build_address(params[:address])
-         address.save
-         image = post.images.new(image_params)
-         image.save!
+         address.save!
+         #image = post.images.new(image_params)
+         #image.save!
+         params[:attachments].each do |attachment|
+          image = ActionDispatch::Http::UploadedFile.new(attachment[:image])
+          post.images.create!(image: image)
+        end
 
           present :status ,"true"
           present :post , post ,with: Api::Entities::PostEntity
