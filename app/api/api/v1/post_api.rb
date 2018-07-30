@@ -37,7 +37,7 @@ module Api::V1
             requires :decription,                     type: String
             requires :phone_contact_number,           type: String 
             optional :type_house,                     type: Integer
-            #optional :detail_ids,                     type: Array[Integer]
+            optional :detail_ids,                     type: Array[Integer]
           end        
           requires :address, type: Hash do
             requires :city, type: String
