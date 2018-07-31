@@ -90,8 +90,9 @@ Post.create(
   )
 
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image1.jpg')))
-Post.last.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image2.jpg')))
-Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image2.jpg')))
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr.save!
 #======
 Post.create(
   title:"Nhà nguyên căn 3 lầu cho thuê, tiện mở văn phòng hoặc gia đình ở",
@@ -104,10 +105,11 @@ Post.create(
   detail_ids:[1,2,3,4,5],
   user_id:2
   )
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image3.jpeg')))
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image4.jpeg')))
-Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
-#=======
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image3.jpeg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image4.jpeg')))
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr.save!
+#     =======
 Post.create(
   title:"Tìm bạn ở ghép khu vực Bình Triệu, Thủ Đức",
   price: 2,
@@ -119,10 +121,11 @@ Post.create(
   detail_ids:[1,3,4,2],
   user_id:2
   )
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image5.jpeg')))
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image6.jpeg')))
-Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
-#=======
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image5.jpeg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image6.jpeg')))
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr.save!
+#     =======
 Post.create(
   title:"Phòng trọ trong chung cư Linh Đông 4s Thủ Đức",
   price: 2.5,
@@ -134,10 +137,10 @@ Post.create(
   detail_ids:[1,3,4,2],
   user_id:2
   )
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image7.jpg')))
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image8.jpg')))
-Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
-
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image7.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image8.jpg')))
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr.save!
 #========
 Post.create(
   title:"Căn hộ mini cao cấp, rất phù hợp cho gia đình ở, mới xây,chuẩn căn hộ cho gia đình ở",
@@ -150,10 +153,10 @@ Post.create(
   detail_ids:[1,3,4,2],
   user_id:2
   )
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image9.jpg')))
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image10.jpg')))
-Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
-
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image9.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image10.jpg')))
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr.save!
 #========
 Post.create(
   title:"CẦN 1 NỮ NHÂN VIÊN VP Ở GHÉP Ở GẦN PHẠM VĂN ĐỒNG- THỦ ĐỨC (ƯU TIÊN NGƯỜI MIỀN TRUNG)",
@@ -166,10 +169,10 @@ Post.create(
   detail_ids:[1,3,4,2],
   user_id:2
 )
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image11.jpg')))
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image12.jpg')))
-Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
-
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image11.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image12.jpg')))
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr.save!
 #========
 Post.create(
   title:"Tìm bạn nữ ở ghép hiền lành, thật thà, sạch sẽ",
@@ -182,10 +185,10 @@ Post.create(
   detail_ids:[1,2,3,4],
   user_id:2
 )
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image13.jpg')))
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image14.jpg')))
-Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
-
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image13.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image14.jpg')))
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr.save!
 #========
 Post.create(
   title:"Tìm nam VP hoặc sinh viên ở ghép gần Đại Học Luật",
@@ -198,10 +201,10 @@ Post.create(
   detail_ids:[1,3,4,2,6],
   user_id:2
 )
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image15.jpg')))
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image16.jpg')))
-Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
-
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image15.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image16.jpg')))
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr.save!
 #========
 Post.create(
   title:"Phòng mới xây 100% sạch đẹp ven sông,an ninh tốt bảo vệ 24/7, 
@@ -215,10 +218,10 @@ Post.create(
   detail_ids:[1,3,4,2],
   user_id:2
 )
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image17.jpg')))
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image18.jpg')))
-Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
-
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image17.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image18.jpg')))
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr.save!
 #========
 Post.create(
   title:"Cho thuê phòng trọ cao cấp mới xây, đầy đủ tiện nghi đường 9 Linh Tây, Thủ Đức",
@@ -231,10 +234,10 @@ Post.create(
   detail_ids:[1,3,4,2],
   user_id:2
   )
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image19.jpg')))
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image20.jpg')))
-Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
-
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image19.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image20.jpg')))
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr.save!
 #========
 Post.create(
   title:"Cho thuê phòng trọ cao cấp phường Hiệp Bình Chánh",
@@ -247,10 +250,10 @@ Post.create(
   detail_ids:[1,3,4,2,7,9],
   user_id:2
   )
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image1.jpeg')))
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image2.jpeg')))
-Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
-
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image1.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image2.jpg')))
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr.save!
 #========
   Post.create(
     title:"Cho thuê phòng trọ cao cấp phường Hiệp Bình Chánh",
@@ -263,10 +266,10 @@ Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_de
   detail_ids:[1,3,4,2,6,7],
   user_id:2
     )
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image3.jpeg')))
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image4.jpeg')))
-Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
-
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image3.jpeg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image4.jpeg')))
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr.save!
 #========
 Post.create(
   title:"Cần người ở ghép phòng rộng thoáng mát",
@@ -279,10 +282,10 @@ Post.create(
   detail_ids:[1,3,4],
   user_id:2
   )
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image5.jpeg')))
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image6.jpeg')))
-Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
-
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image5.jpeg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image6.jpeg')))
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr.save!
 #========
 Post.create(
   title:"Cho thuê phòng trọ cao cấp, mới xây 100% ngay trung tâm quận Thủ Đức",
@@ -295,10 +298,10 @@ Post.create(
   detail_ids:[1,3,4,2,6,8],
   user_id:2
   )
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image7.jpg')))
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image8.jpg')))
-Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
-
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image7.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image8.jpg')))
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr.save!
 #========
 Post.create(
   title:"Thủ Đức – Cần tìm 1 bạn nữ SV hoặc đang đi làm ở ghép tại Hiệp Bình Chánh",
@@ -311,26 +314,26 @@ Post.create(
   detail_ids:[1,3,4,2,7,9],
   user_id:2
   )
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image9.jpg')))
-Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image10.jpg')))
-Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
-
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image9.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image10.jpg')))
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr.save!
 #========
-30.times do |i|(
-  Post.create!(
-    title:"Cho thuê phòng trọ cao cấp mới xây,đầy đủ tiện nghi",
-    price: rand(0.5..5.0).round(1),
-    area: rand(15..30),
-    description:"Đây là 1 căn phòng cho thuê, phòng trên lầu 2, rộng ,thoáng mát có ban công.
-     -có 1 phòng để quần áo, 1 phòng ngủ riêng , yên tĩnh tiện nghi thân thiện ",
-    phone_contact_number:"01695669219",
-    type_house: rand(1..2),
-    detail_ids: Array.new(4) { rand(1...10) },
-    user_id: rand(2..3)
-    )
-    Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image11.jpg')))
-    Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image12.jpg')))
-    Post.last.address.create!(city: "Hồ Chí Minh",district: ["Thủ Đức","Tân Bình"].sample , add_detail: "")
-
-)
+# 30.times do |i|(
+#   Post.create!(
+#     title:"Cho thuê phòng trọ cao cấp mới xây,đầy đủ tiện nghi",
+#     price: rand(0.5..5.0).round(1),
+#     area: rand(15..30),
+#     description:"Đây là 1 căn phòng cho thuê, phòng trên lầu 2, rộng ,thoáng mát có ban công.
+#      -có 1 phòng để quần áo, 1 phòng ngủ riêng , yên tĩnh tiện nghi thân thiện ",
+#     phone_contact_number:"01695669219",
+#     type_house: rand(1..2),
+#     detail_ids: Array.new(4) { rand(1...10) },
+#     user_id: rand(2..3)
+#     )
+#     Post.last.create!(image: File.open(File.join(Rails.root,'app/assets/images/image11.jpg')))
+#     Post.last.create!(image: File.open(File.join(Rails.root,'app/assets/images/image12.jpg')))
+#     Post.last.build_address(city: "Hồ Chí Minh",district: ["Thủ Đức","Tân Bình"].sample , add_detail: "")
+#addr.save!
+# )
 
