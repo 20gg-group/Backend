@@ -9,8 +9,12 @@ module Api::Entities
     expose :date_post, documentation: { type: "String" }
     expose :phone_contact_number, documentation: { type: "String" }
     expose :type_house ,documentation: { type: "Integer" }
+    expose :date_post
+    expose :image,using: Api::Entities::ImageEntity  do |instance|
+      instance.images.first
+    end
     #details_ids
-    #expose :image_url
+    #expose :avatar_url,using: Api::Entities::ImageEntity
     #expose :address , using: Api::Entities::AddressEntity
   
     

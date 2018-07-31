@@ -21,7 +21,6 @@ module Api::V1
       get 'mypost' do  
         authenticate!
         present :posts, current_user.posts, with: Api::Entities::PostEntity
-        present :images_url,image ,with: Api::Entities::ImageEntity
       end
   
       desc "Get all post"
@@ -88,43 +87,44 @@ module Api::V1
         
       end     
 
-      desc "current user POST a post", {
-        headers: {
-          'Access-Token' => {
-            description: 'Validates your identity',
-            required: true
-          }
-        }
-      }
-      params do
-          requires :post , type: Hash do
-            requires :tittle,                         type: String
-            optional :price,                          type: Float
-            optional :area,                           type: Float
-            optional :decription,                     type: String
-            optional :phone_contact_number,           type: String 
-            optional :type_house,                     type: Integer
-          end        
-          requires :address, type: Hash do
-            requires :city, type: String
-            requires :district ,type: String
-            optional :add_detail, type: String
-          end 
-          optional :attachments, type: Array do  # Up nhieu image
-            requires :image, :type => File
-          end       
-      end
-      put ":id" do
-        authenticate!
-        post =get_post
-        post.update_attributes(params[:post])
-        post.address.update_attributes(params[:address])
-       # image=post.images.last.update_attributes(image_params)
+      # desc "current user PUT a post", {
+      #   headers: {
+      #     'Access-Token' => {
+      #       description: 'Validates your identity',
+      #       required: true
+      #     }
+      #   }
+      # }
+      # params do
+      #     requires :post , type: Hash do
+      #       requires :tittle,                         type: String
+      #       optional :price,                          type: Float
+      #       optional :area,                           type: Float
+      #       optional :decription,                     type: String
+      #       optional :phone_contact_number,           type: String 
+      #       optional :type_house,                     type: Integer
+      #     end        
+      #     requires :address, type: Hash do
+      #       requires :city, type: String
+      #       requires :district ,type: String
+      #       optional :add_detail, type: String
+      #     end 
+      #     optional :attachments, type: Array do  # Up nhieu image
+      #       requires :image, :type => File
+      #     end       
+      # end
+      # put ":id" do
+      #   authenticate!
+      #   post =get_post
+      #   post.update_attributes(params[:post])
+      #   post.address.update_attributes(params[:address])
+      #  # image=post.images.last.update_attributes(image_params)
 
-        present :status,"true"
-        present :post,post,with: Api::Entities::PostEntity
-        #present :images_url, post.images.last.image.url
-      end
+      #   present :status,"true"
+      #   present :post,post,with: Api::Entities::PostEntity
+        
+      #   #present :images_url, post.images.last.image.url
+      # end
 
       #method DELETE
       delete ":id" do
