@@ -74,14 +74,14 @@ ActiveRecord::Schema.define(version: 2018_07_30_030330) do
   end
 
   create_table "posts", force: :cascade do |t|
-    t.string "tittle"
+    t.string "title"
     t.float "price"
     t.float "area"
-    t.text "decription"
+    t.text "description"
     t.datetime "date_post"
     t.string "phone_contact_number"
     t.integer "type_house"
-    t.integer "detail_ids", default: [], array: true
+    t.string "detail_ids", default: [], array: true
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

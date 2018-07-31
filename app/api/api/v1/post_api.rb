@@ -49,13 +49,13 @@ module Api::V1
       }
       params do
           requires :post , type: Hash do
-            requires :tittle,                         type: String
+            requires :title,                         type: String
             optional :price,                          type: Float
             optional :area,                           type: Float
-            optional :decription,                     type: String
+            optional :description,                     type: String
             optional :phone_contact_number,           type: String 
             optional :type_house,                     type: Integer
-            #optional :detail_ids,                     type: Array[Integer]
+            optional :detail_ids,                     type: Array[String]
           end        
           requires :address, type: Hash do
             requires :city, type: String
@@ -97,10 +97,10 @@ module Api::V1
       # }
       # params do
       #     requires :post , type: Hash do
-      #       requires :tittle,                         type: String
+      #       requires :title,                         type: String
       #       optional :price,                          type: Float
       #       optional :area,                           type: Float
-      #       optional :decription,                     type: String
+      #       optional :description,                     type: String
       #       optional :phone_contact_number,           type: String 
       #       optional :type_house,                     type: Integer
       #     end        

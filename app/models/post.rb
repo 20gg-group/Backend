@@ -8,7 +8,7 @@ class Post < ApplicationRecord
 
   before_save :set_date_post
 
-  validates :tittle, presence: true#,length:# {minimum:1, maximum:100}
+  validates :title, presence: true#,length:# {minimum:1, maximum:100}
   #validates :price,:area,:decription,:phone_contact_number, presence: true
   accepts_nested_attributes_for :images
 
@@ -21,7 +21,7 @@ class Post < ApplicationRecord
   #   # if pattern.blank?  # blank? covers both nil and empty string
   #   #   present "Can't find anything!"
   #   # else
-  #     Post.where("tittle ILIKE :search",
+  #     Post.where("title ILIKE :search",
   #                 search: "%#{pattern}%")
   #   end
   # end  

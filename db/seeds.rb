@@ -74,18 +74,18 @@ Detail.create(name: "pet")
 #-------------------Post--------------------
 
 Post.create!(
-  tittle:"Phong tro gia re quan 10 ",
+  title:"Phong tro gia re quan 10 ",
   price: 12,
   area: 50,
-  decription:"balballalla",
+  description:"balballalla",
   phone_contact_number:"01695669219",
-  details:Detail.find([1,2,5]),
+  detail_ids:[1,2,5],
   type_house: 0 ,
   user_id:1
   )
 
 # 1.times do |i|(
-#     Post.create!(tittle:"Phong tro gia re quan #{i}",price:12,area:50,decription:"balballalla",phone_contact_number:"01695669219",user_id:1 )
+#     Post.create!(title:"Phong tro gia re quan #{i}",price:12,area:50,description:"balballalla",phone_contact_number:"01695669219",user_id:1 )
 # )
 
 #--------------------Address---------------

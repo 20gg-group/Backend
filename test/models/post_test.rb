@@ -7,17 +7,17 @@ class PostTest < ActiveSupport::TestCase
 
   def setup
     @post=Post.new(
-      tittle: "abcd",
+      title: "abcd",
       price: 12,
       area: 110,
-      decription: "blablalalalala",
+      description: "blablalalalala",
       phone_contact_number: "01695669219",
       user_id: 2
             )
   end
  
   test "test1" do
-    # @post.tittle="kakaka"
+    # @post.title="kakaka"
     assert true
     # assert @post.valid?
   end
