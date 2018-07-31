@@ -2,9 +2,10 @@
 
 User.create( email: "admin@gmail.com",password:"123456",role: 1)
 User.create( email: "tom@gmail.com",password:"123456")
-User.create( email: "user@gmail.com",password:"123456")
-User.create( email: "ngotinit@gmail.com",password:"ngothientin123vn")
 User.create( email: "tin@gmail.com",password:"123456")
+User.create( email: "gray@gmail.com",password:"123456")
+User.create( email: "baron@gmail.com",password:"123456")
+User.create( email: "liam@gmail.com",password:"123456")
 #User.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/abc.jpg')))
 
 #-------------------City-------------------
@@ -13,6 +14,33 @@ City.create(name: "Hà Nội")         #id: 1
 City.create(name: "Hồ Chí Minh")    #id: 2
 
 #------------------District---------------
+
+District.create(name:"Thủ Đức",city_id:2)
+District.create(name:"Quận 10",city_id:2)
+District.create(name:"Bình Chánh",city_id:2)
+District.create(name:"Bình Tân",city_id:2)
+District.create(name:"Bình Thạnh",city_id:2)
+District.create(name:"Cần Giờ",city_id:2)
+District.create(name:"Củ Chi",city_id:2)
+District.create(name:"Gò Vấp",city_id:2)
+District.create(name:"Hóc Môn",city_id:2)
+District.create(name:"Nhà Bè",city_id:2)
+District.create(name:"Phú Nhuận",city_id:2)
+District.create(name:"Quận 1",city_id:2)
+District.create(name:"Quận 11",city_id:2)
+District.create(name:"Quận 12",city_id:2)
+District.create(name:"Quận 2",city_id:2)
+District.create(name:"Quận 3",city_id:2)
+District.create(name:"Quận 4",city_id:2)
+District.create(name:"Quận 5",city_id:2)
+District.create(name:"Quận 6",city_id:2)
+District.create(name:"Quận 7",city_id:2)
+District.create(name:"Quận 8",city_id:2)
+District.create(name:"Quận 9",city_id:2)
+District.create(name:"Tân Bình",city_id:2)  
+District.create(name:"Tân Phú",city_id:2)
+
+
 District.create(name:"Ba Đình",city_id:1)
 District.create(name:"Ba Vì",city_id:1)
 District.create(name:"Cầu Giấy",city_id:1)
@@ -28,31 +56,6 @@ District.create(name:"Hoàn Kiếm",city_id:1)
 District.create(name:"Mê Linh",city_id:1)
 District.create(name:"Tây Hồ",city_id:1)
 District.create(name:"Sơn Tây",city_id:1)
-
-District.create(name:"Bình Chánh",city_id:2)
-District.create(name:"Bình Tân",city_id:2)
-District.create(name:"Bình Thạnh",city_id:2)
-District.create(name:"Cần Giờ",city_id:2)
-District.create(name:"Củ Chi",city_id:2)
-District.create(name:"Gò Vấp",city_id:2)
-District.create(name:"Hóc Môn",city_id:2)
-District.create(name:"Nhà Bè",city_id:2)
-District.create(name:"Phú Nhuận",city_id:2)
-District.create(name:"District 1",city_id:2)
-District.create(name:"District 10",city_id:2) #id: 26
-District.create(name:"District 11",city_id:2)
-District.create(name:"District 12",city_id:2)
-District.create(name:"District 2",city_id:2)
-District.create(name:"District 3",city_id:2)
-District.create(name:"District 4",city_id:2)
-District.create(name:"District 5",city_id:2)
-District.create(name:"District 6",city_id:2)
-District.create(name:"District 7",city_id:2)
-District.create(name:"District 8",city_id:2)
-District.create(name:"District 9",city_id:2)
-District.create(name:"Tân Bình",city_id:2)  #id: 37
-District.create(name:"Tân Phú",city_id:2)
-District.create(name:"Thủ Đức",city_id:2)
 
 #-------------------Detail-------------------
 # Detail.create(name: "air_conditioner")   #id: 1
@@ -81,11 +84,14 @@ Post.create(
     cách bên xe Miền Đông 5 phút, ngay trường Đại Học Luật Tp HCM, nằm ngay trung tâm
      tiện lưu thông vào trung tâm Tp.",
   phone_contact_number:"01695669219",
-  user_id:2,
-  detail_ids:[1,2,5,7,8]
+  detail_ids:[1,2,5,7,8],
+  type_house: 1,
+  user_id:2
   )
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/abc.jpg')))
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/abc.jpg')))
+
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image1.jpg')))
+Post.last.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image2.jpg')))
+Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
 #======
 Post.create(
   title:"Nhà nguyên căn 3 lầu cho thuê, tiện mở văn phòng hoặc gia đình ở",
@@ -94,64 +100,237 @@ Post.create(
   description:"Cho thuê mở văn phòng hoặc gia đình ở - nhà nằm trong kdc vạn xuân dream home - 
   đường số 7, tô ngọc vân, thủ đức - kdc an ninh, thoáng mát - đường trước…" ,
   phone_contact_number:"01695669219",
-  user_id:3,
-  detail_ids:[1,2,3,4,5]
+  type_house: 0,
+  detail_ids:[1,2,3,4,5],
+  user_id:2
   )
-  User.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/abc.jpg')))
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image3.jpeg')))
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image4.jpeg')))
+Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+#=======
+Post.create(
+  title:"Tìm bạn ở ghép khu vực Bình Triệu, Thủ Đức",
+  price: 2,
+  area: 28,
+  description:"Địa chỉ cụ thể 1/3 đường 45,kp2, p. hiệp bình chánh, quận thủ đức. gần chợ bình triệu, 
+  coop mart bình triệu. để xe trong phòng. nhà vệ sinh trong. phòng…",
+  phone_contact_number:"01695669219",
+  type_house: 1,
+  detail_ids:[1,3,4,2],
+  user_id:2
+  )
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image5.jpeg')))
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image6.jpeg')))
+Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+#=======
+Post.create(
+  title:"Phòng trọ trong chung cư Linh Đông 4s Thủ Đức",
+  price: 2.5,
+  area: 15,
+  description:"Chính chủ cần cho 1 bạn nữ nvvp thuê 1 phòng ngủ nhỏ trong chung cư linh đông 4s thủ đức.
+   phòng rất sạch sẽ, an ninh, riêng tư, yên tĩnh, thoáng mát, có cửa…",
+  phone_contact_number:"01695669219",
+  type_house: 0,
+  detail_ids:[1,3,4,2],
+  user_id:2
+  )
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image7.jpg')))
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image8.jpg')))
+Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
 
-#=======
-Post.create(
-  title:"Nha cho thue gia tre",
-  price: 5000000,
-  area: 32,
-  description:"Nha cho thue",
-  phone_contact_number:"01695669219",
-  user_id:4,
-  detail_ids:[1,2,7,8]
-  )
- 
-#=======
-Post.create(
-  title:"Nha cho thue quan 10",
-  price: 4500000,
-  area: 40,
-  description:"balballalla",
-  phone_contact_number:"01695669219",
-  user_id:2,
-  detail_ids:[1,2,5,9,10]
-  )
 #========
 Post.create(
-  title:"Phong tro gia re quan 10 ",
-  price: 1500000,
-  area: 12,
-  description:"balballalla",
+  title:"Căn hộ mini cao cấp, rất phù hợp cho gia đình ở, mới xây,chuẩn căn hộ cho gia đình ở",
+  price: 3.5,
+  area: 30,
+  description:"Toàn bộ khu nhà gồm 60 căn hộ mini thiết kế rất chuẩn, nội thất đẹp.
+   phòng với diện tích 30m2 được thiết kế 2 gác lửng riêng biệt, thang gổ rất…",
   phone_contact_number:"01695669219",
-  user_id:4,
-  detail_ids:[1,2,5,8,9,1]
+  type_house: 0,
+  detail_ids:[1,3,4,2],
+  user_id:2
   )
-# 1.times do |i|(
-#     Post.create!(title:"Phong tro gia re quan #{i}",price:12,area:50,description:"balballalla",phone_contact_number:"01695669219",user_id:1 )
-# )
-#--------------------Address---------------
-Address.create(post_id: 1,city: "Hồ Chí Minh",district: "Tân Bình",add_detail: "268 Ly Thuong Kiet")
-Address.create(post_id: 2,city: "Hồ Chí Minh",district: "District 3",add_detail: "Quan 3 Street")
-Address.create(post_id: 3,city: "Hồ Chí Minh",district: "District 5",add_detail: "Quan 5 Street")
-Address.create(post_id: 4,city: "Hồ Chí Minh",district: "District 7",add_detail: "Quan 7 Street")
-Address.create(post_id: 5,city: "Hồ Chí Minh",district: "District 8",add_detail: "Quan 8 Street")
-# Address.create(post_id: 6,city: "Hà Nội",district: "Ba Đình",add_detail: "ABC Street")
-# Address.create(post_id: 7,city: "Hà Nội",district: "Đông Anh",add_detail: "ABC Street")
-# Address.create(post_id: 8,city: "Hà Nội",district: "Sơn Tây",add_detail: "ABC Street")
-# Address.create(post_id: 9,city: "Hà Nội",district: "Gia Lâm",add_detail: "ABC Street")
-# Address.create(post_id: 10,city: "Hồ Chí Minh",district: "Tân Bình",add_detail: "268 Ly Thuong Kiet")
-# Address.create(post_id: 11,city: "Hồ Chí Minh",district: "District 3",add_detail: "Quan 3 Street")
-# Address.create(post_id: 12,city: "Hồ Chí Minh",district: "District 5",add_detail: "Quan 5 Street")
-# Address.create(post_id: 13,city: "Hồ Chí Minh",district: "District 7",add_detail: "Quan 7 Street")
-# Address.create(post_id: 14,city: "Hồ Chí Minh",district: "District 8",add_detail: "Quan 8 Street")
-#===========================IMAGE=======================
-# Image.create(post_id: 1,image: File.open('/home/thientin/Pictures/dogss.jpeg'))
-# Image.create(post_id: 1,image: File.open('/home/thientin/Pictures/missing.jpeg'))
-# Image.create(post_id: 1,image: File.open('/home/thientin/Pictures/PostUI3.png'))
-# Image.create(post_id: 1,image: File.open('/home/thientin/Pictures/PostUI2.png'))
-# Image.create(post_id: 1,image: File.open('/home/thientin/Pictures/PostUI2.png'))
-#====================END============================
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image9.jpg')))
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image10.jpg')))
+Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+
+#========
+Post.create(
+  title:"CẦN 1 NỮ NHÂN VIÊN VP Ở GHÉP Ở GẦN PHẠM VĂN ĐỒNG- THỦ ĐỨC (ƯU TIÊN NGƯỜI MIỀN TRUNG)",
+  price: 0.85,
+  area: 17,
+  description:"Mình là nữ sinh năm 92 đang tìm 1 bạn nữ ở ghép ưu tiên là nvvp, 
+  người miền trung thật thà, dễ thương, sạch sẽ. phòng rất sạch đẹp, toilet sạch sẽ…",
+  phone_contact_number:"01695669219",
+  type_house: 0,
+  detail_ids:[1,3,4,2],
+  user_id:2
+)
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image11.jpg')))
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image12.jpg')))
+Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+
+#========
+Post.create(
+  title:"Tìm bạn nữ ở ghép hiền lành, thật thà, sạch sẽ",
+  price: 1.6,
+  area: 25,
+  description:"Phòng trọ mới , đẹp ,sạch sẽ, yên tỉnh thích hợp cho các bạn đi làm ko ồn ào náo nhiệt,
+   mỗi sáng thức dậy rất bình yên",
+  phone_contact_number:"01695669219",
+  type_house: 0,
+  detail_ids:[1,2,3,4],
+  user_id:2
+)
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image13.jpg')))
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image14.jpg')))
+Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+
+#========
+Post.create(
+  title:"Tìm nam VP hoặc sinh viên ở ghép gần Đại Học Luật",
+  price: 1.3,
+  area: 15,
+  description:"Tìm 1 bạn nam vp hoặc sinh viên ở gép gần khu vực coopmark bình triệu, đại học luật. 
+  diện tích khoảng 15m2 có gác lững, toilet trong phòng. phòng sạch sẽ",
+  phone_contact_number:"01695669219",
+  type_house: 0,
+  detail_ids:[1,3,4,2,6],
+  user_id:2
+)
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image15.jpg')))
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image16.jpg')))
+Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+
+#========
+Post.create(
+  title:"Phòng mới xây 100% sạch đẹp ven sông,an ninh tốt bảo vệ 24/7, 
+  Ngay Chợ Bình Triệu - Đại Học Luật,Chỉ 15p đến Q1",
+  price: 2.6,
+  area: 25,
+  description:"Khu nhà gồm 45 căn phòng mới xây dạng căn hộ mini cách đại học luật 500m,
+   ngã tư phạm văn đồng - ql13, xô viết nghệ tĩnh, chỉ 15p đến q1 + đường số 2",
+  phone_contact_number:"01695669219",
+  type_house: 0,
+  detail_ids:[1,3,4,2],
+  user_id:2
+)
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image17.jpg')))
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image18.jpg')))
+Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+
+#========
+Post.create(
+  title:"Cho thuê phòng trọ cao cấp mới xây, đầy đủ tiện nghi đường 9 Linh Tây, Thủ Đức",
+  price: 2.3,
+  area: 20,
+  description:"khối nhà 3 tầng mới xây số 96/6a đường 9, phường linh tây, thủ đức. hẻm cụt rộng 5m,
+   cạnh phạm văn đồng, kha vạn cân giao thông thuận tiện",
+  phone_contact_number:"01695669219",
+  type_house: 0,
+  detail_ids:[1,3,4,2],
+  user_id:2
+  )
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image19.jpg')))
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image20.jpg')))
+Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+
+#========
+Post.create(
+  title:"Cho thuê phòng trọ cao cấp phường Hiệp Bình Chánh",
+  price: 2,
+  area: 16,
+  description:"Cho thuê phòng trọ riêng biệt, vệ sinh khép kín, nhà mới xây sạch sẽ thoáng mát,
+   gần trường đại học luật cơ sở 2, gần chợ bình triệu - có chỗ nấu",
+  phone_contact_number:"01695669219",
+  type_house: 0,
+  detail_ids:[1,3,4,2,7,9],
+  user_id:2
+  )
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image1.jpeg')))
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image2.jpeg')))
+Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+
+#========
+  Post.create(
+    title:"Cho thuê phòng trọ cao cấp phường Hiệp Bình Chánh",
+    price: 2,
+    area: 16,
+    description:"Cho thuê phòng trọ riêng biệt, vệ sinh khép kín, nhà mới xây sạch sẽ thoáng mát,
+     gần trường đại học luật cơ sở 2, gần chợ bình triệu - có chỗ nấu",
+    phone_contact_number:"01695669219",
+    type_house: 0,
+  detail_ids:[1,3,4,2,6,7],
+  user_id:2
+    )
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image3.jpeg')))
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image4.jpeg')))
+Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+
+#========
+Post.create(
+  title:"Cần người ở ghép phòng rộng thoáng mát",
+  price: 1.7,
+  area: 20,
+  description:"Cần 1 nam ở ghep, sinh viên hoặc người làm vp gọn gàng sạch sẽ, ít đồ,
+    giờ giấc tự do, có wwifi riêng địa chỉ: đường 18, quận thủ đức, hồ chí minh",
+  phone_contact_number:"01695669219",
+  type_house: 1,
+  detail_ids:[1,3,4],
+  user_id:2
+  )
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image5.jpeg')))
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image6.jpeg')))
+Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+
+#========
+Post.create(
+  title:"Cho thuê phòng trọ cao cấp, mới xây 100% ngay trung tâm quận Thủ Đức",
+  price: 2.6,
+  area: 25,
+  description:"Cho thuê phòng trọ cao cấp, mới xây 100% địa chỉ: hẻm 17 đường dương văn cam
+    cách chợ thủ đức 100m, tiện ích xng quanh đầy đủ :mặt tiền đường",
+  phone_contact_number:"01695669219",
+  type_house: 0,
+  detail_ids:[1,3,4,2,6,8],
+  user_id:2
+  )
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image7.jpg')))
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image8.jpg')))
+Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+
+#========
+Post.create(
+  title:"Thủ Đức – Cần tìm 1 bạn nữ SV hoặc đang đi làm ở ghép tại Hiệp Bình Chánh",
+  price: 0.8,
+  area: 40,
+  description:"Mình đang cần tìm 1 bạn nữ ở ghép. đây là 1 căn nhà cho thuê, phòng trên lầu 2, rộng ,
+   thoáng mát có ban công. -có 1 phòng để quần áo, 1 phòng ngủ riêng",
+  phone_contact_number:"01695669219",
+  type_house: 0,
+  detail_ids:[1,3,4,2,7,9],
+  user_id:2
+  )
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image9.jpg')))
+Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image10.jpg')))
+Post.last.address.create!(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+
+#========
+30.times do |i|(
+  Post.create!(
+    title:"Cho thuê phòng trọ cao cấp mới xây,đầy đủ tiện nghi",
+    price: rand(0.5..5.0).round(1),
+    area: rand(15..30),
+    description:"Đây là 1 căn phòng cho thuê, phòng trên lầu 2, rộng ,thoáng mát có ban công.
+     -có 1 phòng để quần áo, 1 phòng ngủ riêng , yên tĩnh tiện nghi thân thiện ",
+    phone_contact_number:"01695669219",
+    type_house: rand(1..2),
+    detail_ids: Array.new(4) { rand(1...10) },
+    user_id: rand(2..3)
+    )
+    Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image11.jpg')))
+    Post.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/image12.jpg')))
+    Post.last.address.create!(city: "Hồ Chí Minh",district: ["Thủ Đức","Tân Bình"].sample , add_detail: "")
+
+)
+
