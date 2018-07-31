@@ -39,6 +39,7 @@ module Api::V1
 
         authenticate!
         current_user.update_attributes!(user_params)
+        present :status,"true"
         present :user,current_user,with: Api::Entities::UserEntity
 
       end
