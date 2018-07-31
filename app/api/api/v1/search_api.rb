@@ -5,7 +5,7 @@ module Api::V1
         def search_post 
           @p = []
           @id.each do |y|          
-            @p.push(Post.where("posts.id = ? AND posts.price <= ? AND posts.price >= ?",y ,params[:max_price] ,params[:min_price]))           
+            @p.push(Post.where("posts.id = ? AND posts.price <= ? AND posts.price >= ? AND posts.type_house = ?",y ,params[:max_price] ,params[:min_price] ,params[:type_house]))           
           end 
           @p                                                 
         end      
@@ -15,7 +15,8 @@ module Api::V1
         optional :city,        type: String
         optional :district,   type: String
         optional :min_price,    type: Integer
-        optional :max_price, type: Integer             
+        optional :max_price, type: Integer 
+        optional :type_house, type:Integer           
       end
 
       get do

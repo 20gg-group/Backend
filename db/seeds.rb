@@ -1,18 +1,12 @@
 #-------------------User--------------------
 
 User.create( email: "admin@gmail.com",password:"123456",role: 1)
-User.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/abc.jpg')))
-
 User.create( email: "tom@gmail.com",password:"123456")
-#img = File.open(File.join(Rails.root,'app/assets/images/abc.jpg'))
-#User.last.update(avatar: img)
 User.create( email: "user@gmail.com",password:"123456")
-#============================================================== create by Tin
 User.create( email: "ngotinit@gmail.com",password:"ngothientin123vn")
-#User.last.update(avatar: img)
-
 User.create( email: "tin@gmail.com",password:"123456")
-User.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/abc.jpg')))
+#User.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/abc.jpg')))
+
 #-------------------City-------------------
 
 City.create(name: "Hà Nội")         #id: 1
@@ -34,7 +28,7 @@ District.create(name:"Hoàn Kiếm",city_id:1)
 District.create(name:"Mê Linh",city_id:1)
 District.create(name:"Tây Hồ",city_id:1)
 District.create(name:"Sơn Tây",city_id:1)
-#===================================TP.HCM=============================
+
 District.create(name:"Bình Chánh",city_id:2)
 District.create(name:"Bình Tân",city_id:2)
 District.create(name:"Bình Thạnh",city_id:2)
@@ -59,6 +53,7 @@ District.create(name:"District 9",city_id:2)
 District.create(name:"Tân Bình",city_id:2)  #id: 37
 District.create(name:"Tân Phú",city_id:2)
 District.create(name:"Thủ Đức",city_id:2)
+
 #-------------------Detail-------------------
 # Detail.create(name: "air_conditioner")   #id: 1
 # Detail.create(name: "washing_machine")   #id: 2
@@ -78,24 +73,32 @@ District.create(name:"Thủ Đức",city_id:2)
 # Detail.create(name: "pet")
 #-------------------Post--------------------
 Post.create(
-  title:"Phong Tro Quan 10",
-  price: 1900000,
-  area: 9,
-  description:"Phong tro gia tre, sach se, thoat mat",
+  title:"Cho thuê phòng mới xây ngay ngã tư Bình Triệu, DT 27m2, giá 2.9 triệu",
+  price: 3,
+  area: 27,
+  description:"Nhà trọ mới xây ngay số 6 đường số 12 Phường Hiệp Bình Chánh Quận Thủ Đức,
+   nhà xây mới hoàn thiện, thiết kế thao kiểu chưng cư mini, tọa lạc ngay ngã tư Bình Triệu,
+    cách bên xe Miền Đông 5 phút, ngay trường Đại Học Luật Tp HCM, nằm ngay trung tâm
+     tiện lưu thông vào trung tâm Tp.",
   phone_contact_number:"01695669219",
   user_id:2,
   detail_ids:[1,2,5,7,8]
   )
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/abc.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/abc.jpg')))
 #======
 Post.create(
-  title:"Phong tro Quan 2",
-  price: 2000000,
-  area: 10,
-  description:"phong tro quan 2",
+  title:"Nhà nguyên căn 3 lầu cho thuê, tiện mở văn phòng hoặc gia đình ở",
+  price: 17,
+  area: 220,
+  description:"Cho thuê mở văn phòng hoặc gia đình ở - nhà nằm trong kdc vạn xuân dream home - 
+  đường số 7, tô ngọc vân, thủ đức - kdc an ninh, thoáng mát - đường trước…" ,
   phone_contact_number:"01695669219",
   user_id:3,
   detail_ids:[1,2,3,4,5]
   )
+  User.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/abc.jpg')))
+
 #=======
 Post.create(
   title:"Nha cho thue gia tre",
