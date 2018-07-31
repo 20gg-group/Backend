@@ -11,6 +11,8 @@ User.create( email: "user@gmail.com",password:"123456")
 User.create( email: "ngotinit@gmail.com",password:"ngothientin123vn")
 #User.last.update(avatar: img)
 
+User.create( email: "tin@gmail.com",password:"123456")
+User.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/abc.jpg')))
 #-------------------City-------------------
 
 City.create(name: "Hà Nội")         #id: 1

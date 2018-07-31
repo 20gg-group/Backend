@@ -33,7 +33,7 @@ module Api::V1
       params do  
         optional :full_name, type: String 
         optional :phone_number, type: String
-        requires :avatar, type: File    
+        optional :avatar, type: File
       end
       put do
 
