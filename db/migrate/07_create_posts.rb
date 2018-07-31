@@ -9,6 +9,7 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :phone_contact_number
       t.integer :type_house # 0=> room_for_rent , 1=> room_graft
       t.string :detail_ids, array: true, default: []
+      t.integer :sex
 
 			#t.boolean :status # da ban hay chua ban/ da co thue hoac chua
 			t.references :user, foreign_key: true

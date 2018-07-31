@@ -27,25 +27,10 @@ module Api
       end
     end
     
-    mount V1::AuthApi
-   
-  
-		before do
-      #authenticate!
-    end
-    get do 
-      #user=User.find(current_user.id)
-    end 
-
     mount V1::CityApi
     mount V1::PostApi
-    mount V1::LogoutApi 
-
-  
     mount V1::SearchApi
     mount V1::UserApi
-  
-   
 
     add_swagger_documentation
 	end

@@ -16,6 +16,7 @@ City.create(name: "Hồ Chí Minh")    #id: 2
 #------------------District---------------
 
 District.create(name:"Thủ Đức",city_id:2)
+District.create(name:"Tân Bình",city_id:2) 
 District.create(name:"Quận 10",city_id:2)
 District.create(name:"Bình Chánh",city_id:2)
 District.create(name:"Bình Tân",city_id:2)
@@ -36,8 +37,7 @@ District.create(name:"Quận 5",city_id:2)
 District.create(name:"Quận 6",city_id:2)
 District.create(name:"Quận 7",city_id:2)
 District.create(name:"Quận 8",city_id:2)
-District.create(name:"Quận 9",city_id:2)
-District.create(name:"Tân Bình",city_id:2)  
+District.create(name:"Quận 9",city_id:2) 
 District.create(name:"Tân Phú",city_id:2)
 
 
@@ -57,23 +57,6 @@ District.create(name:"Mê Linh",city_id:1)
 District.create(name:"Tây Hồ",city_id:1)
 District.create(name:"Sơn Tây",city_id:1)
 
-#-------------------Detail-------------------
-# Detail.create(name: "air_conditioner")   #id: 1
-# Detail.create(name: "washing_machine")   #id: 2
-# Detail.create(name: "refrigerator")       # id: 3 
-# Detail.create(name: "wc")
-# Detail.create(name: "parking")
-# Detail.create(name: "wifi")
-# Detail.create(name: "free_time")
-# Detail.create(name: "separated_owner")
-# Detail.create(name: "kitchen")
-# Detail.create(name: "bed")
-# Detail.create(name: "television")
-# Detail.create(name: "wardrobe")
-# Detail.create(name: "amezzanine")
-# Detail.create(name: "camera")
-# Detail.create(name: "security")
-# Detail.create(name: "pet")
 #-------------------Post--------------------
 Post.create(
   title:"Cho thuê phòng mới xây ngay ngã tư Bình Triệu, DT 27m2, giá 2.9 triệu",
@@ -82,16 +65,17 @@ Post.create(
   description:"Nhà trọ mới xây ngay số 6 đường số 12 Phường Hiệp Bình Chánh Quận Thủ Đức,
    nhà xây mới hoàn thiện, thiết kế thao kiểu chưng cư mini, tọa lạc ngay ngã tư Bình Triệu,
     cách bên xe Miền Đông 5 phút, ngay trường Đại Học Luật Tp HCM, nằm ngay trung tâm
-     tiện lưu thông vào trung tâm Tp.",
+     tiện lưu thông vào trung tâm Tp.".delete("\n"),
   phone_contact_number:"01695669219",
-  detail_ids:[1,2,5,7,8],
+  detail_ids: ["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   type_house: 1,
+  sex: 2,
   user_id:2
   )
 
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image1.jpg')))
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image2.jpg')))
-addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Bình Triệu",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
 addr.save!
 #======
 Post.create(
@@ -99,10 +83,11 @@ Post.create(
   price: 17,
   area: 220,
   description:"Cho thuê mở văn phòng hoặc gia đình ở - nhà nằm trong kdc vạn xuân dream home - 
-  đường số 7, tô ngọc vân, thủ đức - kdc an ninh, thoáng mát - đường trước…" ,
+  đường số 7, tô ngọc vân, thủ đức - kdc an ninh, thoáng mát - đường trước…".delete("\n") ,
   phone_contact_number:"01695669219",
   type_house: 0,
-  detail_ids:[1,2,3,4,5],
+  sex: 2,
+  detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image3.jpeg')))
@@ -115,10 +100,11 @@ Post.create(
   price: 2,
   area: 28,
   description:"Địa chỉ cụ thể 1/3 đường 45,kp2, p. hiệp bình chánh, quận thủ đức. gần chợ bình triệu, 
-  coop mart bình triệu. để xe trong phòng. nhà vệ sinh trong. phòng…",
+  coop mart bình triệu. để xe trong phòng. nhà vệ sinh trong. phòng…".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 1,
-  detail_ids:[1,3,4,2],
+  sex: 2,
+  detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image5.jpeg')))
@@ -131,10 +117,11 @@ Post.create(
   price: 2.5,
   area: 15,
   description:"Chính chủ cần cho 1 bạn nữ nvvp thuê 1 phòng ngủ nhỏ trong chung cư linh đông 4s thủ đức.
-   phòng rất sạch sẽ, an ninh, riêng tư, yên tĩnh, thoáng mát, có cửa…",
+   phòng rất sạch sẽ, an ninh, riêng tư, yên tĩnh, thoáng mát, có cửa…".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 0,
-  detail_ids:[1,3,4,2],
+  sex: 2,
+  detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image7.jpg')))
@@ -147,10 +134,11 @@ Post.create(
   price: 3.5,
   area: 30,
   description:"Toàn bộ khu nhà gồm 60 căn hộ mini thiết kế rất chuẩn, nội thất đẹp.
-   phòng với diện tích 30m2 được thiết kế 2 gác lửng riêng biệt, thang gổ rất…",
+   phòng với diện tích 30m2 được thiết kế 2 gác lửng riêng biệt, thang gổ rất…".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 0,
-  detail_ids:[1,3,4,2],
+  sex: 2,
+  detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image9.jpg')))
@@ -163,10 +151,11 @@ Post.create(
   price: 0.85,
   area: 17,
   description:"Mình là nữ sinh năm 92 đang tìm 1 bạn nữ ở ghép ưu tiên là nvvp, 
-  người miền trung thật thà, dễ thương, sạch sẽ. phòng rất sạch đẹp, toilet sạch sẽ…",
+  người miền trung thật thà, dễ thương, sạch sẽ. phòng rất sạch đẹp, toilet sạch sẽ…".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 0,
-  detail_ids:[1,3,4,2],
+  sex: 1,
+  detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
 )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image11.jpg')))
@@ -179,10 +168,11 @@ Post.create(
   price: 1.6,
   area: 25,
   description:"Phòng trọ mới , đẹp ,sạch sẽ, yên tỉnh thích hợp cho các bạn đi làm ko ồn ào náo nhiệt,
-   mỗi sáng thức dậy rất bình yên",
+   mỗi sáng thức dậy rất bình yên".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 0,
-  detail_ids:[1,2,3,4],
+  sex: 1,
+  detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
 )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image13.jpg')))
@@ -195,10 +185,11 @@ Post.create(
   price: 1.3,
   area: 15,
   description:"Tìm 1 bạn nam vp hoặc sinh viên ở gép gần khu vực coopmark bình triệu, đại học luật. 
-  diện tích khoảng 15m2 có gác lững, toilet trong phòng. phòng sạch sẽ",
+  diện tích khoảng 15m2 có gác lững, toilet trong phòng. phòng sạch sẽ".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 0,
-  detail_ids:[1,3,4,2,6],
+  sex: 0,
+  detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
 )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image15.jpg')))
@@ -212,10 +203,11 @@ Post.create(
   price: 2.6,
   area: 25,
   description:"Khu nhà gồm 45 căn phòng mới xây dạng căn hộ mini cách đại học luật 500m,
-   ngã tư phạm văn đồng - ql13, xô viết nghệ tĩnh, chỉ 15p đến q1 + đường số 2",
+   ngã tư phạm văn đồng - ql13, xô viết nghệ tĩnh, chỉ 15p đến q1 + đường số 2".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 0,
-  detail_ids:[1,3,4,2],
+  sex: 2,
+  detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
 )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image17.jpg')))
@@ -228,10 +220,11 @@ Post.create(
   price: 2.3,
   area: 20,
   description:"khối nhà 3 tầng mới xây số 96/6a đường 9, phường linh tây, thủ đức. hẻm cụt rộng 5m,
-   cạnh phạm văn đồng, kha vạn cân giao thông thuận tiện",
+   cạnh phạm văn đồng, kha vạn cân giao thông thuận tiện".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 0,
-  detail_ids:[1,3,4,2],
+  sex: 2,
+  detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image19.jpg')))
@@ -244,10 +237,11 @@ Post.create(
   price: 2,
   area: 16,
   description:"Cho thuê phòng trọ riêng biệt, vệ sinh khép kín, nhà mới xây sạch sẽ thoáng mát,
-   gần trường đại học luật cơ sở 2, gần chợ bình triệu - có chỗ nấu",
+   gần trường đại học luật cơ sở 2, gần chợ bình triệu - có chỗ nấu".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 0,
-  detail_ids:[1,3,4,2,7,9],
+  sex: 2,
+  detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image1.jpg')))
@@ -260,10 +254,11 @@ addr.save!
     price: 2,
     area: 16,
     description:"Cho thuê phòng trọ riêng biệt, vệ sinh khép kín, nhà mới xây sạch sẽ thoáng mát,
-     gần trường đại học luật cơ sở 2, gần chợ bình triệu - có chỗ nấu",
+     gần trường đại học luật cơ sở 2, gần chợ bình triệu - có chỗ nấu".delete("\n"),
     phone_contact_number:"01695669219",
     type_house: 0,
-  detail_ids:[1,3,4,2,6,7],
+    sex: 2,
+  detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
     )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image3.jpeg')))
@@ -276,10 +271,11 @@ Post.create(
   price: 1.7,
   area: 20,
   description:"Cần 1 nam ở ghep, sinh viên hoặc người làm vp gọn gàng sạch sẽ, ít đồ,
-    giờ giấc tự do, có wwifi riêng địa chỉ: đường 18, quận thủ đức, hồ chí minh",
+    giờ giấc tự do, có wwifi riêng địa chỉ: đường 18, quận thủ đức, hồ chí minh".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 1,
-  detail_ids:[1,3,4],
+  sex: 2,
+  detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image5.jpeg')))
@@ -292,10 +288,11 @@ Post.create(
   price: 2.6,
   area: 25,
   description:"Cho thuê phòng trọ cao cấp, mới xây 100% địa chỉ: hẻm 17 đường dương văn cam
-    cách chợ thủ đức 100m, tiện ích xng quanh đầy đủ :mặt tiền đường",
+    cách chợ thủ đức 100m, tiện ích xng quanh đầy đủ :mặt tiền đường".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 0,
-  detail_ids:[1,3,4,2,6,8],
+  sex: 2,
+  detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image7.jpg')))
@@ -308,32 +305,36 @@ Post.create(
   price: 0.8,
   area: 40,
   description:"Mình đang cần tìm 1 bạn nữ ở ghép. đây là 1 căn nhà cho thuê, phòng trên lầu 2, rộng ,
-   thoáng mát có ban công. -có 1 phòng để quần áo, 1 phòng ngủ riêng",
+   thoáng mát có ban công. -có 1 phòng để quần áo, 1 phòng ngủ riêng".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 0,
-  detail_ids:[1,3,4,2,7,9],
+  sex: 1,
+  detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image9.jpg')))
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image10.jpg')))
 addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
 addr.save!
-#========
-# 30.times do |i|(
-#   Post.create!(
-#     title:"Cho thuê phòng trọ cao cấp mới xây,đầy đủ tiện nghi",
-#     price: rand(0.5..5.0).round(1),
-#     area: rand(15..30),
-#     description:"Đây là 1 căn phòng cho thuê, phòng trên lầu 2, rộng ,thoáng mát có ban công.
-#      -có 1 phòng để quần áo, 1 phòng ngủ riêng , yên tĩnh tiện nghi thân thiện ",
-#     phone_contact_number:"01695669219",
-#     type_house: rand(1..2),
-#     detail_ids: Array.new(4) { rand(1...10) },
-#     user_id: rand(2..3)
-#     )
-#     Post.last.create!(image: File.open(File.join(Rails.root,'app/assets/images/image11.jpg')))
-#     Post.last.create!(image: File.open(File.join(Rails.root,'app/assets/images/image12.jpg')))
-#     Post.last.build_address(city: "Hồ Chí Minh",district: ["Thủ Đức","Tân Bình"].sample , add_detail: "")
-#addr.save!
-# )
+#====================
+30.times do |i|
+  Post.create!(
+    title: "Cho thuê phòng trọ cao cấp mới xây,đầy đủ tiện nghi #{i}",
+    price: rand(0.5..5.0).round(1),
+    area: rand(15..30),
+    description: "Đây là 1 căn phòng cho thuê, phòng trên lầu 2, rộng ,thoáng mát có ban công.
+     -có 1 phòng để quần áo, 1 phòng ngủ riêng , yên tĩnh tiện nghi thân thiện ".delete("\n"),
+    phone_contact_number:"01695669219",
+    type_house: rand(0..1),
+    sex: rand(0..2) ,
+    detail_ids: ["Máy lạnh", "Máy giặt", "Tủ lạnh", "WC riêng", "Chổ để xe",
+      "Wifi", "Giờ giấc tự do", "Không chung chủ", "Bếp", "Giường ngủ",
+      "Tivi", "Tủ quần áo", "Gác lửng", "Camera", "Bảo vệ", "Thú cưng"].sample(5),
+    user_id: rand(2..3)
+  )
+    Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image11.jpg')))
+    Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image12.jpg')))
+    addr = Post.last.build_address(city: "Hồ Chí Minh",district: ["Thủ Đức","Tân Bình"].sample , add_detail: "")
+    addr.save!
 
+end

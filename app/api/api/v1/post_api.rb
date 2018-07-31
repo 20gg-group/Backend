@@ -5,14 +5,10 @@ module Api::V1
       def get_post
        @post = Post.find(params[:id])
       end
-      # def image_params      
-      #   params[:image] = ActionDispatch::Http::UploadedFile.new(params[:image]) if params[:image].present?        
-      #   ActionController::Parameters.new(params).permit(:image)
-      # end 
     end    
 
     resources :posts do
-
+#==============================My Post================================
       desc "Get all post of user", {
         headers: {
           'Access-Token' => {
@@ -21,16 +17,16 @@ module Api::V1
           }
         }
       }
-      get 'mypost' do  
+      get '/mypost' do  
         authenticate!
         present :posts, current_user.posts, with: Api::Entities::PostEntity
       end
-  
+#==============================All Post================================
       desc "Get all post"
-      get 'allposts' do
-        present :posts,Post.all ,with: Api::Entities::PostEntity #, except: [:tittle]
+      get do
+        present :posts,Post.all ,with: Api::Entities::PostEntity
       end
-
+#=========================Get Post with ID=============================
       desc "Get post with id "
       get ":id" do
         user = get_post.user 
@@ -38,10 +34,14 @@ module Api::V1
         image=get_post.images
         present :post,get_post,with: Api::Entities::PostEntity
         present :user,user, with: Api::Entities::UserEntity
-        present :address,add,with: Api::Entities::AddressEntity
         present :images_url,image ,with: Api::Entities::ImageEntity
       end
-    
+#=========================Get 10 Post newest=============================
+      desc "get 10 post newest"
+      get do
+        present Post.last(10) ,with: Api::Entities::PostEntity
+      end
+#==============================POST post================================  
       desc "current user POST a post", {
         headers: {
           'Access-Token' => {
@@ -65,7 +65,6 @@ module Api::V1
             requires :district ,type: String
             optional :add_detail, type: String
           end           
-         #requires :image, :type => File  # Up 1 image
           optional :attachments, type: Array do  # Up nhieu image
             requires :image, :type => File
           end  
@@ -89,51 +88,12 @@ module Api::V1
           present :images_url, post.images,with: Api::Entities::ImageEntity
         
       end     
-
-      # desc "current user PUT a post", {
-      #   headers: {
-      #     'Access-Token' => {
-      #       description: 'Validates your identity',
-      #       required: true
-      #     }
-      #   }
-      # }
-      # params do
-      #     requires :post , type: Hash do
-      #       requires :title,                         type: String
-      #       optional :price,                          type: Float
-      #       optional :area,                           type: Float
-      #       optional :description,                     type: String
-      #       optional :phone_contact_number,           type: String 
-      #       optional :type_house,                     type: Integer
-      #     end        
-      #     requires :address, type: Hash do
-      #       requires :city, type: String
-      #       requires :district ,type: String
-      #       optional :add_detail, type: String
-      #     end 
-      #     optional :attachments, type: Array do  # Up nhieu image
-      #       requires :image, :type => File
-      #     end       
-      # end
-      # put ":id" do
-      #   authenticate!
-      #   post =get_post
-      #   post.update_attributes(params[:post])
-      #   post.address.update_attributes(params[:address])
-      #  # image=post.images.last.update_attributes(image_params)
-
-      #   present :status,"true"
-      #   present :post,post,with: Api::Entities::PostEntity
-        
-      #   #present :images_url, post.images.last.image.url
-      # end
-
-      #method DELETE
+#==============================Delete Post================================
       delete ":id" do
         get_post.destroy
         present "true"
       end
+
     end      
 
   end
