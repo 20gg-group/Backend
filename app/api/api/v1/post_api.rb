@@ -5,10 +5,10 @@ module Api::V1
       def get_post
        @post = Post.find(params[:id])
       end
-      def image_params      
-        params[:image] = ActionDispatch::Http::UploadedFile.new(params[:image]) if params[:image].present?        
-        ActionController::Parameters.new(params).permit(:image)
-      end 
+      # def image_params      
+      #   params[:image] = ActionDispatch::Http::UploadedFile.new(params[:image]) if params[:image].present?        
+      #   ActionController::Parameters.new(params).permit(:image)
+      # end 
     end    
 
     resources :posts do
@@ -65,10 +65,10 @@ module Api::V1
             requires :district ,type: String
             optional :add_detail, type: String
           end           
-          requires :image, :type => File  # Up 1 image
-          # optional :attachments, type: Array do  # Up nhieu image
-          #   requires :image, :type => File
-          # end  
+         #requires :image, :type => File  # Up 1 image
+          optional :attachments, type: Array do  # Up nhieu image
+            requires :image, :type => File
+          end  
       end
       post do
         authenticate!
@@ -76,14 +76,13 @@ module Api::V1
          address = post.build_address(params[:address])
          address.save!
 
-         image = post.images.new(image_params)
-         image.save!
+        #  image = post.images.new(image_params)
+        #  image.save!
 
-        #  params[:attachments].each do |attachment|
-        #   image = ActionDispatch::Http::UploadedFile.new(attachment[:image])
-        #   post.images.create!(image: image)
-          
-       # end
+         params[:attachments].each do |attachment|
+          image = ActionDispatch::Http::UploadedFile.new(attachment[:image])
+          post.images.create!(image: image)
+       end
 
           present :status ,"true"
           present :post , post ,with: Api::Entities::PostEntity
