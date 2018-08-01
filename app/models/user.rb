@@ -5,19 +5,6 @@ class User < ApplicationRecord
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  
-  #devise :omniauthable, omniauth_providers: [:google_oauth2]
-  # def self.from_omniauth(email)
-  #   user=User.find_by(email: email)
-  #   unless user
-  #       user = User.create(
-         
-  #          email: email,
-  #          password: Devise.friendly_token[0,20]
-  #       )
-  #   end
-  #   user
-  # end
 
   enum role: [:user, :admin]
 
@@ -27,8 +14,6 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: { case_sensitive: false }
 
-  #validates :password, presence: true, length: { minimum: 6 }
-  #validates :phone,presence: true , length:{maximum: 12}
   has_attached_file :avatar ,styles: {
     thumb: '100x100>',
     square: '200x200#',
@@ -36,5 +21,6 @@ class User < ApplicationRecord
   } ,default_url: "/images/:style/missing.png"
    validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
+  acts_as_voter
 
 end

@@ -25,6 +25,8 @@ gem 'aws-sdk-s3'
 
 gem 'ransack'
 
+gem 'acts_as_votable', '~> 0.11.1'
+
 #gem 'seed_dump'
 #gem 'rack-cors', require: 'rack/cors'
 #gem "omniauth"

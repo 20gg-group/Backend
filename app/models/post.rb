@@ -14,15 +14,10 @@ class Post < ApplicationRecord
 
   #enum type_house: [:"house_for_rent", :"house_graft"]
 
+  acts_as_votable
+
   def set_date_post
     self.date_post=Time.now
   end
-  # def search(pattern)
-  #   # if pattern.blank?  # blank? covers both nil and empty string
-  #   #   present "Can't find anything!"
-  #   # else
-  #     Post.where("title ILIKE :search",
-  #                 search: "%#{pattern}%")
-  #   end
-  # end  
+
 end

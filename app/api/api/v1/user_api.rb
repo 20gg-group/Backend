@@ -14,7 +14,7 @@ module Api::V1
       end 
 
     end
-    namespace :users do
+    resources :users do
 #==============================Test==================================
       desc "API for sign-in"
       params do
