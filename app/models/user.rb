@@ -18,7 +18,7 @@ class User < ApplicationRecord
     thumb: '100x100>',
     square: '200x200#',
     medium: '300x300>'
-  } ,default_url: "app/assets/images/avatar.jpg"
+  } ,default_url: "https://s3.amazonaws.com/salty-brushlands-19787/users/avatars/000/000/defalt_avatar/avatar.jpg"
    validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   acts_as_voter
