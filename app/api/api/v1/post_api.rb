@@ -17,19 +17,20 @@ module Api::V1
           }
         }
       }
+      params do
+        requires :page , type: Integer
+      end
       get '/mypost' do  
         authenticate!
-        present :posts, current_user.posts, with: Api::Entities::PostEntity
+        present :posts, current_user.posts.page(params[:page]).per(10), with: Api::Entities::PostEntity
       end
 #==============================All Post================================
-      desc "Lấy tất cả các post"
-      get do
-        present :posts,Post.all ,with: Api::Entities::PostEntity
+      desc "Lấy tất cả các post theo trang"
+      params do
+        requires :page , type: Integer 
       end
-#=========================Get 10 Post newest===========================
-      desc "Lấy 10 post mới nhất"
-      get 'newposts' do
-        present Post.last(10) ,with: Api::Entities::PostEntity
+      get do
+        present :posts,Post.all.page(params[:page]).per(10) ,with: Api::Entities::PostEntity
       end
 #=========================Get Post with ID=============================
       desc "Lấy post theo id"
