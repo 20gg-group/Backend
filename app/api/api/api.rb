@@ -26,7 +26,6 @@ module Api
         @current_user
       end
     end
-    
     mount V1::CityApi
     mount V1::PostApi
     #mount V1::SearchApi
