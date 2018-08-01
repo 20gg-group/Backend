@@ -16,7 +16,7 @@ module Api::V1
     end
     resources :users do
 #==============================Test==================================
-      desc "API for sign-in"
+      desc "Đăng nhập bằng email"
       params do
         requires :email, type: String
         requires :password, type: String
@@ -42,7 +42,7 @@ module Api::V1
         end
       end
 #============================Sign in with GG==================================
-      desc "API for sign-in with GG"
+      desc "Đăng nhập băng Google"
       params do
         requires :full_name, type: String 
         requires :email, type: String
@@ -68,7 +68,7 @@ module Api::V1
         end   
       end
 #================================Sign out==================================
-      desc "Androi sent Token => Server destroy Token ", {
+      desc "Đăng xuất", {
         headers: {
           'Access-Token' => {
             description: 'Validates your identity',
@@ -77,13 +77,14 @@ module Api::V1
         }
       }
       delete '/sign_out' do 
+        authenticate!
         api_key.destroy # Tim api_key theo Token
         {
           status:"true",
         }
       end  
 #=================================Sign up==================================
-      desc "API for sign-up" 
+      desc "Đăng ký" 
       params do
         requires :full_name, type: String 
         requires :email, type: String
@@ -98,13 +99,13 @@ module Api::V1
         }
       end
 #==============================All User==================================
-      desc "API for view all user"
+      desc "Xem tất cả các User => Dùng cho test"
       get do
         present User.all ,with: Api::Entities::UserEntity
       end
      
 #=====================Get user's infomation==============================
-      desc "Get user's information", {
+      desc "Lấy thông tin của User", {
         headers: {
           'Access-Token' => {
             description: 'Validates your identity',
@@ -118,7 +119,7 @@ module Api::V1
       end
 #===========================Update User's Information===============================
 
-      desc "Update user's information", {
+      desc "Update thông tin User", {
         headers: {
           'Access-Token' => {
             description: 'Validates your identity',

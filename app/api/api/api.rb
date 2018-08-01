@@ -29,7 +29,7 @@ module Api
     
     mount V1::CityApi
     mount V1::PostApi
-    mount V1::SearchApi
+    #mount V1::SearchApi
     mount V1::UserApi
     mount V1::VoteApi
     add_swagger_documentation

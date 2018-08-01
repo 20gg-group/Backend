@@ -9,7 +9,7 @@ module Api::V1
 
     resources :posts do
 #==============================My Post================================
-      desc "Get all post of user", {
+      desc "Lấy các post của User hiện tại", {
         headers: {
           'Access-Token' => {
             description: 'Validates your identity',
@@ -22,12 +22,17 @@ module Api::V1
         present :posts, current_user.posts, with: Api::Entities::PostEntity
       end
 #==============================All Post================================
-      desc "Get all post"
+      desc "Lấy tất cả các post"
       get do
         present :posts,Post.all ,with: Api::Entities::PostEntity
       end
+#=========================Get 10 Post newest===========================
+      desc "Lấy 10 post mới nhất"
+      get 'newposts' do
+        present Post.last(10) ,with: Api::Entities::PostEntity
+      end
 #=========================Get Post with ID=============================
-      desc "Get post with id "
+      desc "Lấy post theo id"
       get ":id" do
         user = get_post.user 
         add = get_post.address
@@ -36,13 +41,9 @@ module Api::V1
         present :user,user, with: Api::Entities::UserEntity
         present :images_url,image ,with: Api::Entities::ImageEntity
       end
-#=========================Get 10 Post newest=============================
-      desc "get 10 post newest"
-      get do
-        present Post.last(10) ,with: Api::Entities::PostEntity
-      end
+
 #==============================POST post================================  
-      desc "current user POST a post", {
+      desc "Người dùng đăng post", {
         headers: {
           'Access-Token' => {
             description: 'Validates your identity',
@@ -58,6 +59,8 @@ module Api::V1
             optional :description,                     type: String
             optional :phone_contact_number,           type: String 
             optional :type_house,                     type: Integer
+            optional :sex,                             type:Integer
+            optional :quantity,                        type:Integer
             optional :detail_ids,                     type: Array[String]
           end        
           requires :address, type: Hash do
@@ -89,6 +92,7 @@ module Api::V1
         
       end     
 #==============================Delete Post================================
+      desc "Xóa post"
       delete ":id" do
         get_post.destroy
         present "true"

@@ -62,10 +62,10 @@ Post.create(
   title:"Cho thuê phòng mới xây ngay ngã tư Bình Triệu, DT 27m2, giá 2.9 triệu",
   price: 3,
   area: 27,
-  description:"Nhà trọ mới xây ngay số 6 đường số 12 Phường Hiệp Bình Chánh Quận Thủ Đức,
-  nhà xây mới hoàn thiện, thiết kế thao kiểu chưng cư mini, tọa lạc ngay ngã tư Bình Triệu,
-  cách bên xe Miền Đông 5 phút, ngay trường Đại Học Luật Tp HCM, nằm ngay trung tâm
-  tiện lưu thông vào trung tâm Tp.".delete("\n"),
+  description:"Nhà trọ mới xây ngay số  6 Binh Chanh Quận Thủ Đức,
+nhà xây mới hoàn thiện, thiết kế thao kiểu chưng cư mini, tọa lạc ngay ngã tư Bình Triệu,
+cách bên xe Miền Đông 5 phút, ngay trường Đại Học Luật Tp HCM, nằm ngay trung tâm
+tiện lưu thông vào trung tâm Tp.".delete("\n"),
   phone_contact_number:"01695669219",
   detail_ids: ["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   type_house: 1,
@@ -75,24 +75,25 @@ Post.create(
 
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image1.jpg')))
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image2.jpg')))
-addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Bình Triệu",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Bình Triệu",add_detail: "")
 addr.save!
 #======
 Post.create(
   title:"Nhà nguyên căn 3 lầu cho thuê, tiện mở văn phòng hoặc gia đình ở",
   price: 17,
   area: 220,
-  description:"Cho thuê mở văn phòng hoặc gia đình ở - nhà nằm trong kdc vạn xuân dream home - 
-  đường số 7, tô ngọc vân, thủ đức - kdc an ninh, thoáng mát - đường trước…".delete("\n") ,
+  description:"Cho thuê mở văn phòng hoặc gia đình ở - nhà nằm trong kdc vạn xuân dream home -
+đường số 7, tô ngọc vân, thủ đức - kdc an ninh, thoáng mát - đường trước…".delete("\n") ,
   phone_contact_number:"01695669219",
   type_house: 0,
+  quantity: 1,
   sex: 2,
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image3.jpeg')))
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image4.jpeg')))
-addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "Đường số  7 Tô Ngọc Vân")
 addr.save!
 #     =======
 Post.create(
@@ -100,16 +101,17 @@ Post.create(
   price: 2,
   area: 28,
   description:"Địa chỉ cụ thể 1/3 đường 45,kp2, p. hiệp bình chánh, quận thủ đức. gần chợ bình triệu, 
-  coop mart bình triệu. để xe trong phòng. nhà vệ sinh trong. phòng…".delete("\n"),
+coop mart bình triệu. để xe trong phòng. nhà vệ sinh trong. phòng…".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 1,
+  quantity: 1,
   sex: 2,
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image5.jpeg')))
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image6.jpeg')))
-addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "Đường 45,kp2 , hiệp bình chánh")
 addr.save!
 #     =======
 Post.create(
@@ -117,16 +119,17 @@ Post.create(
   price: 2.5,
   area: 15,
   description:"Chính chủ cần cho 1 bạn nữ nvvp thuê 1 phòng ngủ nhỏ trong chung cư linh đông 4s thủ đức.
-  phòng rất sạch sẽ, an ninh, riêng tư, yên tĩnh, thoáng mát, có cửa…".delete("\n"),
+phòng rất sạch sẽ, an ninh, riêng tư, yên tĩnh, thoáng mát, có cửa…".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 0,
+  quantity: 1,
   sex: 2,
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image7.jpg')))
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image8.jpg')))
-addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "Linh Đông")
 addr.save!
 #========
 Post.create(
@@ -134,16 +137,17 @@ Post.create(
   price: 3.5,
   area: 30,
   description:"Toàn bộ khu nhà gồm 60 căn hộ mini thiết kế rất chuẩn, nội thất đẹp.
-  phòng với diện tích 30m2 được thiết kế 2 gác lửng riêng biệt, thang gổ rất…".delete("\n"),
+phòng với diện tích 30m2 được thiết kế 2 gác lửng riêng biệt, thang gổ rất…".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 0,
+  quantity: 3,
   sex: 2,
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image9.jpg')))
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image10.jpg')))
-addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "")
 addr.save!
 #========
 Post.create(
@@ -151,16 +155,17 @@ Post.create(
   price: 0.85,
   area: 17,
   description:"Mình là nữ sinh năm 92 đang tìm 1 bạn nữ ở ghép ưu tiên là nvvp, 
-  người miền trung thật thà, dễ thương, sạch sẽ. phòng rất sạch đẹp, toilet sạch sẽ…".delete("\n"),
+người miền trung thật thà, dễ thương, sạch sẽ. phòng rất sạch đẹp, toilet sạch sẽ…".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 0,
+  quantity: 1,
   sex: 1,
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
 )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image11.jpg')))
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image12.jpg')))
-addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "KTX Khu A")
 addr.save!
 #========
 Post.create(
@@ -168,16 +173,17 @@ Post.create(
   price: 1.6,
   area: 25,
   description:"Phòng trọ mới , đẹp ,sạch sẽ, yên tỉnh thích hợp cho các bạn đi làm ko ồn ào náo nhiệt,
-  mỗi sáng thức dậy rất bình yên".delete("\n"),
+mỗi sáng thức dậy rất bình yên".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 0,
+  quantity: 1,
   sex: 1,
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
 )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image13.jpg')))
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image14.jpg')))
-addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "KTX Khu A")
 addr.save!
 #========
 Post.create(
@@ -185,16 +191,17 @@ Post.create(
   price: 1.3,
   area: 15,
   description:"Tìm 1 bạn nam vp hoặc sinh viên ở gép gần khu vực coopmark bình triệu, đại học luật. 
-  diện tích khoảng 15m2 có gác lững, toilet trong phòng. phòng sạch sẽ".delete("\n"),
+diện tích khoảng 15m2 có gác lững, toilet trong phòng. phòng sạch sẽ".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 0,
+  quantity: 1,
   sex: 0,
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
 )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image15.jpg')))
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image16.jpg')))
-addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "Đại học luật")
 addr.save!
 #========
 Post.create(
@@ -206,13 +213,14 @@ Post.create(
   ngã tư phạm văn đồng - ql13, xô viết nghệ tĩnh, chỉ 15p đến q1 + đường số 2".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 0,
+  quantity: 1,
   sex: 2,
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
 )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image17.jpg')))
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image18.jpg')))
-addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: " ql13, xô viết nghệ tĩnh")
 addr.save!
 #========
 Post.create(
@@ -223,13 +231,14 @@ Post.create(
   cạnh phạm văn đồng, kha vạn cân giao thông thuận tiện".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 0,
+  quantity: 1,
   sex: 2,
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image19.jpg')))
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image20.jpg')))
-addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "96/6a đường 9, phường linh tây")
 addr.save!
 #========
 Post.create(
@@ -240,13 +249,14 @@ Post.create(
   gần trường đại học luật cơ sở 2, gần chợ bình triệu - có chỗ nấu".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 0,
+  quantity: 1,
   sex: 2,
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image1.jpg')))
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image2.jpg')))
-addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "đại học luật cơ sở 2, gần chợ bình triệu ")
 addr.save!
 #========
   Post.create(
@@ -257,13 +267,14 @@ addr.save!
     gần trường đại học luật cơ sở 2, gần chợ bình triệu - có chỗ nấu".delete("\n"),
     phone_contact_number:"01695669219",
     type_house: 0,
+    quantity: 1,
     sex: 2,
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
     )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image3.jpeg')))
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image4.jpeg')))
-addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "đại học luật cơ sở 2, gần chợ bình triệu ")
 addr.save!
 #========
 Post.create(
@@ -274,13 +285,14 @@ Post.create(
   giờ giấc tự do, có wwifi riêng địa chỉ: đường 18, quận thủ đức, hồ chí minh".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 1,
+  quantity: 1,
   sex: 2,
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image5.jpeg')))
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image6.jpeg')))
-addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "đường 18, quận thủ đức")
 addr.save!
 #========
 Post.create(
@@ -291,13 +303,14 @@ Post.create(
   cách chợ thủ đức 100m, tiện ích xng quanh đầy đủ :mặt tiền đường".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 0,
+  quantity: 1,
   sex: 2,
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image7.jpg')))
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image8.jpg')))
-addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "hẻm 17 đường dương văn cam")
 addr.save!
 #========
 Post.create(
@@ -308,13 +321,14 @@ Post.create(
   thoáng mát có ban công. -có 1 phòng để quần áo, 1 phòng ngủ riêng".delete("\n"),
   phone_contact_number:"01695669219",
   type_house: 0,
+  quantity: 1,
   sex: 1,
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image9.jpg')))
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image10.jpg')))
-addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "6 đường số 12 Phường Hiệp Bình Chánh")
+addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "KTX Khu A")
 addr.save!
 #====================
 30.times do |i|
@@ -326,6 +340,7 @@ addr.save!
 -có 1 phòng để quần áo, 1 phòng ngủ riêng , yên tĩnh tiện nghi thân thiện ".delete("\n"),
     phone_contact_number:"01695669219",
     type_house: rand(0..1),
+    quantity: rand(1..5),
     sex: rand(0..2) ,
     detail_ids: ["Máy lạnh", "Máy giặt", "Tủ lạnh", "WC riêng", "Chổ để xe",
       "Wifi", "Giờ giấc tự do", "Không chung chủ", "Bếp", "Giường ngủ",
@@ -334,7 +349,7 @@ addr.save!
   )
     Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image11.jpg')))
     Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image12.jpg')))
-    addr = Post.last.build_address(city: "Hồ Chí Minh",district: ["Thủ Đức","Tân Bình"].sample , add_detail: "")
+    addr = Post.last.build_address(city: "Hồ Chí Minh",district: ["Thủ Đức","Tân Bình"].sample , add_detail: "Vinova, Đường 20 Gò Vấp")
     addr.save!
 
 end

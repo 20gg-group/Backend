@@ -5,6 +5,6 @@ module Api::Entities
       expose :full_name, documentation: { type: "String"}
       expose :email, documentation: { type: "String"}
       expose :phone_number, documentation: { type: "String" }
-      expose :avatar #,documentation: { type: "File" }
+      expose :avatar 
     end
   end
