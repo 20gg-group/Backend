@@ -3,19 +3,19 @@ module Api::V1
     namespace :search do
       helpers do                            
         def search_post 
-          @p = []
-          @result = []
-          if params[:max_price] && params[:min_price] && params[:type_house]
-            @id.each do |y|          
-              @p.push(Post.where("posts.id = ? AND posts.price <= ? AND posts.price >= ? AND posts.type_house = ?",y ,params[:max_price] ,params[:min_price] ,params[:type_house]))           
-            end 
-            @p.reject { |c| c.empty? }
-          end 
+          #@p = []
+          #@result = []
+          if params[:max_price] && params[:min_price] && params[:type_house]       
+              @p = Post.where("id IN (?) AND posts.price <= ? AND posts.price >= ? AND posts.type_house = ?",@id ,params[:max_price] ,params[:min_price] ,params[:type_house])
+           present :posts, @p,with: Api::Entities::PostEntity
+           
+          end
+          
           if params[:max_price] && params[:min_price] 
-            @id.each do |y|          
-              @p.push(Post.where("posts.id = ? AND posts.price <= ? AND posts.price >= ?",y ,params[:max_price] ,params[:min_price]))           
-            end 
-            @p.reject { |c| c.empty? }
+          #  @id.each do |y|          
+              @p = Post.where("id IN (?) AND posts.price <= ? AND posts.price >= ?",@id ,params[:max_price] ,params[:min_price])           
+          #  end 
+            present :posts, @p ,with: Api::Entities::PostEntity
           end 
         end       
       end    
@@ -24,8 +24,8 @@ module Api::V1
         params do       
           optional :city,         type: String
           optional :district,     type: String
-          optional :min_price,    type: Integer
-          optional :max_price,    type: Integer 
+          optional :min_price,    type: Float
+          optional :max_price,    type: Float 
           optional :type_house,   type: Integer           
         end
         get do
