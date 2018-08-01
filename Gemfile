@@ -7,30 +7,20 @@ ruby '2.4.1'
 gem 'rails', '~> 5.2.0'
 
 gem 'devise' 
+
 gem 'grape' 
 gem 'grape-entity'
-
 gem 'grape-swagger'
 gem 'grape-swagger-rails'
 gem 'grape-swagger-entity'
-# For representable ( https://github.com/apotonick/representable )
 gem 'grape-swagger-representable'
-
-#gem 'omniauth-google-oauth2'
-#gem 'google-api-client', '~> 0.11'
 
 gem 'paperclip'
 gem 'aws-sdk-s3'
-#gem 'seed_dump'
-
+gem 'kaminari'
 gem 'ransack'
-
 gem 'acts_as_votable', '~> 0.11.1'
 
-#gem 'seed_dump'
-#gem 'rack-cors', require: 'rack/cors'
-#gem "omniauth"
-#gem "paperclip", "~> 6.0.0"
 #gem 'polymorpheus'
 #gem 'cocoon'
 

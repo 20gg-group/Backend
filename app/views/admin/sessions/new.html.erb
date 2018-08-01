@@ -1,0 +1,9 @@
+
+    <%= simple_form_for(:session, url: admin_login_path) do |f| %>
+      <%= f.input :username, required: false %>
+      <%= f.input :password, required: false %>
+
+     
+        <%= f.button :submit, 'Log in', class: 'btn-primary' %>
+
+    <% end %>

@@ -46,7 +46,7 @@ module Api::V1
       params do
         requires :full_name, type: String 
         requires :email, type: String
-        requires :phone_number , type: String
+        
       end
       post "/sign_in_with_google" do  
         user=User.find_by(email: params[:email])
@@ -58,8 +58,7 @@ module Api::V1
         else
           user = User.create!(email: params[:email],
             password: Devise.friendly_token[0,20],
-            full_name: params[:full_name],
-            phone_number: params[:phone_number]
+            full_name: params[:full_name]
           )
           {
             status: "true",

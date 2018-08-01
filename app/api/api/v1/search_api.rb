@@ -71,8 +71,6 @@ module Api::V1
           Post.where("posts.type_house = ? " ,params[:type_house])                     
         end
       end
-
-
     end     
   end
 end
