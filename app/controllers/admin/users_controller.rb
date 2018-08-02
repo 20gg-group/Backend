@@ -1,10 +1,9 @@
-class Admin::UsersController < ApplicationController
-  
-    before_action :require_admin_log_in
+class Admin::UsersController < ApplicationController  
+    #before_action :require_admin_log_in
     before_action :set_user, only: %i[show edit update destroy]
   
     def index
-      @users = User.all.page(params[:page]).per(5)	 
+      @users = User.all.page(params[:page]).per(3)	 
     end
   
     def new

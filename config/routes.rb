@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
   #root 'welcome#welcome_page'
   namespace :admin do
-    root to: 'sessions#new'
+    root 'sessions#new'
     get '/login', to: 'sessions#new'
     post '/login', to: 'sessions#create'
     delete '/', to: 'sessions#destroy'
     resources :users
     #devise_for :users
-    #resources :posts
+    resources :posts
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   mount Api::Api =>"/"
