@@ -150,14 +150,11 @@ GEM
       activesupport (>= 4.2.0)
       multi_json (>= 1.2)
     jmespath (1.4.0)
-<<<<<<< HEAD
-=======
     jquery-datatables-rails (3.4.0)
       actionpack (>= 3.1)
       jquery-rails
       railties (>= 3.1)
       sass-rails
->>>>>>> tincms
     jquery-rails (4.3.3)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -334,11 +331,7 @@ DEPENDENCIES
   ajax-datatables-rails
   aws-sdk-s3
   bootsnap (>= 1.1.0)
-<<<<<<< HEAD
   bootstrap (~> 4.1.3)
-=======
-  bootstrap
->>>>>>> tincms
   byebug
   capybara (>= 2.15, < 4.0)
   chromedriver-helper
@@ -351,10 +344,7 @@ DEPENDENCIES
   grape-swagger-rails
   grape-swagger-representable
   jbuilder (~> 2.5)
-<<<<<<< HEAD
-=======
   jquery-datatables-rails
->>>>>>> tincms
   jquery-rails
   kaminari
   listen (>= 3.0.5, < 3.2)

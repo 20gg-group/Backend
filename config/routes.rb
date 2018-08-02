@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 <<<<<<< HEAD
   
+root 'welcome#welcome_page'
   namespace :admin do
     root to: 'sessions#new'
     get '/login', to: 'sessions#new'
@@ -12,7 +13,7 @@ Rails.application.routes.draw do
   end
 =======
 
-root 'welcome#welcome_page'
+
 	resources :users
 	resources :posts
 	#get 'posts#index'
