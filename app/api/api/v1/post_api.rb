@@ -32,6 +32,11 @@ module Api::V1
       get do
         present :posts,Post.all.page(params[:page]).per(10) ,with: Api::Entities::PostEntity
       end
+#=============================Get 10 new post=========================
+      desc "Lấy 10 post mới nhất"
+      get '/newposts' do
+        present :posts,Post.last(10).reverse! , with: Api::Entities::PostEntity
+      end
 #=========================Get Post with ID=============================
       desc "Lấy post theo id"
       get ":id" do
