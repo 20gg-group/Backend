@@ -137,6 +137,33 @@ module Api::V1
         present :status,"true"
         present :user,current_user,with: Api::Entities::UserEntity
       end
+#==========================Change password===================
+
+      desc "Đổi mật khẩu", {
+        headers: {
+          'Access-Token' => {
+            description: 'Validates your identity',
+            required: true
+          }
+        }
+      }
+      params do  
+        requires :password      ,type: String
+        requires :new_password  ,type: String
+      end
+      put "/password" do 
+        authenticate!
+        if current_user.valid_password?(params[:password])
+          newpass = params[:new_password]
+          current_user.reset_password(newpass,newpass)
+          {status: "true"}
+        else 
+          {
+            status: "false",
+            error!: "Invalid password" 
+          }
+        end
+      end
     end
   end
 end
