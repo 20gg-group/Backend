@@ -1,9 +1,16 @@
 
-    <%= simple_form_for(:session, url: admin_login_path) do |f| %>
-      <%= f.input :username, required: false %>
-      <%= f.input :password, required: false %>
 
-     
-        <%= f.button :submit, 'Log in', class: 'btn-primary' %>
 
-    <% end %>
+
+<%= form_for(:session, url: admin_login_path) do |f| %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+
+  <%= f.label :password %>
+  
+  <%= f.password_field :password %>
+
+  <%= f.submit "Log in"%>
+  
+<% end %>

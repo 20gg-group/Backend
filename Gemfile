@@ -21,6 +21,9 @@ gem 'kaminari'
 gem 'ransack'
 gem 'acts_as_votable', '~> 0.11.1' 
 
+gem 'simple_form'
+gem 'bootstrap', '~> 4.1.3'
+gem 'jquery-rails'
 #gem 'polymorpheus'
 #gem 'cocoon'
 
