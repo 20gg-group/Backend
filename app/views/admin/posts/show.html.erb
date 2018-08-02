@@ -1,0 +1,48 @@
+<section>
+  <div class="row">
+    <div class="col-md-1 col-sm-6 col-12">
+      <p>
+        <strong>ID:</strong>
+        <%= @post.id %>
+      </p>
+    </div>
+    <div class="col-md-3 col-sm-6 col-12">
+      <p>
+        <strong>TITLE:</strong>
+        <%= @post.title %>
+      </p>
+    </div>
+    <div class="col-md-1 col-sm-6 col-12">
+      <p>
+        <strong>PRICE:</strong>
+        <%= @post.price %>
+      </p>
+    </div>
+    <div class="col-md-1 col-sm-6 col-12">
+      <p>
+        <strong>AREA:</strong>
+        <%= @post.area %>
+      </p>
+    </div>
+    <div class="col-md-3 col-sm-6 col-12">
+      <p>
+        <strong>IMAGES:</strong>
+
+        <%= @image.each do |i|
+            image_tag i.image.url(:thumb)
+            end %>
+      </p>
+    </div>
+    <div class="col-md-3 col-sm-6 col-12">
+      <p>
+        <strong>ADDRESS:</strong>
+        <%= @address.city %>
+        <%= @address.district %>
+        <%= @address.add_detail %>        
+      </p>
+    </div>    
+  </div>
+</section>
+
+
+ 

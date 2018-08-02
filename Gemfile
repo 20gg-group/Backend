@@ -24,7 +24,7 @@ gem 'rails-assets-jquery', source: 'https://rails-assets.org'
 gem 'rails-assets-datatables', source: 'https://rails-assets.org'
 gem 'kaminari'
 ####+++++++++++++++++++++++++++++++
-
+gem 'simple_form'
 gem 'paperclip'
 gem 'aws-sdk-s3'
 gem 'kaminari'
