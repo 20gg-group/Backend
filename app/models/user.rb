@@ -23,4 +23,6 @@ class User < ApplicationRecord
 
   acts_as_voter
 
+  paginates_per 50
+  max_paginates_per 100
 end

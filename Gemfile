@@ -18,6 +18,13 @@ gem 'grape-swagger-representable'
 
 #gem 'omniauth-google-oauth2'
 #gem 'google-api-client', '~> 0.11'
+#===========================
+gem 'jquery-datatables-rails'
+gem 'ajax-datatables-rails'
+gem 'rails-assets-jquery', source: 'https://rails-assets.org'
+gem 'rails-assets-datatables', source: 'https://rails-assets.org'
+gem 'kaminari'
+####+++++++++++++++++++++++++++++++
 
 gem 'paperclip'
 gem 'aws-sdk-s3'
@@ -31,8 +38,8 @@ gem 'acts_as_votable', '~> 0.11.1'
 #gem 'rack-cors', require: 'rack/cors'
 #gem "omniauth"
 #gem "paperclip", "~> 6.0.0"
-#gem 'polymorpheus'
-#gem 'cocoon'
+gem 'bootstrap'
+gem 'jquery-rails'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
