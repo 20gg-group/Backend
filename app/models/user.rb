@@ -22,5 +22,7 @@ class User < ApplicationRecord
    validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   acts_as_voter
-  
+
+  paginates_per 50
+  max_paginates_per 100
 end

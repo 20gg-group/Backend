@@ -3,6 +3,7 @@ module Api::V1
     namespace :search do
       helpers do                            
         def search_post 
+<<<<<<< HEAD
           #@p = []
           #@result = []
           if params[:max_price] && params[:min_price] && params[:type_house]       
@@ -17,6 +18,22 @@ module Api::V1
           #  end 
             present :posts, @p ,with: Api::Entities::PostEntity
           end 
+=======
+          @p = []
+          @result = []
+          if params[:max_price] && params[:min_price] && params[:type_house]
+            @id.each do |y|          
+              @p.push(Post.where("posts.id = ? AND posts.price <= ? AND posts.price >= ? AND posts.type_house = ?",y ,params[:max_price] ,params[:min_price] ,params[:type_house]))           
+            end 
+            @p.reject { |c| c.empty? }
+          end 
+          if params[:max_price] && params[:min_price] 
+            @id.each do |y|          
+              @p.push(Post.where("posts.id = ? AND posts.price <= ? AND posts.price >= ?",y ,params[:max_price] ,params[:min_price]))           
+            end 
+            @p.reject { |c| c.empty? }
+          end 
+>>>>>>> tincms
         end       
       end    
       # method GET

@@ -20,4 +20,6 @@ class Post < ApplicationRecord
     self.date_post=Time.now
   end
 
+  paginates_per 50
+  max_paginates_per 100
 end
