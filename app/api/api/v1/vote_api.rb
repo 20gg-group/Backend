@@ -38,7 +38,7 @@ module Api::V1
 
         get_post.liked_by current_user
 
-        present "true"
+        present :status,"true"
       end
 #==================================== Unsave=========================
       desc "Bỏ yêu thích post ", {
@@ -54,7 +54,8 @@ module Api::V1
       end
       post "/unsave" do
         authenticate!
-        get_post.disliked_by current_user 
+        get_post.disliked_by current_user
+        present :status,"true" 
       end
 
     end
