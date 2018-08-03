@@ -91,11 +91,19 @@ module Api::V1
         requires :phone_number , type: String
       end
       post '/sign_up' do
-        user = User.create!(declared(params))
-        {
-          status: "true",
-          access_token: access_token(user)
-        }
+        user=User.find_by(email: params[:email])
+        if user 
+          {status: "false",
+            error!: "Email has already been taken"
+          }
+        else 
+          user = User.create!(declared(params))
+          {
+            status: "true",
+            access_token: access_token(user)
+          }
+        end
+       
       end
 #==============================All User==================================
       desc "Xem tất cả các User => Dùng cho test"
