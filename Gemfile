@@ -22,7 +22,6 @@ gem 'jquery-datatables-rails'
 gem 'ajax-datatables-rails'
 gem 'rails-assets-jquery', source: 'https://rails-assets.org'
 gem 'rails-assets-datatables', source: 'https://rails-assets.org'
-gem 'kaminari'
 ####+++++++++++++++++++++++++++++++
 
 gem 'paperclip'
