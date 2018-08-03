@@ -93,7 +93,8 @@ module Api::V1
       post '/sign_up' do
         user=User.find_by(email: params[:email])
         if user 
-          {status: "false",
+          {
+            status: "false",
             error!: "Email has already been taken"
           }
         else 
