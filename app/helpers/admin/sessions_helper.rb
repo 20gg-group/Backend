@@ -15,8 +15,8 @@ module Admin::SessionsHelper
    # Logs out the current user.
    def log_out
      reset_session
-     redirect_to root_path
-     # @current_user = nil
+     #redirect_to root_path
+      @current_user = nil
    end
 end
 
