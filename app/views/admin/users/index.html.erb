@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <section class="content">
-      <h1>List User</h1>
+      <h3>List User</h3>
       <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-default">
           <div class="panel-body">            
@@ -12,11 +12,10 @@
                 <thead class="thead-dark">
                   <tr class="d-flex">
                     <th class="col-1">ID</th>
-                    <th class="col-5">DATE CREATE</th>                    
-                    <th class="col-3">FULL NAME</th>                    
-                    <th class="col-3">PHONE</th>
                     <th class="col-3">EMAIL</th>
-                    <th class="col-2">ROLE</th> 
+                    <th class="col-3">FULL NAME</th>  
+                    <th class="col-3">PHONE</th>
+                    <th class="col-5">DATE CREATE</th>                    
                     <th class="col-1"></th>                             
                     <th class="col-1"></th> 
                     <th class="col-2"></th> 
@@ -26,11 +25,11 @@
                    <% @users.each do |user| %>
                       <tr class="d-flex">
                         <td class="col-1"><%= user.id %></td>  
-                        <td class="col-5"><%= user.created_at %></td>                       
+                        <td class="col-3"><%= user.email %></td>
                         <td class="col-3"><%= user.full_name %></td>
                         <td class="col-3"><%= user.phone_number %></td>
-                        <td class="col-3"><%= user.email %></td>
-                        <td class="col-2"><%= user.role %></td>                                             
+                         <td class="col-5"><%= user.created_at %></td>     
+                                                
                         <td class="col-1"><%= link_to 'Show', '' %></td>
                         <td class="col-1"><%= link_to 'Edit', '' %></td>
                         <td class="col-2"><%= link_to 'Destroy', '', method: :delete, data: { confirm: 'Are you sure?' } %></td>
