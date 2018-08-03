@@ -98,7 +98,14 @@ module Api::V1
         
       end     
 #==============================Delete Post================================
-      desc "Xóa post"
+      desc "Xóa post", {
+        headers: {
+          'Access-Token' => {
+            description: 'Validates your identity',
+            required: true
+          }
+        }
+      }
       delete ":id" do
         get_post.destroy
         present "true"
