@@ -1,11 +1,12 @@
-<%= simple_form_for @user,url: admin_users_path do |f| %>
-  <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation %>
-  <%= f.input :full_name %>
-  <%= f.input :phone_number %>
-
-   <%= f.input :avatar, as: :file %>
-   
-  <%= f.button :submit %>
-<% end %>
+<div class="form-signin">
+  <%= simple_form_for [:admin, @user] do |f| %>
+    <%= f.input :email,label:"Email address" %>
+    <%= f.input :password %>
+    <%= f.input :password_confirmation %>
+    <%= f.input :full_name %>
+    <%= f.input :phone_number %>
+    <%= f.input :avatar, as: :file %>
+    
+    <%= f.button :submit %>
+  <% end %>
+</div>

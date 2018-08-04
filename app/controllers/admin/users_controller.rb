@@ -14,6 +14,12 @@ class Admin::UsersController < ApplicationController
   end
 
   def update
+    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+  
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+    end
+   
     if @user.update(user_params)
       redirect_to admin_user_path(@user)
     else
@@ -24,7 +30,7 @@ class Admin::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to admin_users_path
+      redirect_to admin_user_path(@user)
     else
       render :new
     end

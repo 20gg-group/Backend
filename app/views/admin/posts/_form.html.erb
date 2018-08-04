@@ -1,0 +1,21 @@
+</br>
+
+<div class="post-form">
+
+  <%= simple_form_for [:admin, @post] do |f| %>
+  
+      <%= f.input :title,label:"Tiêu đề " %>
+      <%= f.input :price ,label:"Giá phòng"%>
+      <%= f.input :area ,label:"Diện tích "%>
+      <%= f.input :phone_contact_number ,label:"Số điện thoại liên hệ "%>
+      <%= f.input :sex ,label:"Giới tính yêu cầu ",collection: [['Nam', 0], ['Nữ', 1],['Cả 2',2]]%>
+      <%= f.input :quantity,label:"Số lượng" %>
+    
+      <%= f.input :description ,label:"Mô tả",class:"form-control"%>
+      <%= f.input :detail_ids ,label:"Chi tiết"%>
+      <%= f.input :type_house ,label:"Kiểu phòng"%>
+      <%= f.input :image, as: :file ,label:"Đăng hình ảnh ( ít nhất 1 ảnh )" %>
+
+      <%= f.submit "Đăng tin ",class:"btn btn-primary"%>
+  <% end %>
+</div>

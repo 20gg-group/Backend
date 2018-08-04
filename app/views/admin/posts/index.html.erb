@@ -1,7 +1,15 @@
     </br>             
     <h3 class="text-center font-weight-bold">List Posts</h3>
     </br>
-    <%= paginate @posts %> 
+    <div class='row'>
+      <div class='col-6'>
+      <%= paginate @posts %>
+      </div>
+      <div class='col-6'>
+        <div class="float-right">
+          <%= link_to 'New post', new_admin_post_path,class:"btn btn-info"%>
+        </div>
+      </div> 
     <table class="table">
     
       <thead >
@@ -24,9 +32,9 @@
               <td ><%= post.price %></td>
               <td ><%= post.area %></td>
               <td ><%= post.created_at %></td>     
-              <td ><%= link_to 'Show', '' %></td>
-              <td ><%= link_to 'Edit', '' %></td>
-              <td ><%= link_to 'Destroy', '', method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td ><%= link_to 'Show', admin_post_path(post) ,class:"btn btn-info"%></td>
+              <td ><%= link_to 'Edit', edit_admin_post_path(post),class:"btn btn-info" %></td>
+              <td ><%= link_to 'Destroy', '', method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>
             </tr>                    
           <% end %>                    
       </tbody>              

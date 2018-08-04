@@ -1,0 +1,33 @@
+<%= form_for @post, url: admin_post_path(@post), html: {method: "patch"} do |f| %>
+  <div>
+    <%= f.label :title %>
+    <%= text_area_tag(:title, " ", size: "24x6") %>
+    <%= f.label :price %>
+    <%= f.text_field :price %>
+    <%= f.label :area %>
+    <%= f.text_field :area %>
+    <%= f.label :quantity %>
+    <%= f.text_field :quantity %>
+  </div>
+  <%= f.fields_for :address do |ff| %>
+	  <div>
+	    <%= ff.label :city %>
+	    <%= ff.text_field :city %>
+      <%= ff.label :district %>
+      <%= ff.text_field :district %>
+      <%= ff.label :add_detail%>
+      <%= ff.text_field :add_detail %>      
+	  </div>
+	<% end %>
+
+	<%= f.fields_for :images do |builder| %>    
+      <div>
+          <%= builder.label :image %>
+          <%= builder.file_field :image %>
+      </div>    
+  <% end %>
+
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
