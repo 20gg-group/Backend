@@ -12,10 +12,20 @@
       <%= f.input :quantity,label:"Số lượng" %>
     
       <%= f.input :description ,label:"Mô tả",class:"form-control"%>
-      <%= f.input :detail_ids ,label:"Chi tiết"%>
       <%= f.input :type_house ,label:"Kiểu phòng"%>
       <%= f.input :image, as: :file ,label:"Đăng hình ảnh ( ít nhất 1 ảnh )" %>
+      
+      <%= f.input :city do %>
+        <%= f.select :city, City.all.map { |r| [r.city] }, include_blank: true %>
+      <% end %>
 
-      <%= f.submit "Đăng tin ",class:"btn btn-primary"%>
-  <% end %>
+      
+
+      <div class="d-flex justify-content-center">
+        <div class="p-2 bd-highlight"> <%= f.submit "Đăng tin",class:"btn btn-primary"%></div>
+        <div class="p-2 bd-highlight"></div>
+        <div class="p-2 bd-highlight"> <%=  link_to "Hủy", admin_posts_path,class:"btn btn-danger" %></div>
+      </div>
+  
+    <% end %>
 </div>

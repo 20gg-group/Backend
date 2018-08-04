@@ -7,8 +7,6 @@ class Admin::PostsController < ApplicationController
 	end
 
 	def show
-		#@post = Post.find(params[:id])
-		#@image = Image.where(post_id: params[:id])
 		@images = @post.images
 		@address = @post.address		
 	end
@@ -16,7 +14,12 @@ class Admin::PostsController < ApplicationController
 		@post = Post.new		
 	end
 	def create
-		
+		@post=Post.new(post_params)
+		if @post.save 
+			redirect_to admin_post_path(@user)
+    else
+      render :new
+    end
 	end
 
 	def edit
@@ -44,8 +47,12 @@ class Admin::PostsController < ApplicationController
       params.require(:post).permit(
         :title,
         :price,
-        :area,
-        :quantity,
+				:area,
+				:phone_contact_number,
+				:sex,
+				:quantity,
+				:description,
+				:type_house,
         address_attributes: [:city, :district, :add_detail],
         images_attributes: [:image]
       )
