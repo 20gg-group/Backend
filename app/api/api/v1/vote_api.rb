@@ -57,8 +57,23 @@ module Api::V1
         get_post.disliked_by current_user
         present :status,"true" 
       end
+#===================================================================
+      desc "Kiểm tra xem post đó đã like chưa ", {
+        headers: {
+          'Access-Token' => {
+            description: 'Validates your identity',
+            required: true
+          }
+        }
+      }
+      params do   
+        requires :post_id , type: String 
+      end
+      post "/check_voted?" do
+        authenticate!
+        current_user.voted_for? get_post # => true
+      end
 
     end
-
   end
 end
