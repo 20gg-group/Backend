@@ -10,14 +10,13 @@ class Post < ApplicationRecord
   
   validates :title, presence: true#,length:# {minimum:1, maximum:100}
   #validates :price,:area,:decription,:phone_contact_number, presence: true
- 
   enum role: [:user, :admin]
-  enum type_house: ["Phòng cho thuê","Phòng ở ghép"]
+  #enum type_house: ["Phòng cho thuê","Phòng ở ghép"]
 
   acts_as_votable
 
-  paginates_per 50
-  max_paginates_per 100
+  #paginates_per 50
+  #max_paginates_per 100
   
   def set_date_post
     self.date_post=Time.now

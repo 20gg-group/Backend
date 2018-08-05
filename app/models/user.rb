@@ -1,13 +1,8 @@
 class User < ApplicationRecord
-  
   has_many :api_keys , dependent: :destroy
   has_many :posts , dependent: :destroy
-
-  devise :database_authenticatable, :registerable,
-         :recoverable, :validatable
-
+  devise :database_authenticatable, :registerable,:recoverable, :validatable
   enum role: [:user, :admin]
-
   before_save { self.email = email.downcase }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 255 },
@@ -22,7 +17,4 @@ class User < ApplicationRecord
    validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   acts_as_voter
-
-  paginates_per 50
-  max_paginates_per 100
 end
