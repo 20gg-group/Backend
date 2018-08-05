@@ -104,14 +104,7 @@ module Api::V1
             access_token: access_token(user)
           }
         end
-       
       end
-#==============================All User==================================
-      desc "Xem tất cả các User => Dùng cho test"
-      get do
-        present User.all ,with: Api::Entities::UserEntity
-      end
-     
 #=====================Get user's infomation==============================
       desc "Lấy thông tin của User", {
         headers: {

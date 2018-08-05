@@ -15,12 +15,6 @@ gem 'grape-swagger-rails'
 gem 'grape-swagger-entity'
 gem 'grape-swagger-representable'
 
-#gem 'omniauth-google-oauth2'
-#gem 'google-api-client', '~> 0.11'
-#===========================
-
-####+++++++++++++++++++++++++++++++
-
 gem 'paperclip'
 gem 'aws-sdk-s3'
 gem 'kaminari'
@@ -32,6 +26,7 @@ gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 #gem 'polymorpheus'
 gem 'cocoon'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 # Use postgresql as the database for Active Record
 gem 'pg'
