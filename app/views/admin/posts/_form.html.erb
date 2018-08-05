@@ -1,0 +1,37 @@
+</br>
+  <%= simple_form_for [:admin, @post],html: {multipart: true} do |f| %>
+    <div class="row">
+      <div class="col-sm-6">
+        <%= f.input :title,label:"Tiêu đề " %>
+        <%= f.input :price ,label:"Giá phòng"%>
+        <%= f.input :area ,label:"Diện tích "%>
+        <%= f.input :phone_contact_number ,label:"Số điện thoại liên hệ "%>
+        <%= f.input :sex ,label:"Giới tính yêu cầu ",collection: [['Nam', 0], ['Nữ', 1],['Cả 2',2]]%>
+        <%= f.input :quantity,label:"Số lượng" %>
+      </div>
+      <div class="col-sm-6">
+        <%= f.input :description ,label:"Mô tả",class:"form-control"%>
+        <%= f.input :type_house ,label:"Kiểu phòng",collection:[['Phòng cho thuê',0],['Phòng ở ghép',1]]%>
+
+        <%= f.simple_fields_for :address do |add| %>
+          <%= add.input :city,label:"Thành phố " %>
+          <%= add.input :district,label:"Quận/Huyện " %>
+          <%= add.input :add_detail,label:"Số nhà, đường "%>
+        <% end %>
+
+        <%= f.simple_fields_for :images do |image|%>
+          <%= render 'image_fields', f:image %>
+        <%end%>
+        <div class="links">
+          <%=link_to_add_association 'Thêm ảnh', f, :images%> 
+        </div>
+      
+      </div>
+    </div>
+    <div class="d-flex justify-content-center">
+      <div class="p-2 bd-highlight"> <%= f.submit "Đăng tin",class:"btn btn-primary "%></div>
+      <div class="p-2 bd-highlight"></div>
+      <div class="p-2 bd-highlight"> <%=  link_to "Hủy", admin_posts_path,class:"btn btn-danger" %></div>
+    </div>
+  <% end %>
+</div>

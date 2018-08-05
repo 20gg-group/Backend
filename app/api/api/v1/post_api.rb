@@ -98,6 +98,7 @@ module Api::V1
         
       end     
 #==============================Delete Post================================
+<<<<<<< HEAD
       desc "Xóa post", {
         headers: {
           'Access-Token' => {
@@ -106,9 +107,19 @@ module Api::V1
           }
         }
       }
+=======
+    desc "Xóa post", {
+      headers: {
+        'Access-Token' => {
+          description: 'Validates your identity',
+          required: true
+        }
+      }
+    }
+>>>>>>> controller
       delete ":id" do
         get_post.destroy
-        present "true"
+        present :status,"true"
       end
 
     end      

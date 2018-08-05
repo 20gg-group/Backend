@@ -1,11 +1,21 @@
 #-------------------User--------------------
 
+<<<<<<< HEAD
 User.create( email: "admin@gmail.com",password:"admin123",role: 1)
 User.create( email: "tom@gmail.com",password:"123456",full_name:"Tom Le",phone_number:"01695669219")
 User.create( email: "tin@gmail.com",password:"123456",full_name:"Thien Tin",phone_number:"01695669219")
 User.create( email: "gray@gmail.com",password:"123456",full_name:"I'm Gay",phone_number:"01695666812")
 User.create( email: "baron@gmail.com",password:"123456",full_name:"Baron lol",phone_number:"01695664105")
 User.create( email: "liam@gmail.com",password:"123456",full_name:"Le Xuan Chinh",phone_number:"01695661483")
+=======
+User.create( email: "admin@gmail.com",password:"123456",role: 1)
+User.create( email: "tom@gmail.com",password:"123456",full_name:"Tom le",phone_number:"01695669219")
+User.create( email: "tin@gmail.com",password:"123456",full_name:"Ngo Thien Tin",phone_number:"01673995461")
+User.create( email: "gray@gmail.com",password:"123456",full_name:"I'm Gay",phone_number:"01654105152")
+User.create( email: "baron@gmail.com",password:"123456",full_name:"Bron lol",phone_number:"01695669269")
+User.create( email: "liam@gmail.com",password:"123456",full_name:"Le Xuan Chinh",phone_number:"01673992154")
+#User.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/abc.jpg')))
+>>>>>>> controller
 
 #-------------------City-------------------
 

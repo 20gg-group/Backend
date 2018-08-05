@@ -1,0 +1,41 @@
+</br>
+<div class="row">
+  <div class="col-md-3 ">
+    <div class="avatar">
+      <%= image_tag @user.avatar.url , class: "img-thumbnail img-sample "%>     
+    </div>
+  </div>
+  <div class="col-md-9">
+    <h2 class="text-center">Profile Info</h2>
+    <table class="table table-hover">
+      <tbody>
+        <tr>
+          <td><h6>Full Name</h6></td>
+          <td class="text-gray"><%= @user.full_name %></td>
+        </tr>
+
+        <tr>
+          <td><h6>Email</h6></td>
+          <td class="text-gray"><%= @user.email %></td>
+        </tr>
+
+        <tr>
+          <td><h6>Phone Number</h6></td>
+          <td class="text-gray"><%= @user.phone_number %></td>
+        </tr>
+
+        <tr>
+          <td><h6>Date Create</h6></td>
+          <td class="text-gray"><%= @user.created_at %></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="d-flex justify-content-center">
+      <div class="p-2 bd-highlight"> <%= link_to "Chỉnh sửa",edit_admin_user_path,class:"btn btn-primary "%></div>
+      <div class="p-2 bd-highlight"></div>
+      <div class="p-2 bd-highlight"> <%=  link_to "Trở về ", admin_users_path,class:"btn btn-danger" %></div>
+</div>
+

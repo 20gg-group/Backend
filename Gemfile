@@ -31,7 +31,7 @@ gem 'simple_form'
 gem 'bootstrap', '~> 4.1.3'
 gem 'jquery-rails'
 #gem 'polymorpheus'
-#gem 'cocoon'
+gem 'cocoon'
 
 # Use postgresql as the database for Active Record
 gem 'pg'

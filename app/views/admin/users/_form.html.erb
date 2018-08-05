@@ -1,10 +1,14 @@
-<%= simple_form_for @user,url: admin_users_path do |f| %>
-  <%= f.input :email %>
-  <%= f.input :password %>
-  <%= f.input :password_confirmation %>
-  <%= f.input :full_name %>
+<div class="form-signin">
+  <%= simple_form_for [:admin, @user] do |f| %>
+    <%= f.input :email,label:"Địa chỉ Email" %>
+    <%= f.input :password ,label:"Mật khẩu "%>
+    <%= f.input :password_confirmation,label:"Xác nhận mật khẩu" %>
+    <%= f.input :full_name ,label:"Họ và tên"%>
+    <%= f.input :phone_number ,label:"Số điện thoại"%>
+    <%= f.input :avatar, as: :file ,label:"Ảnh đại diện"%>
+    
 
-   <%= f.input :avatar, as: :file %>
-   
-  <%= f.button :submit %>
-<% end %>
+    
+    <%= f.button :submit,class: "btn btn-primary" %>
+  <% end %>
+</div>
