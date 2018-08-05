@@ -69,9 +69,13 @@ module Api::V1
       params do   
         requires :post_id , type: String 
       end
-      post "/check_voted?" do
+      post "/check_voted" do
         authenticate!
-        current_user.voted_for? get_post # => true
+        if current_user.voted_for? get_post # => true
+          {status: "true"}
+        else 
+          {status: "false"}
+        end
       end
 
     end
