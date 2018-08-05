@@ -3,7 +3,7 @@ module Api::V1
 
     helpers do 
       def get_post
-       @post = Post.find(params[:id])
+      @post = Post.find(params[:id])
       end
     end    
 
@@ -80,17 +80,17 @@ module Api::V1
       end
       post do
         authenticate!
-         post = current_user.posts.create!(params[:post])
-         address = post.build_address(params[:address])
-         address.save!
+        post = current_user.posts.create!(params[:post])
+        address = post.build_address(params[:address])
+        address.save!
 
         #  image = post.images.new(image_params)
         #  image.save!
 
-         params[:attachments].each do |attachment|
+        params[:attachments].each do |attachment|
           image = ActionDispatch::Http::UploadedFile.new(attachment[:image])
           post.images.create!(image: image)
-       end
+        end
 
           present :status ,"true"
           present :post , post ,with: Api::Entities::PostEntity
@@ -98,7 +98,6 @@ module Api::V1
         
       end     
 #==============================Delete Post================================
-<<<<<<< HEAD
       desc "Xóa post", {
         headers: {
           'Access-Token' => {
@@ -107,16 +106,6 @@ module Api::V1
           }
         }
       }
-=======
-    desc "Xóa post", {
-      headers: {
-        'Access-Token' => {
-          description: 'Validates your identity',
-          required: true
-        }
-      }
-    }
->>>>>>> controller
       delete ":id" do
         get_post.destroy
         present :status,"true"
