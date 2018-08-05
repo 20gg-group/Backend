@@ -3,7 +3,7 @@ class Admin::PostsController < ApplicationController
 	before_action :set_post, only: %i[show edit update destroy]
 	
 	def index
-		@posts = Post.all.page(params[:page]).per(10)		
+		@posts = Post.all.order('created_at DESC').page(params[:page]).per(10)		
 	end
 
 	def show
@@ -31,17 +31,17 @@ class Admin::PostsController < ApplicationController
 	end
 	
 	def update
-   if @post.update_attributes(post_params)
-      redirect_to admin_post_path
-   else      
-      render :action => 'edit'
-   end
+	if @post.update_attributes(post_params)
+		redirect_to admin_post_path
+	else      
+		render :action => 'edit'
+	end
 	end
 
 	def destroy
-   
-    #@post.destroy
-    #redirect_to '/admin/posts', :notice => "Your poster has been deleted"
+    @post.destroy
+		redirect_to admin_posts_path
+		flash[:success] = "Your poster has been deleted"
 	end
 
 	private   

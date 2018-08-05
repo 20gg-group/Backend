@@ -11,8 +11,8 @@ class Post < ApplicationRecord
   validates :title, presence: true#,length:# {minimum:1, maximum:100}
   #validates :price,:area,:decription,:phone_contact_number, presence: true
  
-
-  #enum type_house: [:"house_for_rent", :"house_graft"]
+  enum role: [:user, :admin]
+  enum type_house: ["Phòng cho thuê","Phòng ở ghép"]
 
   acts_as_votable
 

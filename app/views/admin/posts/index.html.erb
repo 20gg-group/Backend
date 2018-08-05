@@ -34,7 +34,7 @@
               <td ><%= post.created_at %></td>     
               <td ><%= link_to 'Show', admin_post_path(post) ,class:"btn btn-info"%></td>
               <td ><%= link_to 'Edit', edit_admin_post_path(post),class:"btn btn-info" %></td>
-              <td ><%= link_to 'Destroy', '', method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>
+              <td ><%= link_to 'Destroy',admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>
             </tr>                    
           <% end %>                    
       </tbody>              

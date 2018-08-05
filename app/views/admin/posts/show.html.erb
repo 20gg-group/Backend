@@ -1,80 +1,79 @@
 </br>
-      <table class="table table-hover">
-        <tbody>
-          <tr>
-            <td><h6>Tiêu đề</h6></td>
-            <td class="text-gray"><%= @post.title %></td>
-          </tr>
+<table class="table table-hover">
+  <tbody>
+    <tr>
+      <td><h6>Tiêu đề</h6></td>
+      <td class="text-gray"><%= @post.title %></td>
+    </tr>
 
-          <tr>
-            <td ><h6>Giá phòng</h6></td>
-            <td class="text-gray"><%= @post.price %></td>
-          </tr>
+    <tr>
+      <td ><h6>Giá phòng</h6></td>
+      <td class="text-gray"><%= @post.price %></td>
+    </tr>
 
-          <tr>
-            <td><h6>Diện tích</h6></td>
-            <td class="text-gray"><%= @post.area %></td>
-          </tr>
+    <tr>
+      <td><h6>Diện tích</h6></td>
+      <td class="text-gray"><%= @post.area %></td>
+    </tr>
 
-          <tr>
-            <td><h6>Mô tả</h6></td>
-            <td class="text-gray"><%= @post.description %></td>
-          </tr>
+    <tr>
+      <td><h6>Mô tả</h6></td>
+      <td class="text-gray"><%= @post.description %></td>
+    </tr>
 
-           <tr>
-            <td><h6>Điện thoại liên lac</h6></td>
-            <td class="text-gray"><%= @post.phone_contact_number %></td>
-          </tr>
+    <tr>
+      <td><h6>Điện thoại</h6></td>
+      <td class="text-gray"><%= @post.phone_contact_number %></td>
+    </tr>
 
-           <tr>
-            <td><h6>Gender</h6></td>
-            <td class="text-gray"><%= @post.sex %></td>
-          </tr>
+    <tr>
+      <td><h6>Giới tính</h6></td>
+      <td class="text-gray"><%= @post.sex %></td>
+    </tr>
 
-          <tr>
-            <td><h6>Quantity</h6></td>
-            <td class="text-gray"><%= @post.quantity %></td>
-          </tr>
+    <tr>
+      <td><h6>Số lượng</h6></td>
+      <td class="text-gray"><%= @post.quantity %></td>
+    </tr>
 
-           <tr>
-            <td><h6>Description</h6></td>
-            <td class="text-gray"><%= @post.description %></td>
-          </tr>
+    <tr>
+      <td><h6>Mô tả</h6></td>
+      <td class="text-gray"><%= @post.description %></td>
+    </tr>
 
-          <tr>
-            <td><h6>Details</h6></td>
-            <td class="text-gray"><%= @post.detail_ids %></td>
-          </tr>
+    <tr>
+      <td><h6>Tiện ích</h6></td>
+      <td class="text-gray"><%= @post.detail_ids %></td>
+    </tr>
 
-          <tr>
-            <td><h6>Type House</h6></td>
-            <td class="text-gray"><%= @post.type_house %></td>
-          </tr>
+    <tr>
+      <td><h6>Kiểu phòng</h6></td>
+      <td class="text-gray"><%= @post.type_house %></td>
+    </tr>
 
-          <tr>
-            <td><h6>Date Post</h6></td>
-            <td class="text-gray"><%= @post.created_at %></td>
-          </tr>
+    <tr>
+      <td><h6>Địa chỉ</h6></td>
+      <td class="text-gray"><%= @address.city<<", "<<@address.district<<", "<<@address.add_detail %></td>
+    </tr>
 
-          <tr>
-            <td><h6>Address</h6></td>
-            <td class="text-gray"><%= @address.city<<", "<<@address.district<<", "<<@address.add_detail %></td>
-          </tr>
+    <tr>
+      <td><h6>Ngày đăng</h6></td>
+      <td class="text-gray"><%= @post.created_at %></td>
+    </tr>
 
-          <tr>
-            <td><h6>Date Post</h6></td>
-            <td class="text-gray"><%= @post.created_at %></td>
-          </tr>
+      <tr>
+      <td><h6>Ảnh</h6></td>
+        <td class="text-gray">
+          <% @images.each do |image| %>
+            <%= image_tag image.image.url(:thumb), class: "img-thumbnail img-sample"%>    
+          <%end%>
+        </td>
+    </tr>
 
-            <tr>
-            <td><h6>Images</h6></td>
-              <td class="text-gray">
-                <% @images.each do |image| %>
-                  <%= image_tag image.image.url(:thumb), class: "img-thumbnail img-sample"%>    
-                <%end%>
-              </td>
-          </tr>
-
-        </tbody>
-      </table>
- 
+  </tbody>
+</table>
+<div class="d-flex justify-content-center">
+      <div class="p-2 bd-highlight"> <%= link_to "Chỉnh sửa",edit_admin_post_path,class:"btn btn-primary "%></div>
+      <div class="p-2 bd-highlight"></div>
+      <div class="p-2 bd-highlight"> <%=  link_to "Trở về ", admin_posts_path,class:"btn btn-danger" %></div>
+</div>
