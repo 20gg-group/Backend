@@ -7,10 +7,8 @@ module Api::V1
           #@result = []
           if params[:max_price] && params[:min_price] && params[:type_house]       
               @p = Post.where("id IN (?) AND posts.price <= ? AND posts.price >= ? AND posts.type_house = ?",@id ,params[:max_price] ,params[:min_price] ,params[:type_house])
-           present :posts, @p,with: Api::Entities::PostEntity
-           
+          present :posts, @p,with: Api::Entities::PostEntity
           end
-          
           if params[:max_price] && params[:min_price] 
           #  @id.each do |y|          
               @p = Post.where("id IN (?) AND posts.price <= ? AND posts.price >= ?",@id ,params[:max_price] ,params[:min_price])           

@@ -24,7 +24,7 @@ module Api::V1
         authenticate!
         present :posts, current_user.posts.page(params[:page]).per(10), with: Api::Entities::PostEntity
       end
-#==============================All Post================================
+  #==============================All Post================================
       desc "Lấy tất cả các post theo trang"
       params do
         requires :page , type: Integer 
@@ -32,12 +32,12 @@ module Api::V1
       get do
         present :posts,Post.all.page(params[:page]).per(10) ,with: Api::Entities::PostEntity
       end
-#=============================Get 10 new post=========================
+  #=============================Get 10 new post=========================
       desc "Lấy 10 post mới nhất"
       get '/newposts' do
         present :posts,Post.last(10).reverse! , with: Api::Entities::PostEntity
       end
-#=========================Get Post with ID=============================
+  #=========================Get Post with ID=============================
       desc "Lấy post theo id"
       get ":id" do
         user = get_post.user 
@@ -47,8 +47,7 @@ module Api::V1
         present :user,user, with: Api::Entities::UserEntity
         present :images_url,image ,with: Api::Entities::ImageEntity
       end
-
-#==============================POST post================================  
+  #==============================POST post================================  
       desc "Người dùng đăng post", {
         headers: {
           'Access-Token' => {
@@ -83,21 +82,15 @@ module Api::V1
         post = current_user.posts.create!(params[:post])
         address = post.build_address(params[:address])
         address.save!
-
-        #  image = post.images.new(image_params)
-        #  image.save!
-
         params[:attachments].each do |attachment|
           image = ActionDispatch::Http::UploadedFile.new(attachment[:image])
           post.images.create!(image: image)
         end
-
           present :status ,"true"
           present :post , post ,with: Api::Entities::PostEntity
           present :images_url, post.images,with: Api::Entities::ImageEntity
-        
       end     
-#==============================Delete Post================================
+  #==============================Delete Post================================
       desc "Xóa post", {
         headers: {
           'Access-Token' => {
@@ -112,6 +105,5 @@ module Api::V1
       end
 
     end      
-
   end
 end
