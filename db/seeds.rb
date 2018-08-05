@@ -1,12 +1,11 @@
 #-------------------User--------------------
 
-User.create( email: "admin@gmail.com",password:"123456",role: 1)
-User.create( email: "tom@gmail.com",password:"123456")
-User.create( email: "tin@gmail.com",password:"123456")
-User.create( email: "gray@gmail.com",password:"123456")
-User.create( email: "baron@gmail.com",password:"123456")
-User.create( email: "liam@gmail.com",password:"123456")
-#User.last.update(avatar: File.open(File.join(Rails.root,'app/assets/images/abc.jpg')))
+User.create( email: "admin@gmail.com",password:"admin123",role: 1)
+User.create( email: "tom@gmail.com",password:"123456",full_name:"Tom Le",phone_number:"01695669219")
+User.create( email: "tin@gmail.com",password:"123456",full_name:"Thien Tin",phone_number:"01695669219")
+User.create( email: "gray@gmail.com",password:"123456",full_name:"I'm Gay",phone_number:"01695666812")
+User.create( email: "baron@gmail.com",password:"123456",full_name:"Baron lol",phone_number:"01695664105")
+User.create( email: "liam@gmail.com",password:"123456",full_name:"Le Xuan Chinh",phone_number:"01695661483")
 
 #-------------------City-------------------
 
@@ -70,8 +69,7 @@ tiện lưu thông vào trung tâm Tp.".delete("\n"),
   detail_ids: ["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   type_house: 1,
   sex: 2,
-  user_id:2
-  )
+  user_id:2)
 
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image1.jpg')))
 Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image2.jpg')))
