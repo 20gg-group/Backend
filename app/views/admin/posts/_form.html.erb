@@ -1,5 +1,6 @@
 </br>
-<div class="post-form">
+<%# <div class="row">
+  <div class="col">> %>
   <%= simple_form_for [:admin, @post],html: {multipart: true} do |f| %>
       <%= f.input :title,label:"Tiêu đề " %>
       <%= f.input :price ,label:"Giá phòng"%>
@@ -22,12 +23,12 @@
           <%= render 'image_fields', f:image %>
         <%end%>
         <div class="links">
-            <%=link_to_add_association 'add image', f, :images%> 
+            <%=link_to_add_association 'Thêm ảnh', f, :images%> 
         </div>
       </div>
-
+</br>
       <div class="d-flex justify-content-center">
-        <div class="p-2 bd-highlight"> <%= f.submit "Đăng tin",class:"btn btn-primary"%></div>
+        <div class="p-2 bd-highlight"> <%= f.submit "Đăng tin",class:"btn btn-primary "%></div>
         <div class="p-2 bd-highlight"></div>
         <div class="p-2 bd-highlight"> <%=  link_to "Hủy", admin_posts_path,class:"btn btn-danger" %></div>
       </div>
