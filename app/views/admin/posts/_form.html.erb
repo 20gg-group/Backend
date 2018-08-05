@@ -1,9 +1,6 @@
 </br>
-
 <div class="post-form">
-
-  <%= simple_form_for [:admin, @post] do |f| %>
-  
+  <%= simple_form_for [:admin, @post],html: {multipart: true} do |f| %>
       <%= f.input :title,label:"Tiêu đề " %>
       <%= f.input :price ,label:"Giá phòng"%>
       <%= f.input :area ,label:"Diện tích "%>
@@ -13,13 +10,21 @@
     
       <%= f.input :description ,label:"Mô tả",class:"form-control"%>
       <%= f.input :type_house ,label:"Kiểu phòng"%>
-      <%= f.input :image, as: :file ,label:"Đăng hình ảnh ( ít nhất 1 ảnh )" %>
       
-      <%= f.input :city do %>
-        <%= f.select :city, City.all.map { |r| [r.city] }, include_blank: true %>
+      <%= f.simple_fields_for :address do |add| %>
+        <%= add.input :city,label:"Thành phố " %>
+        <%= add.input :district,label:"Quận/Huyện " %>
+        <%= add.input :add_detail,label:"Số nhà, đường "%>
       <% end %>
 
-      
+      <div >
+        <%= f.simple_fields_for :images do |image|%>
+          <%= render 'image_fields', f:image %>
+        <%end%>
+        <div class="links">
+            <%=link_to_add_association 'add image', f, :images%> 
+        </div>
+      </div>
 
       <div class="d-flex justify-content-center">
         <div class="p-2 bd-highlight"> <%= f.submit "Đăng tin",class:"btn btn-primary"%></div>

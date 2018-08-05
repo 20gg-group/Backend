@@ -10,13 +10,18 @@ class Admin::PostsController < ApplicationController
 		@images = @post.images
 		@address = @post.address		
 	end
+
 	def new
 		@post = Post.new		
+		@post.build_address
+		@post.images.new
 	end
+
 	def create
-		@post=Post.new(post_params)
+		@post = current_user.posts.new(post_params)
+		
 		if @post.save 
-			redirect_to admin_post_path(@user)
+			redirect_to admin_post_path(@post)
     else
       render :new
     end
