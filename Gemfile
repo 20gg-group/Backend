@@ -18,7 +18,7 @@ gem 'grape-swagger-representable'
 gem 'paperclip'
 gem 'aws-sdk-s3'
 gem 'kaminari'
-gem 'ransack'
+#gem 'ransack'
 gem 'acts_as_votable', '~> 0.11.1' 
 
 gem 'simple_form'
