@@ -13,7 +13,7 @@ module Api::V1
           #  end 
             present :posts, @p.reverse ,with: Api::Entities::PostEntity
           end 
-          if params.has_key?(:max_price) && params.has_key?(:min_price) && params.has_key?(:type_house)      
+          if params.has_key?(:max_price) && params.has_key?(:min_price) && params[:type_house]      
               @p = Post.where("id IN (?) AND posts.price <= ? AND posts.price >= ? AND posts.type_house = ? ",@id ,params[:max_price] ,params[:min_price] ,params[:type_house])
           present :posts, @p.reverse,with: Api::Entities::PostEntity
           end

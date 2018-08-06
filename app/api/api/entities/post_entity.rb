@@ -17,7 +17,5 @@ module Api::Entities
       instance.images.first
     end
     expose :address , using: Api::Entities::AddressEntity
-  
-    
   end
 end
