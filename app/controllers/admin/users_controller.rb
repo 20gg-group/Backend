@@ -1,5 +1,5 @@
 class Admin::UsersController < ApplicationController  
-  before_action :logged_in?
+  before_action :block_path
   before_action :set_user, only: %i[show edit update destroy]
 
   def index
@@ -43,7 +43,12 @@ class Admin::UsersController < ApplicationController
   end
 
   private
-  
+  def block_path
+    unless current_user.present? && current_user.admin?
+      flash[:error] = "You must be logged in to access this section"
+      redirect_to admin_root_path # halts request cycle
+    end
+  end
   def user_params
     params.require(:user).permit(
       :email,
