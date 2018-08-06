@@ -3,8 +3,7 @@ class User < ApplicationRecord
   has_many :posts , dependent: :destroy
   devise :database_authenticatable, :registerable,:recoverable, :validatable
   enum role: [:user, :admin]
-  before_save { self.email = email.downcase }
-
+  
   has_attached_file :avatar ,styles: {
     thumb: '100x100>',
     square: '200x200#',
