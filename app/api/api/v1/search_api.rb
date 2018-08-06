@@ -4,17 +4,19 @@ module Api::V1
       helpers do                            
         def search_post 
           #@p = []
-          #@result = []
-          if params[:max_price] && params[:min_price] && params[:type_house]       
-              @p = Post.where("id IN (?) AND posts.price <= ? AND posts.price >= ? AND posts.type_house = ?",@id ,params[:max_price] ,params[:min_price] ,params[:type_house])
-          present :posts, @p,with: Api::Entities::PostEntity
-          end
+          #@result = []          
+          # if params[:max_price] && params[:min_price] && params[:type_house]
+          
           if params[:max_price] && params[:min_price] 
           #  @id.each do |y|          
               @p = Post.where("id IN (?) AND posts.price <= ? AND posts.price >= ?",@id ,params[:max_price] ,params[:min_price])           
           #  end 
             present :posts, @p ,with: Api::Entities::PostEntity
           end 
+          if params.has_key?(:max_price) && params.has_key?(:min_price) && params.has_key?(:type_house)      
+              @p = Post.where("id IN (?) AND posts.price <= ? AND posts.price >= ? AND posts.type_house = ? ",@id ,params[:max_price] ,params[:min_price] ,params[:type_house])
+          present :posts, @p,with: Api::Entities::PostEntity
+          end
         end       
       end    
       # method GET
