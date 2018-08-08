@@ -7,13 +7,13 @@ module Api::V1
               @p = Post.where("id IN (?) AND posts.price <= ? AND posts.price >= ?",@id ,params[:max_price] ,params[:min_price])           
           
             if params[:order] == 0
-              present :posts,@p.order(:price).page(params[:page]).per(3),with: Api::Entities::PostEntity
+              present :posts,@p.order(:price).page(params[:page]).per(10),with: Api::Entities::PostEntity
             elsif params[:order]==1
-              present :posts,@p.order(:price).reverse_order.page(params[:page]).per(3),with: Api::Entities::PostEntity
+              present :posts,@p.order(:price).reverse_order.page(params[:page]).per(10),with: Api::Entities::PostEntity
             elsif params[:order]==2
-              present :posts,@p.order(:area).page(params[:page]).per(3),with: Api::Entities::PostEntity
+              present :posts,@p.order(:area).page(params[:page]).per(10),with: Api::Entities::PostEntity
             else 
-              present :posts,@p.order(:area).reverse_order.page(params[:page]).per(3),with: Api::Entities::PostEntity
+              present :posts,@p.order(:area).reverse_order.page(params[:page]).per(10),with: Api::Entities::PostEntity
             end
             
           end 
@@ -21,13 +21,13 @@ module Api::V1
               @p = Post.where("id IN (?) AND posts.price <= ? AND posts.price >= ? AND posts.type_house = ? ",@id ,params[:max_price] ,params[:min_price] ,params[:type_house])
           
           if params[:order] == 0
-            present :posts,@p.order(:price).page(params[:page]).per(3),with: Api::Entities::PostEntity
+            present :posts,@p.order(:price).page(params[:page]).per(10),with: Api::Entities::PostEntity
           elsif params[:order]==1
-            present :posts,@p.order(:price).reverse_order.page(params[:page]).per(3),with: Api::Entities::PostEntity
+            present :posts,@p.order(:price).reverse_order.page(params[:page]).per(10),with: Api::Entities::PostEntity
           elsif params[:order]==2
-            present :posts,@p.order(:area).page(params[:page]).per(3),with: Api::Entities::PostEntity
+            present :posts,@p.order(:area).page(params[:page]).per(10),with: Api::Entities::PostEntity
           else 
-            present :posts,@p.order(:area).reverse_order.page(params[:page]).per(3),with: Api::Entities::PostEntity
+            present :posts,@p.order(:area).reverse_order.page(params[:page]).per(10),with: Api::Entities::PostEntity
           end
         
           end
@@ -83,7 +83,9 @@ module Api::V1
           optional :type_house, type: Integer           
         end
         get do   
-          Post.where("posts.type_house = ? " ,params[:type_house])   # Tin viet    
+          
+          Post.where("posts.type_house = ? " ,params[:type_house]).page(params[:page]).per(10),with: Api::Entities::PostEntity   # Tin viet    
+          
         end
       end
     end     

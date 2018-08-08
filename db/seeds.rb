@@ -57,14 +57,16 @@ District.create(name:"Tây Hồ",city_id:1)
 District.create(name:"Sơn Tây",city_id:1)
 
 #-------------------Post--------------------
-10.times do |i|
+100.times do |i|
   Post.create!(
     title: ["Cho thuê phòng trọ cao cấp mới xây,đầy đủ tiện nghi thoáng mát",
             "Nhà nguyên căn 3 lầu cho thuê, tiện mở văn phòng hoặc gia đình ở",
             "Đầy đủ tiện nghi ( Máy giặt ,wifi , gym..)750k",
             "Tìm bạn ở ghép giờ giấc tự do.",
             "Cho thuê phòng KTX máy lạnh 400K ở 139 thành mỹ ",
-            "Cho thuê nhà nguyên căn ngay Ngã Tư Phú Nhuận 4 tầng 8x30m giá 18tr"].sample,
+            "Cho thuê nhà nguyên căn ngay Ngã Tư Phú Nhuận 4 tầng 8x30m giá 18tr",
+            "Nhà 1 trệt 1 lửng 3 lầu MT Lũy Bán Bích Trống suốt",
+          "Phòng trọ cao cấp, yên tĩnh đường Lê Hồng Phong"].sample,
     price: rand(0.5..5.0).round(1),
     area: rand(15..30),
     description: "Đây là 1 căn phòng cho thuê, phòng trên lầu 2, rộng ,thoáng mát có ban công. -có 1 phòng để quần áo, 1 phòng ngủ riêng , yên tĩnh tiện nghi thân thiện ",
@@ -83,7 +85,8 @@ District.create(name:"Sơn Tây",city_id:1)
                                   add_detail: ["KTX Khu A",
                                               "Khoa hoc Xa Hoi Nhan Van",
                                               "Xa Lo Ha Noi",
-                                            "Duong Cong Hoa"].sample)
+                                            "Duong Cong Hoa",
+                                          "Nga tu thu duc"].sample)
     addr.save!
 end
 #============================================
@@ -177,7 +180,7 @@ Post.create(
   area: 17,
   description:"Mình là nữ sinh năm 92 đang tìm 1 bạn nữ ở ghép ưu tiên là nvvp, người miền trung thật thà, dễ thương, sạch sẽ. phòng rất sạch đẹp, toilet sạch sẽ…",
   phone_contact_number:"01695669219",
-  type_house: 0,
+  type_house: 1,
   quantity: 1,
   sex: 1,
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
@@ -194,7 +197,7 @@ Post.create(
   area: 25,
   description:"Phòng trọ mới , đẹp ,sạch sẽ, yên tỉnh thích hợp cho các bạn đi làm ko ồn ào náo nhiệt, mỗi sáng thức dậy rất bình yên",
   phone_contact_number:"01695669219",
-  type_house: 0,
+  type_house: 1,
   quantity: 1,
   sex: 1,
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
@@ -228,7 +231,7 @@ Post.create(
   area: 25,
   description:"Khu nhà gồm 45 căn phòng mới xây dạng căn hộ mini cách đại học luật 500m, ngã tư phạm văn đồng - ql13, xô viết nghệ tĩnh, chỉ 15p đến q1 + đường số 2",
   phone_contact_number:"01695669219",
-  type_house: 0,
+  type_house: 1,
   quantity: 1,
   sex: 2,
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
@@ -262,7 +265,7 @@ Post.create(
   area: 16,
   description:"Cho thuê phòng trọ riêng biệt, vệ sinh khép kín, nhà mới xây sạch sẽ thoáng mát, gần trường đại học luật cơ sở 2, gần chợ bình triệu - có chỗ nấu",
   phone_contact_number:"01695669219",
-  type_house: 0,
+  type_house: 1,
   quantity: 1,
   sex: 2,
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
@@ -313,7 +316,7 @@ Post.create(
   area: 25,
   description:"Cho thuê phòng trọ cao cấp, mới xây 100% địa chỉ: hẻm 17 đường dương văn cam cách chợ thủ đức 100m, tiện ích xng quanh đầy đủ :mặt tiền đường",
   phone_contact_number:"01695669219",
-  type_house: 0,
+  type_house: 1,
   quantity: 1,
   sex: 2,
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
