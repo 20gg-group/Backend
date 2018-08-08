@@ -41,7 +41,8 @@ module Api::V1
           optional :min_price,    type: Float
           optional :max_price,    type: Float 
           optional :type_house,   type: Integer     
-          optional :order ,       type: Integer      
+          optional :order ,       type: Integer
+          requires :page ,        type: Integer      
         end
         get do
           if params[:city] && params[:district]
@@ -80,7 +81,8 @@ module Api::V1
       # get posts  - type house
       namespace :search_type_house do       
         params do          
-          optional :type_house, type: Integer           
+          optional :type_house, type: Integer
+          requires :page , type: Integer           
         end
         get do   
           
