@@ -98,11 +98,16 @@ module Api::V1
             error!: "Email has already been taken"
           }
         else 
-          user = User.create!(declared(params))
-          {
-            status: "true",
-            access_token: access_token(user)
-          }
+          # user = User.create!(declared(params))
+          # {
+          #   status: "true",
+          #   access_token: access_token(user)
+          # }
+          @user = User.create!(declared(params))
+          @user.create_activation_digest
+          @user.sent_account_activate_mail
+            {status:"true"}
+
         end
       end
 #=====================Get user's infomation==============================

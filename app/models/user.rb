@@ -2,7 +2,11 @@ class User < ApplicationRecord
   has_many :api_keys , dependent: :destroy
   has_many :posts , dependent: :destroy
   devise :database_authenticatable, :registerable,:recoverable, :validatable
+
+  attr_accessor  :activation_token
+
   enum role: [:user, :admin]
+
   
   has_attached_file :avatar ,styles: {
     thumb: '100x100>',
@@ -12,4 +16,26 @@ class User < ApplicationRecord
    validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   acts_as_voter
+
+  
+
+  attr_accessor :activation_code
+
+  def sent_account_activate_mail
+    UserMailer.account_activation(self).deliver_now
+  end
+  def create_activation_digest
+    loop do
+      self.activation_code = ''
+      6.times { self.activation_code << SecureRandom.random_number(9).to_s }
+      self.activation_digest = digest_token(self.activation_code)
+      break unless User.exists?(activation_digest: self.activation_digest)
+    end
+    update_columns(activation_digest: self.activation_digest)
+  end
+
+  def digest_token(token)
+    Digest::SHA256.hexdigest(token)
+  end
+  
 end

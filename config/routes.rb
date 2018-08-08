@@ -6,10 +6,9 @@ Rails.application.routes.draw do
     post '/login', to: 'sessions#create'
     delete '/', to: 'sessions#destroy'
     resources :users
+    resources :account_activations, only: [:edit]
     resources :posts
   end
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   mount Api::Api =>"/"
   mount GrapeSwaggerRails::Engine => '/swagger'
- # devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
 end

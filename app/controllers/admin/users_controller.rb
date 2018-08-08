@@ -3,15 +3,10 @@ class Admin::UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
 
   def index
-    #@users = User.all.order('created_at DESC').page(params[:page]).per(5)	 
     @q = User.ransack(params[:q])
     @users = @q.result(distinct: true).page(params[:page]).per(5)
     
   end
-
-  # def sort
-  #   @users = User.order(:full_name)
-  # end
 
   def new
     @user = User.new
@@ -34,6 +29,7 @@ class Admin::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    
     if @user.save
       redirect_to admin_user_path(@user)
     else
