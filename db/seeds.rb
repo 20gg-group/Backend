@@ -57,7 +57,7 @@ District.create(name:"Tây Hồ",city_id:1)
 District.create(name:"Sơn Tây",city_id:1)
 
 #-------------------Post--------------------
-1.times do |i|
+100.times do |i|
   Post.create!(
     title: ["Cho thuê phòng trọ cao cấp mới xây,đầy đủ tiện nghi thoáng mát",
             "Nhà nguyên căn 3 lầu cho thuê, tiện mở văn phòng hoặc gia đình ở",
