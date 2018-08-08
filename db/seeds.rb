@@ -57,9 +57,14 @@ District.create(name:"Tây Hồ",city_id:1)
 District.create(name:"Sơn Tây",city_id:1)
 
 #-------------------Post--------------------
-30.times do |i|
+10.times do |i|
   Post.create!(
-    title: "Cho thuê phòng trọ cao cấp mới xây,đầy đủ tiện nghi thoáng mát #{i}",
+    title: ["Cho thuê phòng trọ cao cấp mới xây,đầy đủ tiện nghi thoáng mát",
+            "Nhà nguyên căn 3 lầu cho thuê, tiện mở văn phòng hoặc gia đình ở",
+            "Đầy đủ tiện nghi ( Máy giặt ,wifi , gym..)750k",
+            "Tìm bạn ở ghép giờ giấc tự do.",
+            "Cho thuê phòng KTX máy lạnh 400K ở 139 thành mỹ ",
+            "Cho thuê nhà nguyên căn ngay Ngã Tư Phú Nhuận 4 tầng 8x30m giá 18tr"].sample,
     price: rand(0.5..5.0).round(1),
     area: rand(15..30),
     description: "Đây là 1 căn phòng cho thuê, phòng trên lầu 2, rộng ,thoáng mát có ban công. -có 1 phòng để quần áo, 1 phòng ngủ riêng , yên tĩnh tiện nghi thân thiện ",
@@ -70,9 +75,15 @@ District.create(name:"Sơn Tây",city_id:1)
     detail_ids: ["Máy lạnh", "Máy giặt", "Tủ lạnh", "WC riêng", "Chổ để xe","Wifi", "Giờ giấc tự do", "Không chung chủ", "Bếp", "Giường ngủ","Tivi", "Tủ quần áo", "Gác lửng", "Camera", "Bảo vệ", "Thú cưng"].sample(5),
     user_id: rand(2..3)
   )
-    Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image11.jpg')))
-    Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image12.jpg')))
-    addr = Post.last.build_address(city: "Hồ Chí Minh",district: ["Thủ Đức","Tân Bình"].sample , add_detail: "Vinova, Đường 20 Gò Vấp")
+    url="app/assets/images/#{rand(1..50)}.jpg"
+    Post.last.images.create!(image: File.open(File.join(Rails.root,url)))
+    #Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image12.jpg')))
+    addr = Post.last.build_address(city: "Hồ Chí Minh",
+                                  district: ["Thủ Đức"].sample ,
+                                  add_detail: ["KTX Khu A",
+                                              "Khoa hoc Xa Hoi Nhan Van",
+                                              "Xa Lo Ha Noi",
+                                            "Duong Cong Hoa"].sample)
     addr.save!
 end
 #============================================
@@ -87,8 +98,8 @@ Post.create(
   sex: 2,
   user_id:2)
 
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image1.jpg')))
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image2.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/1.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/2.jpg')))
 addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Bình Triệu",add_detail: "")
 addr.save!
 #======
@@ -104,8 +115,8 @@ Post.create(
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image3.jpeg')))
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image4.jpeg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/3.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/4.jpg')))
 addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "Đường số  7 Tô Ngọc Vân")
 addr.save!
 #     =======
@@ -121,8 +132,8 @@ Post.create(
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image5.jpeg')))
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image6.jpeg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/5.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/6.jpg')))
 addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "Đường 45,kp2 , hiệp bình chánh")
 addr.save!
 #     =======
@@ -138,8 +149,8 @@ Post.create(
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image7.jpg')))
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image8.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/7.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/8.jpg')))
 addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "Linh Đông")
 addr.save!
 #========
@@ -155,8 +166,8 @@ Post.create(
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image9.jpg')))
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image10.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/9.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/10.jpg')))
 addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "")
 addr.save!
 #========
@@ -172,8 +183,8 @@ Post.create(
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
 )
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image11.jpg')))
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image12.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/11.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/12.jpg')))
 addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "KTX Khu A")
 addr.save!
 #========
@@ -189,8 +200,8 @@ Post.create(
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
 )
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image13.jpg')))
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image14.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/13.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/14.jpg')))
 addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "KTX Khu A")
 addr.save!
 #========
@@ -206,8 +217,8 @@ Post.create(
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
 )
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image15.jpg')))
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image16.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/15.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/16.jpg')))
 addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "Đại học luật")
 addr.save!
 #========
@@ -223,8 +234,8 @@ Post.create(
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
 )
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image17.jpg')))
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image18.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/17.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/18.jpg')))
 addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: " ql13, xô viết nghệ tĩnh")
 addr.save!
 #========
@@ -240,8 +251,8 @@ Post.create(
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image19.jpg')))
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image20.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/19.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/20.jpg')))
 addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "96/6a đường 9, phường linh tây")
 addr.save!
 #========
@@ -257,8 +268,8 @@ Post.create(
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image1.jpg')))
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image2.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/1.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/2.jpg')))
 addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "đại học luật cơ sở 2, gần chợ bình triệu ")
 addr.save!
 #========
@@ -274,8 +285,8 @@ Post.create(
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
     )
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image3.jpeg')))
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image4.jpeg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/3.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/4.jpg')))
 addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "đại học luật cơ sở 2, gần chợ bình triệu ")
 addr.save!
 #========
@@ -291,8 +302,8 @@ Post.create(
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image5.jpeg')))
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image6.jpeg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/5.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/6.jpg')))
 addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "đường 18, quận thủ đức")
 addr.save!
 #========
@@ -308,8 +319,8 @@ Post.create(
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image7.jpg')))
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image8.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/7.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/8.jpg')))
 addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "hẻm 17 đường dương văn cam")
 addr.save!
 #========
@@ -325,7 +336,8 @@ Post.create(
   detail_ids:["WC riêng", "Chổ để xe","Wifi","Bếp","Giường ngủ", "Camera","Bảo vệ"],
   user_id:2
   )
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image9.jpg')))
-Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/image10.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/9.jpg')))
+Post.last.images.create!(image: File.open(File.join(Rails.root,'app/assets/images/10.jpg')))
 addr = Post.last.build_address(city: "Hồ Chí Minh",district: "Thủ Đức",add_detail: "KTX Khu A")
 addr.save!
+

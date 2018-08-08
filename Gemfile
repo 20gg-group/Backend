@@ -17,9 +17,12 @@ gem 'grape-swagger-representable'
 
 gem 'paperclip'
 gem 'aws-sdk-s3'
-gem 'kaminari'
 gem 'ransack'
 gem 'acts_as_votable', '~> 0.11.1' 
+
+#gem 'jquery-datatables-rails', '~> 3.4.0'
+#gem 'ajax-datatables-rails'
+gem 'kaminari'
 
 gem 'simple_form'
 gem 'bootstrap', '~> 4.1.3'

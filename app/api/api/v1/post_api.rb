@@ -24,18 +24,14 @@ module Api::V1
         authenticate!
         present :posts, current_user.posts.page(params[:page]).per(10), with: Api::Entities::PostEntity
       end
-  #==============================All Post================================
-      desc "Lấy tất cả các post theo trang"
-      params do
-        requires :page , type: Integer 
-      end
-      get do
-        present :posts,Post.all.page(params[:page]).per(10) ,with: Api::Entities::PostEntity
-      end
+
   #=============================Get 10 new post=========================
       desc "Lấy 10 post mới nhất"
       get '/newposts' do
-        present :posts,Post.last(10).reverse! , with: Api::Entities::PostEntity
+        #@posts=Post.all
+        @sort_post = Post.all.sort_by { |post| post.votes_for.size }
+        present :posts,@sort_post.last(10),with: Api::Entities::PostEntity
+        
       end
   #=========================Get Post with ID=============================
       desc "Lấy post theo id"
