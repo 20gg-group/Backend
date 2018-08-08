@@ -84,7 +84,8 @@ module Api::V1
         end
         get do   
           
-          Post.where("posts.type_house = ? " ,params[:type_house]).page(params[:page]).per(10),with: Api::Entities::PostEntity   # Tin viet    
+          @pos = Post.where("posts.type_house = ? " ,params[:type_house])
+          present :posts,@pos.page(params[:page]).per(10),with: Api::Entities::PostEntity   # Tin viet    
           
         end
       end
