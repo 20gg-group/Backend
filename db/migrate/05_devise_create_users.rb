@@ -12,7 +12,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :full_name
       t.string :phone_number
       t.attachment :avatar
-      t.integer :role , default: 0
     
       t.timestamps null: false
     end

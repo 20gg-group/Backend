@@ -47,7 +47,7 @@ class Admin::UsersController < ApplicationController
 
   private
   def block_path
-    unless current_user.present? && current_user.admin?
+    unless current_user.present? 
       flash[:error] = "You must be logged in to access this section"
       redirect_to admin_root_path # halts request cycle
     end

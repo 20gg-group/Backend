@@ -7,13 +7,11 @@ class Post < ApplicationRecord
 
   before_save :set_date_post
 
-  validates :title, presence: true,length: { in: 5..50 }
+  validates :title, presence: true,length: { in: 3..300 }
   validates :price ,numericality: { greater_than: 0}
   validates :area , numericality: { greater_than: 0}
   validates :description, length: {maximum: 1500}
-  validates :phone_contact_number,length: {minimum:0, maximum:20}
-  
-  enum role: [:user, :admin]
+  validates :phone_contact_number,length: {minimum:0, maximum:30}
   
   acts_as_votable
   

@@ -1,11 +1,11 @@
 #-------------------User--------------------
 
-User.create( email: "admin@gmail.com",password:"admin123",role: 1,activate:true,activated_at:Time.now)
+Admin.create( email: "admin@gmail.com",password:"admin123")
 User.create( email: "chilevan74@gmail.com",password:"123456",full_name:"Tom Le",phone_number:"01695669219",activated:true,activated_at:Time.now)
 User.create( email: "ngotin@gmail.com",password:"123456",full_name:"Thien Tin",phone_number:"01695669219",activated:true,activated_at:Time.now)
 User.create( email: "gray@gmail.com",password:"123456",full_name:"I'm Gay",phone_number:"01695666812",activated:true,activated_at:Time.now)
-User.create( email: "baron@gmail.com",password:"123456",full_name:"Baron lol",phone_number:"01695664105",activated:true,activated_at:Time.now)
-User.create( email: "liam@gmail.com",password:"123456",full_name:"Le Xuan Chinh",phone_number:"01695661483",activated:true,activated_at:Time.now)
+# User.create( email: "baron@gmail.com",password:"123456",full_name:"Baron lol",phone_number:"01695664105",activated:true,activated_at:Time.now)
+# User.create( email: "liam@gmail.com",password:"123456",full_name:"Le Xuan Chinh",phone_number:"01695661483",activated:true,activated_at:Time.now)
 
 #-------------------City-------------------
 
@@ -57,7 +57,7 @@ District.create(name:"Tây Hồ",city_id:1)
 District.create(name:"Sơn Tây",city_id:1)
 
 #-------------------Post--------------------
-100.times do |i|
+1.times do |i|
   Post.create!(
     title: ["Cho thuê phòng trọ cao cấp mới xây,đầy đủ tiện nghi thoáng mát",
             "Nhà nguyên căn 3 lầu cho thuê, tiện mở văn phòng hoặc gia đình ở",

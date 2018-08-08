@@ -4,9 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,:recoverable, :validatable
 
   attr_accessor  :activation_token
-
-  enum role: [:user, :admin]
-
   
   has_attached_file :avatar ,styles: {
     thumb: '100x100>',
