@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 2018_08_08_081557) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "activation_digest"
+    t.datetime "active_sent_at"
     t.boolean "activated", default: false
     t.datetime "activated_at"
     t.index ["email"], name: "index_users_on_email", unique: true

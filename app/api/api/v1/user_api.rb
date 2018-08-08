@@ -29,16 +29,18 @@ module Api::V1
             status: "false",
             error!: "User not found"
           } 
-        elsif user.activated=="false"
-          {
-            status:"false",
-            error!:"The account has not been activated"
-          }
         elsif user.valid_password?(params[:password])
-          {
-            status: "true",
-            access_token: access_token(user)
-          }
+          if user.activated=="false"
+            {
+              status:"false",
+              error!:"The account has not been activated"
+            }
+          else
+            {
+              status: "true",
+              access_token: access_token(user)
+            }
+          end
         else
           {
             status: "false",
@@ -63,7 +65,9 @@ module Api::V1
         else
           user = User.create!(email: params[:email],
             password: Devise.friendly_token[0,20],
-            full_name: params[:full_name]
+            full_name: params[:full_name],
+            activated: true,
+            activated_at: Time.now
           )
           {
             status: "true",
