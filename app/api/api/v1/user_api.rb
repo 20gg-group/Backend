@@ -29,6 +29,11 @@ module Api::V1
             status: "false",
             error!: "User not found"
           } 
+        elsif user.activated=="false"
+          {
+            status:"false",
+            error!:"The account has not been activated"
+          }
         elsif user.valid_password?(params[:password])
           {
             status: "true",
@@ -98,18 +103,44 @@ module Api::V1
             error!: "Email has already been taken"
           }
         else 
-          # user = User.create!(declared(params))
-          # {
-          #   status: "true",
-          #   access_token: access_token(user)
-          # }
           @user = User.create!(declared(params))
           @user.create_activation_digest
           @user.sent_account_activate_mail
-            {status:"true"}
-
+            {
+              status:"true"
+            }
         end
       end
+#=====================Account Activate===================================
+      desc "Nhập mã xác nhận tài khoản"
+      params do 
+        requires :email, type: String
+        requires :activation_code,type: String
+      end
+      get "/auth" do 
+
+        user=User.find_by(email: params[:email])
+        if user.activate_expired?
+          return present({ status:"false",error!: 'account activate has expired'})
+        end
+
+        if user.valid_activation_code?(params[:activation_code])
+
+          user.update!(activated: true,activated_at: Time.now)
+          {
+            status: "true",
+            access_token: access_token(user)
+          }
+        else
+          {
+            status:"false",
+            error!: 'Invalid account activation code' 
+          }
+        end
+      end
+
+
+
 #=====================Get user's infomation==============================
       desc "Lấy thông tin của User", {
         headers: {

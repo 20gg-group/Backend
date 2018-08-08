@@ -21,6 +21,12 @@ class User < ApplicationRecord
 
   attr_accessor :activation_code
 
+  def valid_activation_code?(code)
+    activation_digest == digest_token(code)
+  end
+  def activate_expired?
+    active_sent_at < 6.hours.ago
+  end
   def sent_account_activate_mail
     UserMailer.account_activation(self).deliver_now
   end
@@ -31,9 +37,9 @@ class User < ApplicationRecord
       self.activation_digest = digest_token(self.activation_code)
       break unless User.exists?(activation_digest: self.activation_digest)
     end
-    update_columns(activation_digest: self.activation_digest)
+    update_columns(activation_digest: self.activation_digest, 
+                    active_sent_at: Time.zone.now)
   end
-
   def digest_token(token)
     Digest::SHA256.hexdigest(token)
   end
