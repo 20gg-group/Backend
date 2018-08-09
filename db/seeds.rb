@@ -2,7 +2,7 @@
 
 Admin.create( email: "admin@gmail.com",password:"admin123")
 User.create( email: "chilevan74@gmail.com",password:"123456",full_name:"Tom Le",phone_number:"01695669219",activated:true,activated_at:Time.now)
-User.create( email: "ngotin@gmail.com",password:"123456",full_name:"Thien Tin",phone_number:"01695669219",activated:true,activated_at:Time.now)
+User.create( email: "levanchi@gmail.com",password:"123456",full_name:"Thien Tin",phone_number:"01695669219",activated:true,activated_at:Time.now)
 User.create( email: "gray@gmail.com",password:"123456",full_name:"I'm Gay",phone_number:"01695666812",activated:true,activated_at:Time.now)
 User.create( email: "baron@gmail.com",password:"123456",full_name:"Baron lol",phone_number:"01695664105",activated:true,activated_at:Time.now)
 User.create( email: "liam@gmail.com",password:"123456",full_name:"Le Xuan Chinh",phone_number:"01695661483",activated:true,activated_at:Time.now)

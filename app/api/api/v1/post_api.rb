@@ -24,9 +24,13 @@ module Api::V1
         authenticate!
         present :posts, current_user.posts.page(params[:page]).per(10), with: Api::Entities::PostEntity
       end
-
-  #=============================Get 10 new post=========================
-      desc "Lấy 10 post mới nhất"
+#================================Recomment - lay 10 post===============
+      # desc "Những post đề xuất"
+      # get '/recommend' do 
+        
+      # end
+#=============================Get 10 new post=========================
+      desc "Những post nổi bật "
       get '/newposts' do
         #@posts=Post.all
         @sort_post = Post.all.sort_by { |post| post.votes_for.size }
@@ -55,6 +59,7 @@ module Api::V1
       params do
           requires :post , type: Hash do
             requires :title,                         type: String
+            optional :category,                      type: String
             optional :price,                          type: Float
             optional :area,                           type: Float
             optional :description,                     type: String

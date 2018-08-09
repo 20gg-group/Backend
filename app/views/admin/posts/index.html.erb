@@ -9,12 +9,12 @@
     <div class='row'>
       <div class='col-6'>
         <%= search_form_for [:admin,@q],class:"form-inline my-2 my-lg-0" do |f| %>
-          <%= f.search_field :title_or_description_cont,placeholder:"Title, Description" ,class:"form-control mr-sm-2" %>
+          <%= f.search_field :title_cont,placeholder:"Title, Description" ,class:"form-control mr-sm-2" %>
           <%= f.button :Search,class: "btn btn-outline-success" %>
         <% end %>
       </div>
       <div class='col-6'>
-        <form >
+        <%# <form >
           <select name="sort" >
             <option value="distance">Option sort</option>
             <option value="area">Area(small to big)</option>
@@ -23,7 +23,7 @@
             <option value="price desc">Price (high to low)</option>            
           </select>
           <input type="submit" value="Sort" />
-        </form>
+        </form> %>
       </div>
       
     </div>

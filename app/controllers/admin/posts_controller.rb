@@ -4,9 +4,11 @@ class Admin::PostsController < ApplicationController
 	
 	def index
 		@q = Post.ransack(params[:q])
-		sort = params[:sort]
- 		sort = nil unless sort.in?(['area','area desc', 'price', 'price desc'])
-    @posts = @q.result(distinct: true).order(sort).page(params[:page]).per(10)
+		@posts = @q.result(distinct: true).page(params[:page]).per(5)
+		# @users = @q.result(distinct: true).page(params[:page]).per(5)
+		#sort = params[:sort]
+		#sort = nil unless sort.in?(['area','area desc', 'price', 'price desc'])
+    #@posts = @q.result(distinct: true).order(sort).page(params[:page]).per(10)
 	end
 
 	def show
