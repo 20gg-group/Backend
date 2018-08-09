@@ -30,7 +30,7 @@ module Api::V1
             error!: "User not found"
           } 
         elsif user.valid_password?(params[:password])
-          if user.activated=="false"
+          if user.activated == false
             {
               status:"false",
               error!:"The account has not been activated"
