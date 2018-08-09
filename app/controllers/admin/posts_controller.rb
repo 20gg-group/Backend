@@ -3,7 +3,10 @@ class Admin::PostsController < ApplicationController
 	before_action :set_post, only: %i[show edit update destroy]
 	
 	def index
-		@posts = Post.all.order('created_at DESC').page(params[:page]).per(10)		
+		@q = Post.ransack(params[:q])
+		sort = params[:sort]
+ 		sort = nil unless sort.in?(['area','area desc', 'price', 'price desc'])
+    @posts = @q.result(distinct: true).order(sort).page(params[:page]).per(10)
 	end
 
 	def show

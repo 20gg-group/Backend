@@ -1,45 +1,68 @@
-    </br>             
-    <h3 class="text-center font-weight-bold">List Posts</h3>
-    </br>
+</br>             
+<h3 class="text-center font-weight-bold">List Posts</h3>
+</br>
+<div class='row'>
+  <div class='col-4'>
+    <%= link_to 'New post', new_admin_post_path,class:"btn btn-info"%>
+  </div>
+  <div class='col-8'>
     <div class='row'>
       <div class='col-6'>
-      <%= paginate @posts %>
+        <%= search_form_for [:admin,@q],class:"form-inline my-2 my-lg-0" do |f| %>
+          <%= f.search_field :title_or_description_cont,placeholder:"Title, Description" ,class:"form-control mr-sm-2" %>
+          <%= f.button :Search,class: "btn btn-outline-success" %>
+        <% end %>
       </div>
       <div class='col-6'>
-        <div class="float-right">
-          <%= link_to 'New post', new_admin_post_path,class:"btn btn-info"%>
-        </div>
-      </div> 
-    <table class="table">
-    
-      <thead >
+        <form >
+          <select name="sort" >
+            <option value="distance">Option sort</option>
+            <option value="area">Area(small to big)</option>
+            <option value="area desc">Area(big to small)</option>
+            <option value="price">Price (low to high)</option>
+            <option value="price desc">Price (high to low)</option>            
+          </select>
+          <input type="submit" value="Sort" />
+        </form>
+      </div>
+      
+    </div>
+  </div>
+</div>  
+</br>
+<table class="table">
+  <thead >
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>Price</th>  
+      <th>Area</th>
+      <th>Votes</th>
+      <th>Email User</th>
+      <th>Date Post</th>                    
+      <th colspan="3">Action</th>                             
+      <%# <th class="col-1"></th> 
+      <th class="col-2"></th>  %>
+    </tr>              
+  </thead>
+  <tbody>
+      <% @posts.each do |post| %>
         <tr>
-          <th>ID</th>
-          <th>Title</th>
-          <th>Price</th>  
-          <th>Area</th>
-          <th>Votes</th>
-          <th>Email User</th>
-          <th>Date Post</th>                    
-          <th colspan="3">Action</th>                             
-          <%# <th class="col-1"></th> 
-          <th class="col-2"></th>  %>
-        </tr>              
-      </thead>
-      <tbody>
-          <% @posts.each do |post| %>
-            <tr>
-              <td><%= post.id %></td>  
-              <td><%= post.title %></td>
-              <td><%= post.price %></td>
-              <td><%= post.area %></td>
-              <td><%= post.votes_for.size %></td>
-              <td><%= post.user.email%>
-              <td><%= post.created_at %></td>     
-              <td><%= link_to 'Show', admin_post_path(post) ,class:"btn btn-info"%></td>
-              <td><%= link_to 'Edit', edit_admin_post_path(post),class:"btn btn-info" %></td>
-              <td><%= link_to 'Destroy',admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>
-            </tr>                    
-          <% end %>                    
-      </tbody>              
-    </table>
+          <td><%= post.id %></td>  
+          <td><%= post.title %></td>
+          <td><%= post.price %></td>
+          <td><%= post.area %></td>
+          <td><%= post.votes_for.size %></td>
+          <td><%= post.user.email%>
+          <td><%= post.created_at %></td>     
+          <td><%= link_to 'Show', admin_post_path(post) ,class:"btn btn-info"%></td>
+          <td><%= link_to 'Edit', edit_admin_post_path(post),class:"btn btn-info" %></td>
+          <td><%= link_to 'Destroy',admin_post_path(post), method: :delete, data: { confirm: 'Are you sure?' },class:"btn btn-danger" %></td>
+        </tr>                    
+      <% end %>                    
+  </tbody>              
+</table>
+
+<div class="d-flex justify-content-end">
+  <%= paginate @posts %>
+</div>

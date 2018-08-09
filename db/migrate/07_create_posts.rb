@@ -11,7 +11,6 @@ class CreatePosts < ActiveRecord::Migration[5.2]
       t.string :detail_ids, array: true, default: []
       t.integer :sex
       t.integer :quantity
-      t.string :category
 			t.references :user, foreign_key: true
       t.timestamps
     end

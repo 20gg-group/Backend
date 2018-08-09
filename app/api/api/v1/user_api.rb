@@ -143,8 +143,6 @@ module Api::V1
         end
       end
 
-
-
 #=====================Get user's infomation==============================
       desc "Lấy thông tin của User", {
         headers: {
