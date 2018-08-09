@@ -1,10 +1,10 @@
 module Admin::SessionsHelper
-  def log_in(user)
-    session[:user_id] = user.id
+  def log_in(admin)
+    session[:admin_id] = admin.id
   end
   # Returns the current logged-in user (if any).
   def current_user
-    @current_user ||= User.find_by(id: session[:user_id])  #Lay session id cho nhung trang tiep theo
+    @current_user ||= Admin.find_by(id: session[:admin_id])  #Lay session id cho nhung trang tiep theo
   end
   # Returns true if the user is logged in, false otherwise.
   def logged_in?

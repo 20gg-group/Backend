@@ -18,7 +18,9 @@ class Admin::PostsController < ApplicationController
 	end
 
 	def create
-		@post = current_user.posts.new(post_params)
+#		@user=User.find(params[:user_id])
+
+		@post = Post.new(post_params)
 		
 		if @post.save 
 			redirect_to admin_post_path(@post)
@@ -58,6 +60,7 @@ class Admin::PostsController < ApplicationController
 		end		
     def post_params
       params.require(:post).permit(
+				:user_id,
         :title,
         :price,
 				:area,
