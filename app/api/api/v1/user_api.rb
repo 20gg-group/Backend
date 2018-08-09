@@ -29,18 +29,18 @@ module Api::V1
             status: "false",
             error!: "User not found"
           } 
-        elsif user.valid_password?(params[:password])
-          if user.activated == false
-            {
-              status:"false",
-              error!:"The account has not been activated"
-            }
-          else
+        elsif user.valid_password?(params[:password]) && user.activated == true
+          # if user.activated == false
+          #   {
+          #     status:"false",
+          #     error!:"The account has not been activated"
+          #   }
+          # else
             {
               status: "true",
               access_token: access_token(user)
             }
-          end
+          #end
         else
           {
             status: "false",
