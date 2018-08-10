@@ -2,7 +2,7 @@ class Admin::SessionsController < ApplicationController
   def new
     @admin=Admin.new
   end
-
+  
   def create
     @admin = Admin.find_by(email: params[:session][:email])
     if @admin && @admin.valid_password?(params[:session][:password]) 

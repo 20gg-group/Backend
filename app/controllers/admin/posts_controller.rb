@@ -19,7 +19,6 @@ class Admin::PostsController < ApplicationController
 	end
 
 	def create
-#		@user=User.find(params[:user_id])
 
 		@post = Post.new(post_params)
 		
@@ -52,7 +51,7 @@ class Admin::PostsController < ApplicationController
 		def block_path
 			unless current_user.present? 
 				flash[:error] = "You must be logged in to access this section"
-				redirect_to admin_root_path # halts request cycle
+				redirect_to admin_root_path 
 			end
 		end
 

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  #root 'welcome#welcome_page'
+# CMS
   namespace :admin do
     root 'sessions#new'
     get '/login', to: 'sessions#new'
@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     resources :users
     resources :posts
   end
+  # API endpoints
   mount Api::Api =>"/"
+  # API document
   mount GrapeSwaggerRails::Engine => '/swagger'
 end

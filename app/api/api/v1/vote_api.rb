@@ -8,7 +8,7 @@ module Api::V1
     
     end
     resources :vote do
-#==============================Get all post saved =========================
+#=================================================================
       desc "Lấy tất cả các Post đã lưu", {
         headers: {
           'Access-Token' => {
@@ -21,7 +21,7 @@ module Api::V1
         authenticate!
         present :posts, current_user.votes.up.for_type(Post).votables, with: Api::Entities::PostEntity
       end
-#================================Save Post================================
+#===================================================================
       desc "Lưu lại post yêu thích", {
         headers: {
           'Access-Token' => {
@@ -40,7 +40,7 @@ module Api::V1
 
         present :status,"true"
       end
-#==================================== Unsave=========================
+#==================================================================
       desc "Bỏ yêu thích post ", {
         headers: {
           'Access-Token' => {

@@ -30,12 +30,6 @@ module Api::V1
             error!: "User not found"
           } 
         elsif user.valid_password?(params[:password]) && user.activated == true
-          # if user.activated == false
-          #   {
-          #     status:"false",
-          #     error!:"The account has not been activated"
-          #   }
-          # else
             {
               status: "true",
               access_token: access_token(user)
@@ -156,8 +150,7 @@ module Api::V1
         authenticate! 
         present :user,current_user ,with: Api::Entities::UserEntity
       end
-#===========================Update User's Information===============================
-
+#==========================================================
       desc "Update thông tin User", {
         headers: {
           'Access-Token' => {

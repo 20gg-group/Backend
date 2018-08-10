@@ -8,7 +8,7 @@ module Api::V1
     end    
 
     resources :posts do
-#==============================My Post================================
+#================================================================
       desc "Lấy các post của User hiện tại", {
         headers: {
           'Access-Token' => {
@@ -24,20 +24,13 @@ module Api::V1
         authenticate!
         present :posts, current_user.posts.page(params[:page]).per(10), with: Api::Entities::PostEntity
       end
-#================================Recomment - lay 10 post===============
-      # desc "Những post đề xuất"
-      # get '/recommend' do 
-        
-      # end
-#=============================Get 10 new post=========================
+#=================================================================
       desc "Những post nổi bật "
       get '/newposts' do
-        #@posts=Post.all
         @sort_post = Post.all.sort_by { |post| post.votes_for.size }
         present :posts,@sort_post.last(10),with: Api::Entities::PostEntity
-        
       end
-  #=========================Get Post with ID=============================
+  #===============================================================
       desc "Lấy post theo id"
       get ":id" do
         user = get_post.user 
@@ -47,7 +40,7 @@ module Api::V1
         present :user,user, with: Api::Entities::UserEntity
         present :images_url,image ,with: Api::Entities::ImageEntity
       end
-  #==============================POST post================================  
+  #================================================================  
       desc "Người dùng đăng post", {
         headers: {
           'Access-Token' => {
@@ -104,7 +97,6 @@ module Api::V1
         get_post.destroy
         present :status,"true"
       end
-
     end      
   end
 end
