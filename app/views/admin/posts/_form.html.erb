@@ -2,7 +2,9 @@
   <%= simple_form_for [:admin, @post],html: {multipart: true} do |f| %>
     <div class="row">
       <div class="col-sm-6">
-        <%= f.select :user_id, User.all.collect {|c| [c.email, c.id]}, include_blank: false %>
+        <div class="form-group">
+          <%= f.select :user_id, User.all.collect {|c| [c.email, c.id]}, include_blank: false %>
+        </div>
         <%= f.input :title,label:"Tiêu đề " %>
         <%= f.input :price ,label:"Giá phòng"%>
         <%= f.input :area ,label:"Diện tích "%>
